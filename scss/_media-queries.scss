@@ -1,0 +1,533 @@
+@media screen and (max-width: 768px){
+
+	.e-form-login input {
+		width: 90% !important;
+	}
+	.btn-login {
+		margin: 0 0 1.8em 0;
+	}
+	.logo {
+		margin: 0 auto;
+		margin-top: 2.5em;
+		width: 10em;
+	}
+
+	h3 {
+		color: white;
+		font-size: 1.6em;
+		font-weight: 700;
+		margin: 1em 0 1.2em 0;
+	}
+
+	p {
+		font-size: 1em;
+	}
+
+	#pdfTron {
+		display: none;
+	}
+
+	// All Client web viewer hides until mobile is deploy:
+
+	.mobile-message {
+		display: block;
+		h5 {
+			padding: 1em;
+			font-size: 1.6em;
+			font-weight: 200;
+		}
+		background-color: #efefef;
+		position: fixed;
+		top: 130px;
+		width: 90%;
+		-webkit-box-shadow: 3px 2px 7px -3px rgba(0,0,0,0.75);
+		-moz-box-shadow: 3px 2px 7px -3px rgba(0,0,0,0.75);
+		box-shadow: 3px 2px 7px -3px rgba(0,0,0,0.75);
+	}
+
+	.counter-offer,
+	.approve, 
+	.decline {
+		display: none;
+	}
+
+	.viewer-page {
+		.alert {
+			display: none;
+		}
+	}
+
+}
+
+@media screen and (max-height:900px) and (max-width:1024px) and (min-height: 600px) and (min-width:400px) { 
+
+	.btn-login {
+		margin: 0 0 4em 0;
+	}
+
+	.logo {
+		margin: 0 auto;
+		margin-top: 2.5em;
+		width: 12em;
+	}
+
+}
+@media screen and (max-height:768px) and (max-width:1300px) and (min-height: 600px) and (min-width:768px) { 
+	
+	.logo {
+		margin-top: 2em;
+	}
+	.e-form-login h3 {
+	    margin: 0.5em 0 0.5em 0;
+	    font-size: 2rem;
+	}
+	.btn-login {
+			margin: 0 0 2em 0!important;
+		}
+	p {
+		font-size: 1.2rem;
+	}	
+
+	.tippy-popper {
+			left: -18px !important;
+	}
+
+	.status-container {
+		h4 {
+			font-size: 0.9em;
+		}
+	} 
+
+}
+
+// Bootstrap Media Queries
+
+/* Large desktop */
+@media (min-width: 1101px) { 
+	#toolList {
+	    padding-top: 1em;
+	    width: 33em !important;
+	}
+
+}
+
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 980px) and (max-width: 1100px) { 
+	#control {
+
+		.glyphicons {
+			font-size: 12px !important;
+		}
+
+		#toolList {
+			span {
+				padding-right: 0.7em !important;
+			}
+		}
+
+		#toolList {
+		    padding-top: 1em;
+		    width: 23em !important;
+		}
+
+		.left-aligned {
+			width: 42%;
+			margin-top: 0.4em;
+			.glyphicons {
+				padding: 10px !important;
+			}
+		}
+
+	} //#control ends
+
+	.toolbar .glyphicons {
+		width: 20px;
+	}
+
+	#toggleSidePanel {
+		font-size: 1em !important;
+	}
+
+	#nextPage,
+	#prevPage,
+	#nextPage:before,
+	#prevPage:before  {
+		font-size: 14px !important;
+		padding: 6px !important;
+		margin-top: 5px;
+	}
+
+	#searchBox {
+	    width: 80px !important;
+	}
+
+	.tippy-popper {
+			left: -18px !important;
+	}
+
+	.status-container {
+
+		h4 {
+			font-size: 0.9em;
+		}
+	} 
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 854px) and (max-width: 979px) { 
+
+	#toggleNotesPanel {
+		padding: 0px !important;
+		margin: 0px !important; 
+		position: absolute;
+		top: 10px;
+		right: 52px;
+	}
+
+	#control {
+		.glyphicons {
+			font-size: 12px !important;
+		}
+	}
+
+	#toolList {
+		padding-top: 1.1em !important;
+		width: 28em !important;
+		span {
+			padding-right: 1.3em !important;
+		}
+	}
+
+	.toolbar .glyphicons {
+	   padding: 2px; 
+	}
+
+	.toolbar .glyphicons {
+	   padding: 2px; 
+	   height: 15px;
+	   width: 15px;
+	}
+
+	.left-aligned {
+		margin-top: 0.4em;
+		width: 32em !important;
+		.glyphicons {
+			padding: 10px !important;
+		}
+	}
+
+	.right-aligned {
+		width: 44em !important;
+		float: none;
+	}
+
+	#toggleNotesPanel {
+		float: right !important;
+	}
+
+	#toggleSidePanel {
+		font-size: 1em !important;
+	}
+
+	#nextPage,
+	#prevPage,
+	#nextPage:before,
+	#prevPage:before {
+		font-size: 14px !important;
+		padding: 6px !important;
+		margin-top: 5px;
+	}
+
+	#searchBox {
+	    width: 50px !important;
+	}
+
+	#control .ui-label {
+	    margin-right: 0.2em !important;
+	    margin-top: 0.8em !important;
+	}
+
+	#pageNumberBox {
+	    margin-left: 0.2em !important;	
+			margin-top: 0.5em !important;
+	}
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 767px) and (max-width: 855px) { 
+
+	#control {
+		.glyphicons {
+			font-size: 12px !important;
+		}
+	}
+
+	#toolList {
+		span {
+			padding-right: 0.8em !important;
+		}
+	}
+
+	.toolbar .glyphicons {
+	   padding: 2px; 
+	}
+
+	.toolbar .glyphicons {
+	   padding: 2px; 
+	   height: 15px;
+	   width: 15px;
+	}
+
+	#toolList {
+	    padding-top: 0.4em;
+	    width: 14.5em !important;
+	}
+
+	.left-aligned {
+		margin-top: 0.4em;
+		width: 32em !important;
+		.glyphicons {
+			padding: 10px !important;
+		}
+	}
+
+	.right-aligned {
+		width: 42em !important;
+		float: none;
+	}
+
+	#toggleNotesPanel {
+		float: right !important;
+	}
+
+	#toggleSidePanel {
+		font-size: 1em !important;
+	}
+
+	#nextPage,
+	#prevPage,
+	#nextPage:before,
+	#prevPage:before {
+		font-size: 14px !important;
+		padding: 6px !important;
+		margin-top: 5px;
+	}
+
+	#searchBox {
+	    width: 50px !important;
+	}
+
+	#control .ui-label {
+	    margin-right: 0.2em !important;
+	    margin-top: 0.8em !important;
+	}
+
+	#pageNumberBox {
+	    margin-left: 0.2em !important;
+	    margin-top: 0.5em;
+	}
+
+	#viewerHelp, 
+	#viewerWarning {
+		display: none !important;
+	}
+
+	.loading-holder span {
+	    font-size: 10px;
+	    width: 10em;
+	    left: 24.5em;
+	}
+
+
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 766px) { 
+
+	#toggleNotesPanel {
+		padding: 0px !important;
+		margin: 0px !important; 
+		position: absolute;
+		top: 10px;
+		right: 62px;
+	}
+
+	.left-aligned {
+		padding-top: 0.45em;
+	}
+
+	#control {
+		.glyphicons {
+			font-size: 10px !important;
+		}
+	}
+
+	#toolList {
+		span {
+			padding-right: 0.8em !important;
+		}
+	}
+
+	.toolbar .glyphicons {
+	   padding: 2px; 
+	   height: 15px;
+	   width: 15px;
+	   font-size: 10px !important;
+	}
+
+	#toolList {
+	    padding-top: 1.5em;
+	    width: 16em !important;
+	}
+
+	.right-aligned {
+		position: absolute;
+		width: 40em !important;
+		float: none;
+		margin-left: -200px;
+		right: 65px;
+		top: 0.65em;
+	}
+
+	#searchBox {
+	   width: 40px !important;
+	}
+
+	.left-aligned {
+		margin-top: 0.4em;
+		width: 34em !important;
+		.glyphicons {
+			padding: 10px !important;
+		}
+	}
+
+	#toggleSidePanel {
+		font-size: 1em !important;
+	}
+
+	#nextPage,
+	#prevPage,
+	#nextPage:before,
+	#prevPage:before {
+		font-size: 10px !important;
+		padding: 6px;
+		margin-top: 5px;
+	}
+
+	#control .ui-label {
+	    margin-right: 0.2em !important;
+	    margin-top: 0.6em !important;
+	}
+
+	#pageNumberBox {
+	    margin-left: 0.2em !important;
+	    margin-top: 0.3em!important
+	}
+
+	#viewerHelp, 
+	#viewerWarning {
+		display: none !important;
+	}
+
+	.loading-holder span {
+	    font-size: 10px;
+	    width: 10em;
+	    left: 24.5em;
+	}
+
+	#prevPage, 
+	#nextPage {
+		margin-top: -2px;
+	}
+
+	.glyphicons.list:before {
+	    padding-right: 1.5em;
+	    margin-right: 1.5em;
+	}
+
+	.list {
+		padding: 10px !important;
+	}
+
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	#control {
+		.glyphicons {
+			font-size: 12px !important;
+		}
+	}
+
+	#toolList {
+		span {
+			padding-right: 0.8em !important;
+		}
+	}
+
+	.toolbar .glyphicons {
+	   padding: 2px; 
+	   height: 15px;
+	   width: 15px;
+	}
+
+	#toolList {
+	    padding-top: 1em;
+	    width: 15em !important;
+	}
+
+	.right-aligned {
+		width: 35em !important;
+		float: none;
+	}
+
+	.left-aligned {
+		margin-top: 0.4em;
+		width: 28em !important;
+		.glyphicons {
+			padding: 10px !important;
+		}
+	}
+
+	#toggleSidePanel {
+		font-size: 1em !important;
+	}
+
+	#nextPage,
+	#prevPage,
+	#nextPage:before,
+	#prevPage:before {
+		font-size: 14px !important;
+		padding: 6px !important;
+		margin-top: 5px;
+	}
+
+	#searchBox {
+	    width: 50px !important;
+	}
+
+	#control .ui-label {
+	    margin-right: 0.2em !important;
+	    margin-top: 0.8em !important;
+	}
+
+	#pageNumberBox {
+	    margin-left: 0.2em !important;
+	    margin-top: 0.5em;
+	}
+
+	#viewerHelp, 
+	#viewerWarning {
+		display: none !important;
+	}
+
+	.loading-holder span {
+	    font-size: 10px;
+	    width: 10em;
+	    left: 24.5em;
+	}
+
+}

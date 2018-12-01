@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/jquery.loading.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.min.css">
+  </head>
+  <body style="background: url('img/city-image-a.jpg') no-repeat center center fixed;">
+    <div class="container-fluid login-page-flexi">
+      <div class="row">
+        <div class="col-md-12 e-form-login"><img class="logo" src="img/flexi-logo-800.png">
+          <p>You have been sent a code to access a digital form from <b>Agents Name</b></p>
+          <p>Please check your phone <b><span id="phoneSms"></span>+64 027 599 0000</b></p>
+          <div class="form-group">
+            <input class="form-control" id="smsCode" placeholder="Enter sms code">
+          </div>
+          <h5 id="textFail"><i class="fas fa-exclamation-circle"> </i>Code Invalid Please Try Again</h5>
+          <p class="didnt" style="font-weight: 600;">Didn't receive a code?</p>
+          <button class="btn btn-info btn-notify" id="notify" type="button">CLICK HERE TO NOTIFY YOUR AGENT</button>
+          <button class="btn btn-secondary btn-login" id="login" type="button">LOGIN</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- jQuery must be added before WebViewer.js-->
+  <script src="lib/html5/external/jquery-3.2.1.min.js"></script>
+  <script src="lib/WebViewer.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.loading.js"></script>
+  <script src="js/tippy-all.js"></script>
+  <script src="js/bundle.js"></script>
+  <script>
+    window.onclick = showCodeFail;
+    
+    function showCodeFail() {
+        $('#textFail').fadeTo("slow", 1);
+    }
+  </script>
+</html>

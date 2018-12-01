@@ -1,0 +1,224 @@
+
+<html>
+  <html lang="en" style="background: none;">
+    <head>
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Document</title>
+      <link rel="stylesheet" href="css/bootstrap.css"/>
+      <link rel="stylesheet" href="css/fontawesome-all.min.css"/>
+      <link rel="stylesheet" href="css/jquery.loading.css"/>
+      <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700" rel="stylesheet"/>
+      <link rel="stylesheet" href="css/custom.min.css"/>
+    </head>
+  </html>
+  <body>
+    <div class="container-fluid">                
+      <div class="row status-container">
+        <div class="alert alert-info"><i class="fas fa-info-circle"></i>
+          <p id="alertMessage">Please note that each contact will be updated</p>
+        </div>
+        <div class="row">
+          <div class="col-sm-3 col-md-6 col-lg-3 con">
+            <div class="col-sm-12 inner primary">
+              <h4>Primary Purchaser</h4><i class="far fa-envelope info-check">                       </i>
+              <p class="name">Jack Armstrong                           </p>
+              <div class="info">
+                <div class="edits inactive"><i class="fas fa-edit info-icon">                             </i>
+                  <p><span class="number">0</span><span>Edits - Beta</span></p>
+                </div>
+                <p class="phone"> <span> <strong><i class="fas fa-phone"></i></strong></span><span id="phNumber">027 599 3020  </span></p>
+                <p class="email"> <span> <strong><i class="fas fa-at"></i></strong></span><span id="emailInfo">johnSmith@gmail.com                             </span></p>
+                <p class="token"><i class="fas fa-tags"></i> Token: ZCTA41                            </p>
+              </div>
+              <p class="status approved"><i class="fas fa-check-circle"> </i>Approved 01/01/2017                    </p>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-6 col-lg-3 con">
+            <div class="col-sm-12 inner secondary">
+              <h4>Secondary Purchaser</h4><i class="far fa-envelope info-check">                           </i>
+              <p class="name">JDogg                             </p>
+              <div class="info">
+                <div class="edits inactive"><i class="fas fa-edit info-icon">            </i>
+                  <p><span class="number">0</span><span>Edits - Beta</span></p>
+                </div>
+                <p class="phone inactive"><span> <strong><i class="fas fa-phone"></i></strong></span><span id="phNumber">Phone Number </span></p>
+                <p class="email inactive"><span> <strong><i class="fas fa-at"></i></strong></span><span id="emailInfo">Email                              </span></p>
+                <p class="token inactive"><i class="fas fa-tags"></i> Token: Not Assigned                            </p>
+              </div>
+              <p class="status declined"> <i class="fas fa-times-circle"> </i>Declined 01/01/2017                    </p>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-6 col-lg-3 con">
+            <div class="col-sm-12 inner primary-v">
+              <h4>Primary Vendor</h4><i class="far fa-envelope info-check">                        </i>
+              <p class="name">Joan Smith                            </p>
+              <div class="info">
+                <div class="edits"><i class="fas fa-hourglass-start info-icon"> </i>
+                  <p><span class="number">12</span><span>Hours remaining</span></p>
+                </div>
+                <p class="phone"> <span> <strong><i class="fas fa-phone"></i></strong></span><span id="phNumber">022 000 0011 </span></p>
+                <p class="email"><span> <strong><i class="fas fa-at"></i></strong></span><span id="emailInfo">joanSmith@gmail.com                               </span></p>
+                <p class="token"><i class="fas fa-tags"></i> Token: ZCTA41                           </p>
+              </div>
+              <p class="status review"><i class="fas fa-clock"></i>In Review 01/01/2017                 </p>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-6 col-lg-3 con">
+            <div class="col-sm-12 inner secondary-v">
+              <h4 class="inactive">Secondary Vendor                           </h4>
+              <div class="row">
+                <button class="btn assign"> CLICK TO ASSIGN</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-6 col-lg-3 con">
+            <div class="col-sm-12 inner primary-p">
+              <h4>Primary Purchaser</h4><i class="far fa-envelope info-check">                       </i>
+              <p class="name">Jack Armstrong                           </p>
+              <div class="info">
+                <div class="edits inactive"><i class="fas fa-edit info-icon">                             </i>
+                  <p><span class="number">0</span><span>Edits - Beta</span></p>
+                </div>
+                <p class="phone"> <span> <strong><i class="fas fa-phone"></i></strong></span><span id="phNumber">027 599 3020  </span></p>
+                <p class="email"> <span> <strong><i class="fas fa-at"></i></strong></span><span id="emailInfo">johnSmith@gmail.com                             </span></p>
+                <p class="token"><i class="fas fa-tags"></i> Token: ZCTA41                            </p>
+              </div>
+              <p class="status counter-offer"><i class="glyphicons glyphicons-random" aria-hidden="true"></i>Counter Offer 01/01/2017                    </p>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-6 col-lg-3 con">
+            <div class="col-sm-12 inner secondary-p">
+              <h4>Secondary Purchaser</h4><i class="far fa-envelope info-check">                           </i>
+              <p class="name">JDogg                             </p>
+              <div class="info">
+                <div class="edits inactive"><i class="fas fa-edit info-icon">            </i>
+                  <p><span class="number">0</span><span>Edits - Beta</span></p>
+                </div>
+                <p class="phone inactive"><span> <strong><i class="fas fa-phone"></i></strong></span><span id="phNumber">Phone Number </span></p>
+                <p class="email inactive"><span> <strong><i class="fas fa-at"></i></strong></span><span id="emailInfo">Email                              </span></p>
+                <p class="token inactive"><i class="fas fa-tags"></i> Token: Not Assigned                            </p>
+              </div>
+              <p class="status recall"><i class="fas fa-undo"></i>Recall 01/01/2017         </p>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-6 col-lg-3 con">
+            <div class="col-sm-12 inner primary-v">
+              <h4>Primary Vendor</h4><i class="far fa-envelope info-check">                           </i>
+              <p class="name">JDogg                             </p>
+              <div class="info">
+                <div class="edits inactive"><i class="fas fa-edit info-icon">            </i>
+                  <p><span class="number">0</span><span>Edits - Beta</span></p>
+                </div>
+                <p class="phone inactive"><span> <strong><i class="fas fa-phone"></i></strong></span><span id="phNumber">Phone Number </span></p>
+                <p class="email inactive"><span> <strong><i class="fas fa-at"></i></strong></span><span id="emailInfo">Email                              </span></p>
+                <p class="token inactive"><i class="fas fa-tags"></i> Token: Not Assigned                            </p>
+              </div>
+              <p class="status created"><i class="fas fa-file"></i>Created 01/01/2017   </p>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-6 col-lg-3 con">
+            <div class="col-sm-12 inner secondary-v">
+              <h4>Secondary Vendor</h4><i class="far fa-envelope info-check">                           </i>
+              <p class="name">JDogg                             </p>
+              <div class="info">
+                <div class="edits inactive"><i class="fas fa-edit info-icon">            </i>
+                  <p><span class="number">0</span><span>Edits - Beta</span></p>
+                </div>
+                <p class="phone inactive"><span> <strong><i class="fas fa-phone"></i></strong></span><span id="phNumber">Phone Number </span></p>
+                <p class="email inactive"><span> <strong><i class="fas fa-at"></i></strong></span><span id="emailInfo">Email                              </span></p>
+                <p class="token inactive"><i class="fas fa-tags"></i> Token: Not Assigned                            </p>
+              </div>
+              <p class="status invitation-sent"><i class="fas fa-paper-plane"></i>Invitation Sent 01/01/2017                                </p>
+            </div>
+          </div>
+          <div class="col-sm-12 offset-sm-12 btn-container">                     
+            <button class="cancel">Cancel                      </button>
+            <button class="sign">Send for Signing                      </button>
+            <button class="new">Send to New Client</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Send to negotiatin begins-->
+    <div class="a1">
+      <div class="alert alert-info check-notes agent"><i class="glyphicons glyphicons-list"></i>	Please ensure you check the notes panel for details of the latest changes made by the parties engaging in negotiations.</div>
+    </div>
+    <div class="a2">
+      <div class="alert alert-info download-notice agent"><i class="glyphicons glyphicons-download-alt"></i>	Please download the latest copy of the agreement with changes made for your reference.</div>
+    </div>
+    <button class="modal-test email-details" id="modalTest" data-toggle="modal" data-target="#exampleModal">Email Details Modal</button>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 div send-negotiation">
+          <h4>Send to Negotiation</h4>                
+          <div class="paragraph">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt risus sodales mi rhoncus, eu suscipit felis interdum. Vestibulum tincidunt leo ipsum, non congue felis pretium id. Nullam faucibus</p>
+          </div>                
+          <div class="cost">
+            <p>Negotiation or Signing a contract has a fixed cost of $10 incl gst</p>
+          </div>                
+          <div>
+            <div class="buy-btn">
+              <button>BUY NOW WITH PAYPAL</button>
+            </div>
+          </div>
+        </div>            
+        <div class="col-xs-12 div send-negotiation">
+          <h4>Send to Negotiation</h4>                
+          <div class="paragraph">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt risus sodales mi rhoncus, eu suscipit felis interdum. Vestibulum tincidunt leo ipsum, non congue felis pretium id. Nullam faucibus.</p>                    <br/>                    
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit temporibus sequi eos et omnis saepe natus quidem excepturi asperiores ipsa, officiis, aliquid optio reprehenderit, blanditiis nam beatae architecto quia molestiae!</p>
+          </div>                
+          <div>
+            <div class="buy-btn">
+              <button>Negotiation</button>                        
+              <button>Send To Sign</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">SMS EMAIL CONFIRMATION</h5>        
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          </div>      
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email Subject</label> 
+              <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email" value="REINZ Property Agreement - Login to Review"/>
+            </div>
+            <div class="form-group">
+              <label for="comment">Email Content:</label>  
+              <textarea class="form-control" id="comment" rows="5">Dear Jo Bloggs,
+
+You have been sent an SMS authorisation code from licensed Real Estate Agent Deborah Barns to access  a REINZ digital property agreement. Please check phone 021 854 398. Do not forward or give this code to anyone. Click the login button below to enter the code and review, sign or make changes to the digital agreement.
+
+If you have not received a code or have any questions about this process, please call an your agent.
+
+Kind Regards,
+
+REINZ eForms</textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>        
+            <button class="btn btn-primary" type="button">Send</button>
+          </div>
+        </div>
+      </div>
+      <!-- jQuery must be added before WebViewer.js-->
+      <script src="lib/html5/external/jquery-3.2.1.min.js"></script>
+      <script src="lib/WebViewer.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery.loading.js"></script>
+      <script src="js/tippy-all.js"></script>
+      <script src="js/bundle.js"></script>
+    </div>
+  </body>
+</html>

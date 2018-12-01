@@ -1,0 +1,82 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Document
+    link(rel='stylesheet', href='css/bootstrap.css')
+    link(rel='stylesheet', href='css/fontawesome-all.min.css')
+    link(rel='stylesheet', href='css/jquery.loading.css')
+    link(href='https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700', rel='stylesheet')
+    link(rel='stylesheet', href='css/custom.min.css')
+    link(rel='stylesheet', href='css/voting.css')
+  body(style="background: url('../img/auckland-dark.jpg') no-repeat center center fixed;")
+    .container-fluid
+      .row
+        .col-md-10.offset-md-1.text-center.e-form-login
+          img.logo(src='img/logo400px.png', style="margin-top: 1.5")
+          h3(style="margin-bottom: 0.8em; margin-top: 0.5em;") REINZ Regional Director's Election - Region 4
+          a(href='http://www.google.com')
+            p.terms-eligibility
+              | TO VIEW THE TERMS, ELIGIBILITY AND VOTING CONDITIONS - CLICK HERE
+          P.vote-info
+            | Please select the candidate you wish to vote for below and enter your REINZ ID in the field provided. REINZ identifications are matched to your eligibility. Non-eligible IDs will be excluded from the final tally.
+          .form-check
+            .check-boxes
+              .form-check.votes
+                .group
+                  input#voteA.form-check-input.vote-check(type='radio', name='exampleRadios', value='option1', checked)
+                  label.form-check-label(for='exampleRadios1')
+                    | JANE MEYERS
+                .group(style="margin: -1.40em; margin-top: 1em; margin-right: 0.2em; margin-bottom: 1em;")
+                  input#voteB.form-check-input.vote-check(type='radio', name='exampleRadios', value='option2')
+                  label.form-check-label(for='exampleRadios2')
+                    | JIM DAVIS
+            input#reinzId.form-control(placeholder='PLEASE ENTER YOUR REINZ ID')
+          h5#textFail
+            i.fas.fa-exclamation-circle 
+            | You must re-enter your REINZ ID to cast your vote
+          button#castVote.btn.btn-secondary.btn-login(type='button', style="width: 10em;") CAST YOUR VOTE
+  // jQuery must be added before WebViewer.js
+  script(src='lib/html5/external/jquery-3.2.1.min.js')
+  script(src='lib/WebViewer.min.js')
+  script(src='js/popper.min.js')
+  script(src='js/bootstrap.min.js')
+  script(src='js/jquery.loading.js')
+  script(src='js/bundle.js')
+  script.
+    // Click event for cast vote button
+    $('#castVote').on('click', showCodeFail);
+
+    function showCodeFail () {
+        
+        // Check if the REINZ input has data
+        if ($('#reinzId')[0].value === '') {
+          // If no data trigger warning message
+          $('#textFail').fadeTo("slow", 1);
+        } else {
+        // Trigger and log the final data object
+        console.log(finalData());
+        }
+
+    } // showCodeFail
+
+    function finalData () {
+
+      // Form voting data container
+      var o = {};
+
+      if($('#voteA')[0].checked) {
+        o.result = 'Jane Meyers';
+      } else {
+        o.result = 'Jim Davis';
+      }
+
+      o.id = $('#reinzId')[0].value
+      
+      return o;
+
+    } // finalData
+
+
+    

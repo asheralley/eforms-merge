@@ -1,0 +1,70 @@
+/* PDFTron Viewer css - imported via tron-config.js*/
+
+html {
+	background: none !important;
+}
+
+.viewer-page {
+	background-color: #333;
+	padding: 1em;
+	height: 100%;
+}
+
+.viewer {
+	width: 98%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#control, #tabMenu {
+   background: #444 !important;
+}
+
+#control .ui-label {
+   color: white;
+   text-shadow: none;
+}
+
+.glyphicons:before {
+    color: white !important;
+    opacity: 0.75;
+}
+
+#searchButton:before {
+    color: #444 !important;
+}
+
+#DocumentViewer {
+	background-color: white;
+}
+
+#ui-display {
+	background-color: white;
+}
+
+.toggleControl {
+     border: none; 
+     background: none; 
+}
+
+/*Item Removal upon REINZ request 05-06-2018*/
+#ui-id-2, #ui-id-3, #toggleSidePanel, #forwardPage, #backPage  {
+	display: none;
+}
+
+#toolList .comments {
+	display: none;
+}
+
+#freeHand {
+	display: none;
+}
+
+#layoutModeDropDown {
+	display: none;
+}
+
+#zoomBox {
+	color: #efefef;
+}
+

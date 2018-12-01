@@ -1,0 +1,33 @@
+doctype html
+html(lang='en')
+  include inc/_head.pug
+  body(style="background: url('../img/auckland-dark.jpg') no-repeat center center fixed;")
+    .container-fluid
+      .row
+        .col-md-10.offset-md-1.text-center.e-form-login
+          img.logo(src='img/logo400px.png')
+          h3 Welcome to the Real Estate Institute's Digital eForms
+          p
+            | You have been sent a code to access a digital form from 
+            b Agents Name
+          p
+            | Please check your phone 
+            b
+              span#phoneSms
+              | +64 027 599 0000
+          .form-group
+            input#smsCode.form-control(placeholder='Enter sms code')
+          h5#textFail
+            i.fas.fa-exclamation-circle 
+            | Code Invalid Please Try Again
+          button#login.btn.btn-secondary.btn-login(type='button') LOGIN
+          p(style="font-weight: 600;") PLEASE NOTIFY YOUR SELLING AGENT TO GET YOUR CODE
+          button#notify.btn.btn-info.btn-notify(type='button') CLICK TO NOTIFY YOUR AGENT
+  include inc/_scripts.pug  
+  script.
+    window.onclick = showCodeFail;
+
+    function showCodeFail() {
+        $('#textFail').fadeTo("slow", 1);
+    }
+    

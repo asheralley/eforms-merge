@@ -1,0 +1,284 @@
+html
+	html(lang='en', style='background: none;')
+		include inc/_head.pug
+	body
+		.container-fluid                 
+			.row.status-container
+				.alert.alert-info
+					i.fas.fa-info-circle
+					p#alertMessage Please note that each contact will be updated
+				div.row
+					.col-sm-3.col-md-6.col-lg-3.con
+						.col-sm-12.inner.primary
+							h4 Primary Purchaser
+							i.far.fa-envelope.info-check                        
+							p.name Jack Armstrong                           
+							.info
+								.edits.inactive
+									i.fas.fa-edit.info-icon                              
+									p
+										span.number 0
+										span Edits - Beta
+								p.phone 
+									span 
+										strong
+											i.fas.fa-phone
+									span#phNumber 027 599 3020  
+								p.email 
+									span 
+										strong
+											i.fas.fa-at
+									span#emailInfo johnSmith@gmail.com                             
+								p.token
+									i.fas.fa-tags
+									|  Token: ZCTA41                            
+							p.status.approved
+								i.fas.fa-check-circle 
+								| Approved 01/01/2017                    
+					.col-sm-3.col-md-6.col-lg-3.con
+						.col-sm-12.inner.secondary
+							h4 Secondary Purchaser
+							i.far.fa-envelope.info-check                            
+							p.name JDogg                             
+							.info
+								.edits.inactive
+									i.fas.fa-edit.info-icon             
+									p
+										span.number 0
+										span Edits - Beta
+								p.phone.inactive
+									span 
+										strong
+											i.fas.fa-phone
+									span#phNumber Phone Number 
+								p.email.inactive
+									span 
+										strong
+											i.fas.fa-at
+									span#emailInfo Email                              
+								p.token.inactive
+									i.fas.fa-tags
+									|  Token: Not Assigned                            
+							p.status.declined 
+								i.fas.fa-times-circle 
+								| Declined 01/01/2017                    
+					.col-sm-3.col-md-6.col-lg-3.con
+						.col-sm-12.inner.primary-v
+							h4 Primary Vendor
+							i.far.fa-envelope.info-check                         
+							p.name Joan Smith                            
+							.info
+								.edits
+									i.fas.fa-hourglass-start.info-icon 
+									p
+										span.number 12
+										span Hours remaining
+								p.phone 
+									span 
+										strong
+											i.fas.fa-phone
+									span#phNumber 022 000 0011 
+								p.email
+									span 
+										strong
+											i.fas.fa-at
+									span#emailInfo joanSmith@gmail.com                               
+								p.token
+									i.fas.fa-tags
+									|  Token: ZCTA41                           
+							p.status.review
+								i.fas.fa-clock
+								| In Review 01/01/2017                 
+					.col-sm-3.col-md-6.col-lg-3.con
+						.col-sm-12.inner.secondary-v
+							h4.inactive Secondary Vendor                           
+							.row
+								button.btn.assign  CLICK TO ASSIGN
+					.col-sm-3.col-md-6.col-lg-3.con
+						.col-sm-12.inner.primary-p
+							h4 Primary Purchaser
+							i.far.fa-envelope.info-check                        
+							p.name Jack Armstrong                           
+							.info
+								.edits.inactive
+									i.fas.fa-edit.info-icon                              
+									p
+										span.number 0
+										span Edits - Beta
+								p.phone 
+									span 
+										strong
+											i.fas.fa-phone
+									span#phNumber 027 599 3020  
+								p.email 
+									span 
+										strong
+											i.fas.fa-at
+									span#emailInfo johnSmith@gmail.com                             
+								p.token
+									i.fas.fa-tags
+									|  Token: ZCTA41                            
+							p.status.counter-offer
+								i.glyphicons.glyphicons-random(aria-hidden='true')
+								| Counter Offer 01/01/2017                    
+					.col-sm-3.col-md-6.col-lg-3.con
+						.col-sm-12.inner.secondary-p
+							h4 Secondary Purchaser
+							i.far.fa-envelope.info-check                            
+							p.name JDogg                             
+							.info
+								.edits.inactive
+									i.fas.fa-edit.info-icon             
+									p
+										span.number 0
+										span Edits - Beta
+								p.phone.inactive
+									span 
+										strong
+											i.fas.fa-phone
+									span#phNumber Phone Number 
+								p.email.inactive
+									span 
+										strong
+											i.fas.fa-at
+									span#emailInfo Email                              
+								p.token.inactive
+									i.fas.fa-tags
+									|  Token: Not Assigned                            
+							p.status.recall
+								i.fas.fa-undo
+								| Recall 01/01/2017         
+					.col-sm-3.col-md-6.col-lg-3.con
+						.col-sm-12.inner.primary-v
+							h4 Primary Vendor
+							i.far.fa-envelope.info-check                            
+							p.name JDogg                             
+							.info
+								.edits.inactive
+									i.fas.fa-edit.info-icon             
+									p
+										span.number 0
+										span Edits - Beta
+								p.phone.inactive
+									span 
+										strong
+											i.fas.fa-phone
+									span#phNumber Phone Number 
+								p.email.inactive
+									span 
+										strong
+											i.fas.fa-at
+									span#emailInfo Email                              
+								p.token.inactive
+									i.fas.fa-tags
+									|  Token: Not Assigned                            
+							p.status.created
+								i.fas.fa-file
+								| Created 01/01/2017   
+					.col-sm-3.col-md-6.col-lg-3.con
+						.col-sm-12.inner.secondary-v
+							h4 Secondary Vendor
+							i.far.fa-envelope.info-check                            
+							p.name JDogg                             
+							.info
+								.edits.inactive
+									i.fas.fa-edit.info-icon             
+									p
+										span.number 0
+										span Edits - Beta
+								p.phone.inactive
+									span 
+										strong
+											i.fas.fa-phone
+									span#phNumber Phone Number 
+								p.email.inactive
+									span 
+										strong
+											i.fas.fa-at
+									span#emailInfo Email                              
+								p.token.inactive
+									i.fas.fa-tags
+									|  Token: Not Assigned                            
+							p.status.invitation-sent
+								i.fas.fa-paper-plane
+								| Invitation Sent 01/01/2017                                
+					.col-sm-12.offset-sm-12.btn-container                      
+						button.cancel Cancel                      
+						button.sign Send for Signing                      
+						button.new Send to New Client
+		// Send to negotiatin begins
+		.a1
+			.alert.alert-info.check-notes.agent
+				i.glyphicons.glyphicons-list
+				|	Please ensure you check the notes panel for details of the latest changes made by the parties engaging in negotiations.
+		.a2
+			.alert.alert-info.download-notice.agent
+				i.glyphicons.glyphicons-download-alt
+				|	Please download the latest copy of the agreement with changes made for your reference.
+		button.modal-test.email-details#modalTest(data-toggle="modal" data-target="#exampleModal") Email Details Modal
+		.container
+			.row
+				.col-xs-12.div.send-negotiation
+					h4 Send to Negotiation
+					|                 
+					.paragraph
+						p
+							| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt risus sodales mi rhoncus, eu suscipit felis interdum. Vestibulum tincidunt leo ipsum, non congue felis pretium id. Nullam faucibus
+					|                 
+					.cost
+						p Negotiation or Signing a contract has a fixed cost of $10 incl gst
+					|                 
+					div
+						.buy-btn
+							button BUY NOW WITH PAYPAL
+				|             
+				.col-xs-12.div.send-negotiation
+					h4 Send to Negotiation
+					|                 
+					.paragraph
+						p
+							| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt risus sodales mi rhoncus, eu suscipit felis interdum. Vestibulum tincidunt leo ipsum, non congue felis pretium id. Nullam faucibus.
+						|                     
+						br
+						|                     
+						p
+							| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit temporibus sequi eos et omnis saepe natus quidem excepturi asperiores ipsa, officiis, aliquid optio reprehenderit, blanditiis nam beatae architecto quia molestiae!
+					|                 
+					div
+						.buy-btn
+							button Negotiation
+							|                         
+							button Send To Sign
+		// Modal
+		#exampleModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="exampleModalLabel", aria-hidden="true")
+			.modal-dialog(role="document")
+				.modal-content
+					.modal-header
+						h5#exampleModalLabel.modal-title SMS EMAIL CONFIRMATION
+						|         
+						button.close(type="button", data-dismiss="modal", aria-label="Close")
+							span(aria-hidden="true") ×
+					|       
+					.modal-body
+						.form-group
+							label(for="exampleInputEmail1") Email Subject
+							| 
+							input#exampleInputEmail1.form-control(type="email", aria-describedby="emailHelp", placeholder="Enter email", value="REINZ Property Agreement - Login to Review")
+						.form-group
+							label(for="comment") Email Content:
+							|   
+							textarea#comment.form-control(rows="5")
+								| Dear Jo Bloggs,
+								|
+								| You have been sent an SMS authorisation code from licensed Real Estate Agent Deborah Barns to access  a REINZ digital property agreement. Please check phone 021 854 398. Do not forward or give this code to anyone. Click the login button below to enter the code and review, sign or make changes to the digital agreement.
+								|
+								| If you have not received a code or have any questions about this process, please call an your agent.
+								|
+								| Kind Regards,
+								|
+								| REINZ eForms
+					.modal-footer
+						button.btn.btn-secondary(type="button", data-dismiss="modal") Cancel
+						|         
+						button.btn.btn-primary(type="button") Send
+			include inc/_scripts.pug

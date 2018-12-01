@@ -1,0 +1,11 @@
+{
+  "globals": {
+    "PDFNet": true,
+    "saveBufferAsPDFDoc": true,
+    "saveBufferAsPNG": true
+  },
+  "rules": {
+    "no-redeclare": 0,
+    "camelcase": 0
+  }
+}

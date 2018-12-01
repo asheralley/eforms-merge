@@ -1,0 +1,72 @@
+
+<html lang="en" style="background: none;">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/fontawesome-all.min.css"/>
+    <link rel="stylesheet" href="css/jquery.loading.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/custom.min.css"/>
+  </head>
+  <body style="background-color: white;">
+    <div class="approve-holder">
+      <div class="loading-holder"><img class="logo-viewer" src="img/flexi-logo-400.png" alt=""/></div>
+      <div class="holder">
+        <button class="btn counter-offer" id="counterOffer" data-container="body" data-toggle="tooltip" data-placement="top" title="Click to counter the current offer"> <i class="glyphicons glyphicons-random" aria-hidden="true"></i>COUNTER OFFER</button>
+        <button class="btn approve" id="approve" data-container="body" data-toggle="tooltip" data-placement="top" title="Click to approve current offer"><i class="fas fa-check-circle"></i>APPROVE</button>
+        <button class="btn decline" id="decline" data-container="body" data-toggle="tooltip" data-placement="top" title="Click to decline current offer"> <i class="fas fa-times-circle"> </i>DECLINE</button>
+      </div>
+    </div>
+    <div class="container-fluid viewer-page">
+      <div class="a1">
+        <div class="alert alert-info check-notes client-v"><i class="glyphicons glyphicons-list"></i>	Please ensure you check the notes panel for details of the latest changes made by the parties engaging in negotiations.</div>
+      </div>
+      <div class="a2">
+        <div class="alert alert-info download-notice client-v"><i class="glyphicons glyphicons-download-alt"></i>	Please download the latest copy of the agreement with changes made for your reference.</div>
+      </div>
+      <div class="viewer" id="viewer"></div>
+      <div class="mobile-message">
+        <h5>We are currently working on a mobile version of the PDF viewer and for now it has been disabled temporarily.  </h5>
+      </div>
+    </div>
+    <!-- Modal-->
+    <div class="modal fade" id="viewerHelp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header"><i class="fas fa-question-circle"></i>
+            <h5 class="modal-title" id="exampleModalLongTitle">HELP & INFO</h5>        
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          </div>      
+          <div class="modal-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut doloremque tempora minus eaque, iste molestiae sed laboriosam cumque corrupti necessitatibus odio dignissimos nemo assumenda quos nulla in, voluptatem fuga nisi!<br/> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam facilis esse ut dolor quos, nulla, a saepe quidem animi repudiandae et cum facere asperiores quibusdam error deleniti, exercitationem maiores magni!<br/> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime debitis rerum autem, doloribus unde maiores harum minima quo, voluptatum assumenda optio molestiae, labore velit amet hic eligendi voluptas consequatur, perferendis.<br/> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla ducimus voluptatibus eum eos iste tempora, odit excepturi cupiditate hic eaque quae rem, maiores ipsa voluptatum. Tenetur eos vitae voluptatibus, amet.<br/> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, libero! Maxime quaerat suscipit molestiae eaque itaque aut non accusamus natus quae, atque laudantium, pariatur molestias voluptatum a unde nobis dolorem.</div>      
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="viewerWarning" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header"><i class="fas fa-exclamation-circle"></i>
+            <h5 class="modal-title" id="exampleModalLongTitle">ALERT THIS IS IMPORTANT</h5>        
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          </div>      
+          <div class="modal-body"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut doloremque tempora minus eaque, iste molestiae sed laboriosam cumque corrupti necessitatibus odio dignissimos nemo assumenda quos nulla in, voluptatem fuga nisi!<br/> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam facilis esse ut dolor quos, nulla, a saepe quidem animi repudiandae et cum facere asperiores quibusdam error deleniti, exercitationem maiores magni!<br/> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime debitis rerum autem, doloribus unde maiores harum minima quo, voluptatum assumenda optio molestiae, labore velit amet hic eligendi voluptas consequatur, perferendis.<br/> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla ducimus voluptatibus eum eos iste tempora, odit excepturi cupiditate hic eaque quae rem, maiores ipsa voluptatum. Tenetur eos vitae voluptatibus, amet.<br/> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, libero! Maxime quaerat suscipit molestiae eaque itaque aut non accusamus natus quae, atque laudantium, pariatur molestias voluptatum a unde nobis dolorem.</div>      
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<!-- jQuery must be added before WebViewer.js-->
+<script src="lib/html5/external/jquery-3.2.1.min.js"></script>
+<script src="lib/WebViewer.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.loading.js"></script>
+<script src="js/tippy-all.js"></script>
+<script src="js/bundle.js"></script>

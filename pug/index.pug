@@ -1,0 +1,77 @@
+html(lang='en', style='background: none;')
+	include inc/_head.pug
+	body(style='background-color: white;')
+		.approve-holder
+			.loading-holder
+				img.logo-viewer(src="img/flexi-logo-400.png", alt="")
+			.holder
+				button.btn.counter-offer#counterOffer(data-container="body" data-toggle="tooltip" data-placement="top" title="Click to counter the current offer") 
+					i.glyphicons.glyphicons-random(aria-hidden='true')
+					| COUNTER OFFER
+				button.btn.approve#approve(data-container="body" data-toggle="tooltip" data-placement="top" title="Click to approve current offer")
+					i.fas.fa-check-circle
+					| APPROVE
+				button.btn.decline#decline(data-container="body" data-toggle="tooltip" data-placement="top" title="Click to decline current offer") 
+					i.fas.fa-times-circle 
+					| DECLINE
+		.container-fluid.viewer-page
+			.a1
+				.alert.alert-info.check-notes.client-v
+					i.glyphicons.glyphicons-list
+					|	Please ensure you check the notes panel for details of the latest changes made by the parties engaging in negotiations.
+			.a2
+				.alert.alert-info.download-notice.client-v
+					i.glyphicons.glyphicons-download-alt
+					|	Please download the latest copy of the agreement with changes made for your reference.
+			#viewer.viewer
+			.mobile-message
+				h5
+					| We are currently working on a mobile version of the PDF viewer and for now it has been disabled temporarily.  
+		// Modal
+		#viewerHelp.modal.fade(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+			.modal-dialog.modal-dialog-centered(role="document")
+				.modal-content
+					.modal-header
+						i.fas.fa-question-circle
+						h5#exampleModalLongTitle.modal-title HELP & INFO
+						|         
+						button.close(type="button", data-dismiss="modal", aria-label="Close")
+							span(aria-hidden="true") ×
+					|       
+					.modal-body
+						|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut doloremque tempora minus eaque, iste molestiae sed laboriosam cumque corrupti necessitatibus odio dignissimos nemo assumenda quos nulla in, voluptatem fuga nisi!
+						br
+						|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam facilis esse ut dolor quos, nulla, a saepe quidem animi repudiandae et cum facere asperiores quibusdam error deleniti, exercitationem maiores magni!
+						br
+						|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime debitis rerum autem, doloribus unde maiores harum minima quo, voluptatum assumenda optio molestiae, labore velit amet hic eligendi voluptas consequatur, perferendis.
+						br
+						|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla ducimus voluptatibus eum eos iste tempora, odit excepturi cupiditate hic eaque quae rem, maiores ipsa voluptatum. Tenetur eos vitae voluptatibus, amet.
+						br
+						|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, libero! Maxime quaerat suscipit molestiae eaque itaque aut non accusamus natus quae, atque laudantium, pariatur molestias voluptatum a unde nobis dolorem.
+					|       
+					.modal-footer
+						button.btn.btn-secondary(type="button", data-dismiss="modal") Close
+		#viewerWarning.modal.fade(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+			.modal-dialog.modal-dialog-centered(role="document")
+				.modal-content
+					.modal-header
+						i.fas.fa-exclamation-circle
+						h5#exampleModalLongTitle.modal-title ALERT THIS IS IMPORTANT
+						|         
+						button.close(type="button", data-dismiss="modal", aria-label="Close")
+							span(aria-hidden="true") ×
+					|       
+					.modal-body
+						|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut doloremque tempora minus eaque, iste molestiae sed laboriosam cumque corrupti necessitatibus odio dignissimos nemo assumenda quos nulla in, voluptatem fuga nisi!
+						br
+						|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam facilis esse ut dolor quos, nulla, a saepe quidem animi repudiandae et cum facere asperiores quibusdam error deleniti, exercitationem maiores magni!
+						br
+						|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime debitis rerum autem, doloribus unde maiores harum minima quo, voluptatum assumenda optio molestiae, labore velit amet hic eligendi voluptas consequatur, perferendis.
+						br
+						|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla ducimus voluptatibus eum eos iste tempora, odit excepturi cupiditate hic eaque quae rem, maiores ipsa voluptatum. Tenetur eos vitae voluptatibus, amet.
+						br
+						|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint a deserunt veritatis est animi. Amet doloremque quas maiores! Cum iusto vitae ab recusandae quia at, accusantium vel esse minima sint.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, libero! Maxime quaerat suscipit molestiae eaque itaque aut non accusamus natus quae, atque laudantium, pariatur molestias voluptatum a unde nobis dolorem.
+					|       
+					.modal-footer
+						button.btn.btn-secondary(type="button", data-dismiss="modal") Close
+include inc/_scripts.pug

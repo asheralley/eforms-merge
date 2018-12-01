@@ -1,0 +1,390 @@
+html {
+	// background: url('../img/auckland-dark.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	height: 100%;
+	font-size: 16px;
+}
+
+body {
+	background: transparent;
+	height: 100%;
+	width: 100%;
+}
+
+h3 {
+	color: white;
+	font-size: 2.35em;
+	font-weight: 700;
+	margin: 1em 0 1.2em 0;
+}
+
+p {
+	color: white;
+	margin-bottom: 0;
+	font-size: 1.2rem;
+	font-weight: 100;
+	opacity: 0.8
+}
+
+b {
+	font-weight: 500;
+}
+
+.tooltip {
+  pointer-events: none;
+}
+
+.logo {
+	margin: 0 auto;
+	margin-top: 2.5em;
+	width: 18em;
+}
+
+.btn-login{
+	background-color: #8EC5D3;
+	border-color:#8EC5D3;
+	border-radius: 1px;
+	width: 8em;
+	height: 2.8em;
+	margin: 0 0 2em 0;
+	color: #285C76;
+	font-weight: 600;
+}
+
+.btn-login:hover {
+	background-color: #70adbd;
+	border-color: #70adbd;
+	color:#285C76;
+}
+
+
+.btn-notify {
+	background-color: transparent;
+	border:none;
+	outline: none;
+	color:#8EC5D3;
+	width: 16em;
+	margin: 0;
+	font-weight: 700;
+	font-size: 0.95rem;
+	padding-top: 0em;
+}
+
+.glyphicon {
+	color: #fff;
+	padding: 0.5em;
+}
+
+.btn-notify:hover {
+	background-color:transparent;
+	border-color:transparent;
+	color:#8EC5D3;
+}
+
+/*To remove button outline from btn notify*/
+.btn-info:not(:disabled):not(.disabled):active:focus, 
+.btn-info:not(:disabled):not(.disabled).active:focus, 
+.show > .btn-info.dropdown-toggle:focus {
+	box-shadow: none;
+}
+
+.btn-info:not(:disabled):not(.disabled):active, 
+.btn-info:not(:disabled):not(.disabled).active, 
+.show > .btn-info.dropdown-toggle {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.btn-info:focus {
+	box-shadow: none;
+}
+
+.btn-secondary:focus, 
+.btn-secondary.focus {
+	box-shadow: none;
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active, 
+.btn-secondary:not(:disabled):not(.disabled).active, 
+.show > .btn-secondary.dropdown-toggle {
+	background-color: #70adbd;
+	border-color: #70adbd;
+	color:#285C76 ;
+}
+
+/*Important for bootstrap overrides*/
+.e-form-login input {
+	margin-top: 2em !important;
+	width: 50%;
+	margin: 0 auto;
+	border-radius: 0;
+	height: 3.8em; 
+	text-align: center;
+	margin-bottom: 0em;
+	border: 3px solid #8EC5D3;
+}
+
+.e-form-login input:active,
+.e-form-login input:hover {	margin-top: 2em !important;
+	margin: 0 auto;
+	border-radius: 0;
+	height: 3.8em; 
+	text-align: center;
+	margin-bottom: 2.8em;
+
+	border: 3px solid #8EC5D3; 
+}
+
+.e-form-login {
+	.form-group {
+		margin-bottom: 0em;
+	}
+	h5 {
+		opacity: 0;
+		color: #fff;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0.6em;
+		margin-top: 0em;
+		margin: 0 auto;
+	}
+	i {
+		padding-right: 1em;
+	}
+	#smsCode {
+		margin-bottom: 0px !important;
+	}
+}
+
+//how to use page \
+
+.how-to-use {
+
+ 	h2 {
+		color: white;
+		font-weight: 100;
+		padding-left: 0.5em;
+	    padding-right: 2em;
+ 	}
+
+	.fa-edit {
+		padding: 0.25em;
+		padding-left: 0.4em;
+		padding-top: 0.5em;
+	}
+
+	p {
+		font-size: 1rem;
+		margin-bottom: 1.5em;
+	}
+
+	.proceed {
+		margin-left: 0.8em;
+		margin-top:4em;
+		background-color: #8EC5D3;
+		border-color:#8EC5D3;
+		border-radius: 1px;
+		width: 8em;
+		height: 2.8em;
+		color: #285C76;
+		font-weight: 600;
+		margin-bottom: 2em;
+	}
+
+	.logo2 {
+		width: 18em;
+		margin-top: 5em;
+		margin-bottom: 4.5em;
+	}
+
+	h6 {
+		color: white;
+		margin-bottom: 0;
+		margin-bottom: 0.37em;
+		margin-left: 2em;
+	}
+
+	p {
+		margin-left: 2em;
+	}
+
+	.fas {
+		color:white;
+	}
+
+	.icon {
+		text-align: center;
+		width: 50px;
+		height: 50px;
+		font-size: 1.5rem;
+		margin-top: 0em;
+		margin-right: 0em !important;
+	}
+
+	.fas {
+		font-size: 1.4em;
+		padding-top: 0.5em;
+		margin-right: -1.2em;
+	}
+
+	.icon-group {
+		margin-bottom: 1em;
+	}
+
+	.glyphicons:before, 
+	.glyphicons {
+		color: #fff !important;
+		opacity: 1;
+		padding: 0.1em 0.8em 0.4em 0.4em;
+		font-size: 1.3em !important;
+	}
+
+} // how to use ends
+
+//choose whom 
+
+.choose-whom {
+
+	 margin-top: 2em;
+	 h2 {
+		font-weight: 100;
+		padding-left: 0.5em;
+	   
+	 }
+	 p {
+		color: black;
+		font-size: 1rem;
+		margin-top: 1em;
+		margin-bottom: 1em;
+	 }
+	.radio {
+		font-size: 0.9em;
+		color: black;
+		border-radius: 0;
+		text-align: left;
+	}
+	 .radio:focus {
+		box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+	}
+	.radio {
+		background-color: white;
+		border: none;
+	}
+	.radio:hover {
+		// background-color: white;
+		// border: none;
+		//color:black;
+	}
+	.radio:active {
+		background-color: white;
+		//color:black;
+	}
+
+	.btn-secondary:not(:disabled):not(.disabled).active, 
+	.btn-secondary:not(:disabled):not(.disabled):active, 
+	.show > .btn-secondary.dropdown-toggle {
+		background-color: white;
+	}
+
+	label.radio {
+		padding: 0.8em; 
+		border: 2px solid #fff;
+		transition: all 0.2s ease-in-out;
+	}
+
+	label.radio:hover{
+		border: 2px solid #8EC5D3;
+	}
+
+	input[type="radio"] {
+		display: none;
+	}
+	input[type="checkbox"] {
+		margin-top:4em;
+		margin-left: 2em;
+		font-size: 0.5rem;
+	}
+	 label {
+		font-size: 0.8rem;
+		color: #285c76;
+	}
+	input[type="text"] {
+		margin-top: 1em;
+		margin-bottom: 1.5em;
+		width: 100%;
+		padding:10px;
+		border: 2px solid #8EC5D3;
+	}
+
+	.recipents{
+		margin-bottom: 2em;
+	}
+
+	.areas-highlight p {
+		border: 2px solid #8EC5D3;
+		margin: 0;
+		padding: 10px;
+	}
+
+	.areas-highlight p:nth-child(1), p:nth-child(2){
+		border-bottom:none;
+	}
+
+	.areas-highlight p:nth-child(1){
+		margin-top: 1em;
+	}
+
+	.areas-highlight textarea {
+		padding: 10px;
+		border: 2px solid #8EC5D3;
+		width: 100%;
+		height: 200px;
+		max-height: 200px;
+		margin-top: 0.8em;
+	}
+
+	.submit {
+		margin-top: 2.8em;
+		background-color: #8EC5D3;
+		border-color:#8EC5D3;
+		border-radius: 1px;
+		width: 8em;
+		height: 2.8em;
+		color: #285C76;
+		font-weight: 600;
+		margin-bottom: 2em;
+	}
+
+	h6 {
+		color: #2C4B79;
+	}
+
+	.submit-div{
+		padding: 0;
+		text-align: right;
+	}
+
+} //
+
+.e-form-login .vote-check {
+	// margin-top: 0.5em !important;
+	width: 1.3em;
+	margin: 0 auto;
+	border-radius: inherit;
+	height: 1.3em;
+	// text-align: inherit;
+	// border: inherit;
+	// display: inline-block;
+}
+
+.check-boxes .form-check-label {
+	color: #fff;
+	padding-left: 1em;
+	padding-top: 0.3em;
+	margin-left: 1.5em;
+	display: inline-block;
+}
+

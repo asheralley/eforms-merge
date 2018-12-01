@@ -1,0 +1,437 @@
+/* PDFTron Viewer scss - imported via tron-config.js*/
+// Exported as tron.css and imported via js/tron.config.js
+
+html {
+	background: none !important;
+}
+
+// PDFTron Viewer scss
+.viewer-page {
+	background-color: #333;
+	padding: 1em;
+	height: 100%;
+}
+
+.viewer {
+	width: 100% !important;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#control, #tabMenu {
+   background: #efefef !important;
+}
+
+#control .ui-label {
+   color: #222;
+   text-shadow: none;
+}
+
+.glyphicons:before {
+    color: #222 !important;
+    opacity: 0.75;
+}
+
+.toolbar #searchButton:before {
+    color: #444 !important;
+    font-size: 1.4em !important;
+    padding-top: 4px;
+    margin-top: 0;
+    padding-right: 0.5em;
+}
+
+#searchButton {
+	width: 28px;
+}
+
+#searchControlGroup {
+	margin-top: 0.6em;
+}
+
+#DocumentViewer {
+	background-color: white;
+}
+
+#ui-display {
+	background-color: white;
+}
+
+.toggleControl {
+     border: none; 
+     background: none; 
+}
+
+#toggleNotesPanel {
+	width: 32px;
+}
+
+#sidePanel {
+	width: 170px;
+}
+
+/* HIDE and Show For ALL Toolbar components */
+
+#toolList {
+	position: relative;
+	padding-top: 1em;
+	width: 28em;
+	span {
+		padding-right: 1.2em;
+	}
+	.select {
+		display: none;
+	}
+	.comments {
+		display: inline-block;
+	}
+}
+
+
+#ui-id-2, #ui-id-3, #forwardPage, #backPage  {
+	display: none;
+}
+
+.comments {
+	display: none;
+}
+
+#layoutModeDropDown {
+	display: none;
+}
+
+// #PDFDownloadButtonContainer {
+// 	display: none;
+// }
+
+.brush  {
+	display: none;
+}
+
+.pen {
+	display: none;
+}
+
+.text_ibeam {
+	display: none;
+}
+
+.signature {
+	display: none;
+}
+
+#signatureCancelButton {
+	display: none;
+}
+
+.text_highlight {
+	display: inline-block !important;
+}
+
+.right-aligned .group {
+	display: inline-block !important;
+}
+
+#toolList {
+	display: none;
+}
+
+#freeHand {
+	display: inline-block !important;
+}
+
+#annotEditStyle, 
+#annotEditNote {
+	display: none !important;
+}
+
+#freeText {
+	display: inline-block !important;
+	color: #fff;
+	opacity: 0.9;
+	padding-top: 1em;
+}
+
+#overflowTools {
+	display: none !important;
+}
+
+#sigStamp {
+	display: inline-block;
+}
+
+.text_resize {
+	color: white;
+}
+
+#textSelectionContainer {
+	display: inline-block !important;
+}
+
+.glyphicons.customicons.text_highlight {
+	display: none !important;
+}
+
+.annotTool.glyphicons.customicons.text_highlight {
+	display: inline-block !important;
+}
+
+#fitModes {
+	display:none;
+}
+
+#zoomBox {
+	color: #efefef;
+}
+
+.dropdown-menu {
+	background-color: #444;
+}
+
+.ui-widget-header.toolbar {
+  height: 62px !important;
+}	
+
+.ui-tabs-nav.ui-helper-reset {
+	height: 62px !important;
+}
+
+.glyphicons:before, 
+.glyphicons {
+	font-size: 36px !important;
+	font-size: 1.8em !important;
+	z-index: 20;
+	padding: 0.4em 0.4em 0.4em 0.4em;
+}
+
+.toolbar {
+
+	.left-aligned {
+		width: 40%;
+		overflow: none !important;
+		padding-bottom: 0.2em;
+
+		.arrow_nsew {
+			margin-right: 10px;
+			padding-bottom: 5px;
+			margin-left: -0.1em !important;
+			margin-top: -0.1em;
+		}
+	}
+
+	.right-aligned {
+		overflow: none !important;
+	}
+
+	.group {
+		padding: 0px;
+	}
+
+}
+
+#searchControl {
+	height: 41px;
+}
+
+.toolbar .glyphicons {
+	padding: 0.35em;
+}
+
+#pageNumberBox {
+	margin-top: 1em;
+	margin-left: 0.3em;
+}
+
+#control .ui-label {
+    margin-top: 1.36em;
+    margin-right: 0em;
+}
+
+.ui-widget-header.toolbar {
+
+	margin-bottom: 8px;
+	padding-bottom: 2px;
+	span {
+		background-color: #efefef;
+		margin: 0px 4px 0px 4px;
+		// border: 2px solid #2C4B7B;
+		border-radius: 7px !important;
+	}
+	span:before {
+		padding: 0.32em 0.2em 0.3em 0.35em;
+		color: #222;
+		opacity: 0.9;
+	}
+	.group {
+		border: none;
+	}
+
+}
+
+.ui-tabs-nav {
+
+	span {
+		// background-color: #222;
+		margin: 0px 4px 0px 4px;
+		// border: 2px solid #2C4B7B;
+		border-radius: 7px;
+	}
+
+	span:before {
+		padding: 0.32em 0.2em 0.3em 0.35em !important;
+		color: #222 !important;
+		opacity: 0.9;
+	}
+
+	.glyphicons:hover:before, 
+	.glyphicons.active:before {
+		color: #222 !important;
+	} 
+
+}
+
+#zoomIn, #zoomOut {
+    border-radius: 0px;
+}
+
+
+// Dropdown Menu
+.dropdown-menu {
+	background-color: #fff;
+}
+
+#prevPage,
+#nextPage,
+#nextPage:before,
+#prevPage:before {
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-right: 0;
+	margin-left: 0;
+}
+
+#totalPages {
+	margin-right: 0em;
+}
+
+#searchBox {
+	width: 80px;
+	line-height: 24px;
+	color: #444;
+	height: 32px;
+	font-size: 15px;
+	font-weight: 100 !important;
+	padding-top: 0.3em;
+	background-color: #fff !important;
+}
+
+// Sign panel updates:
+// Fix the position of the signature dialogue
+.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.noCloseButton {
+	border-radius: 4px;
+	border: #4c4c4c 2px solid;
+	top: 0px !important;
+	padding: 20px;
+}
+
+.sig-msg-holder {
+	color: #333;
+	padding: 0.75em;
+	margin: 0em 0em 1em 0em;
+	background-color: #F7F7F7;
+	border: 1px solid #a8a8a8;
+	border-radius: 1px;
+	p {
+		display: inline;
+		margin-bottom: 0.5em;
+		font-size: 1.4em;
+	}
+	.flag,
+	.flag:before {
+		position: static;
+		display: inline !important;
+		color: #345973 !important;
+		opacity: 1;
+		font-size: 1.3em !important;
+		padding: 0.1em !important;
+	}
+}
+
+.sig-msg {
+	color: #333;
+}
+
+#signatureDialog {
+	height: 35em !important;
+
+	canvas {
+		height: 60% !important;
+		width: 100% !important;
+		margin: 0 auto;
+		display: block;
+	}
+
+}
+
+#signatureCancelButton,
+#signatureClearButton,
+#signatureAddButton
+ {
+	height: 50px !important;
+	width: 140px !important;
+	font-size: 20px !important;
+	margin: 15px 0px 0px 0px !important;
+	background-color: #345973;
+	color: #fff;
+	border: 2px solid #345973;
+	border-radius: 1px;
+	text-transform: uppercase;
+}
+
+#signatureAddButton {
+	width: 240px !important;
+	margin-left: 5px !important;
+}
+
+#signatureDialog #signatureAddButton.unclickableButton {
+	color: #333 !important;
+	opacity: 0.4 !important;
+}
+
+// Tron CSS 12-11-2018 - Document Panel updates ***
+
+.home > .red {
+    border: 1px solid red;
+}
+
+
+#notesPanelWrapper {
+	padding-top: 140px;
+}
+
+#noteOptions {
+	top: -0px !important; 
+}
+
+.toggleNotesButton.chevron-right {
+	display: none;
+}
+
+
+// ****************** Pre QC edits 13-11-2018 *******************
+//Remove delete option from 
+
+.editButtonsContainer {
+	a:nth-child(2) {
+		display: none;
+	}
+
+	a:nth-child(1) {
+		display: none;
+	}
+}
+
+
+
+
+
+

@@ -1,0 +1,768 @@
+// Status Panel
+.status-container {
+
+		// margin-top: 4em
+		border: 1px solid #efefef;
+		padding: 1em 2em 2em 2em;
+
+		h4 {
+			color: $flexi-grey;
+			font-weight: 700;
+			font-size: 1.04em;
+			width: 112%;
+			margin-top: 5px;
+			margin-bottom: 0em;
+			text-transform: uppercase;
+			text-align: left;
+			display: inline;
+		}
+
+		p {
+			color: #666;
+			font-weight: 600;
+			opacity: 1;
+			font-size: 0.8em;
+			
+		}
+
+		i {
+			color: #666;
+			font-size: 1.2em;
+			padding-right: 0.5em;
+		}
+
+	.inner {
+		display: relative;
+		padding: 0.55em 0.65em;
+		border: 1px solid #a8a8a8;;
+		background-color: #f7f7f7;
+		border-radius: 0.1em;
+		min-height: 14.8em;
+		margin: 0.1em;
+	}
+
+	.info {
+		.edits {	
+			margin-bottom: 0.4em;
+			margin-top: 0.5em;
+			i {
+				font-size: 1.2em;
+				font-weight: 600;
+			}
+			p {
+				font-style: italic;
+				display: inline;
+				margin-top: -10px;
+				font-weight: 600;
+			}
+			span.number {
+				margin-right: 0.25em;
+			}
+		}
+		p {
+			display: inline;
+			margin-right: 0em;
+		}
+		.number {
+			font-size: 1.3em;
+			font-weight: 600;
+			color: #666;
+			padding-left: 0.2em;	
+		}
+
+		.token {
+			display: block;
+			font-size: 0.8em;
+			text-align: center;
+			color: $flexi-grey;
+			padding: 0.2em 0.4em 0.2em 0.4em;
+			border: 1px solid $blue-main;
+			background-color: transparent;
+			border-radius: 1px;
+			margin-top: 1.25em;
+			margin-bottom: 0.6em;
+			font-weight: 700;
+			font-size: 0.9em;
+			border-radius: 0.2em;
+			.fa-tags {
+				color: #666;
+				font-size: 1em;
+			}
+		}
+
+		.phone, 
+		.email {
+			margin-bottom: 0.4em;
+			display: block;
+		}
+
+		#phNumber {
+			margin-left: 1em;
+		}
+
+		#emailInfo {
+			margin-left: 1em;	
+		}
+
+	}
+
+	.name {
+		font-size: 0.8em;
+		font-weight: 500;
+		margin-top: 0.65em;
+		text-transform: uppercase;
+		font-style: italic;
+		color: #666;
+	}
+
+	.fa-envelope{
+		cursor: pointer;
+		position: absolute;
+		top: 0.3em;
+		right: 0.3em;
+		font-size: 1.5rem;
+		margin-left: 0.2em;
+		margin-top: 0.1em;
+		display: inline;
+	}
+	.inactive{
+		color: #a3a3a3 !important;
+		opacity: 0.6;
+		font-style: italic;
+	}
+	.number p{
+		font-size: 1.7em;
+		font-weight: 600;
+	}
+	.number {
+		padding-right: 0;
+	}
+	.fa-edit, .fa-hourglass-end {
+		font-size: 1.35em;
+	}
+	.label {
+		padding-left: 0;
+	}
+	.label p {
+		font-size: 0.95em;
+		margin-top: 1.3em;
+		margin-bottom: 1em;
+		padding-left: 0.6em;
+	}
+
+	.status {
+		font-size: 0.8rem; 
+		font-weight: 700;
+		background-color: $flexi-blue;
+		color: white !important;
+		padding: 0.4em;
+		margin-top: 0.45em;
+		margin-bottom: 0.2em;
+		text-align: center;
+		border-radius: 0.2em;
+		i {
+			color: #fff;
+		}
+	}
+
+	.counter-offer {
+		background-color: $flexi-yellow;
+
+		.glyphicons-random {
+			font-size: 0.8em;
+			padding: 0.1em 0.4em 0 0;
+		}
+
+		.glyphicons-random:before {
+			  color: #fff !important;
+		    font-size: 0.8em !important;
+		    opacity: 1;
+		    padding: 0em;
+		}
+	}
+
+	.declined {
+		background-color: $flexi-red;
+	}
+
+	.recall {
+		background-color: $flexi-grey;
+	}
+
+	.review {
+		background-color: $flexi-blue;
+	}
+
+	.approved {
+		background-color: $flexi-green;
+	}
+
+	.created {
+		background-color: #B7B7B7;
+	}
+
+	.invitation-sent {
+		background-color: $flexi-blue;
+	}
+
+	.assign {
+		margin: 0 auto;
+		background-color: $flexi-blue;
+		border: 2px solid $flexi-blue;
+		color: #fff;
+		margin-top: 5em;
+		margin-bottom: 3.32em;
+		font-size: 1em;
+		font-weight: 400;
+		border-radius: 0;
+		padding: 0.4em 1.1em 0.4em 1.1em;
+		border-radius: 2px;
+	}
+
+	.assign:hover {
+		background-color: transparent;
+		color: $flexi-grey;
+	}
+
+	.con {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	.alert-info {
+		display: inline-block;
+		margin: 0.7em 0.5em 1em -0.5em;
+		background-color: #F7F7F7;
+		border: 1px solid #a8a8a8;
+		border-radius: 1px;
+		p {
+			display: inline;
+			font-size: 1em;
+			font-weight: 400;
+			padding-left: 0.25em;
+		}
+	}
+
+	.notify {
+		animation: pulse 1.8s infinite;
+	}
+
+} //status-container ENDS!
+
+.btn-container {
+
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	padding-right: 0em;
+	padding-left: 0.2em;
+
+	button {
+		color: white;
+		border-radius: 1px;
+		cursor: pointer;
+		text-transform: uppercase;
+		float: left;
+		padding: 0.4em 0.6em;
+		margin-right: 1em;
+	}
+
+	button:hover {
+		background-color: #f7f7f7;
+		color: $flexi-grey;
+	}
+
+	.new {
+		background-color: $flexi-blue;
+		border: 2px solid $flexi-blue;
+		border-radius: 0.2em;
+	}
+
+	.sign {
+		background-color: $flexi-yellow;
+		border: 2px solid $flexi-yellow;
+		border-radius: 0.2em;
+	}
+
+	.cancel {
+		background-color: $flexi-grey;
+		border: 2px solid $flexi-grey;
+		border-radius: 0.2em;
+	}
+		
+}
+
+.email-details {
+	background-color: $flexi-blue;
+	color: white;
+	border: 2px solid $flexi-blue;
+	border-radius: 1px;
+	cursor: pointer;
+	text-transform: uppercase;
+	padding: 0.4em 0.6em;
+	margin: 1em;
+	border-radius: 0.2em;
+}
+
+.email-details:hover {
+	background-color: #f7f7f7;
+	color: $flexi-grey;
+}
+
+.question {
+	background-color: white!important;
+	color: black !important;
+	border-radius: 100% !important;
+	padding: 2px 10px;
+	border: 2px solid black !important;
+	font-weight: bold;
+	margin-left: 1em;
+
+}
+.question:hover {
+	background-color:  #c9c9c9 !important;
+
+}
+
+/*send to negotiation*/
+
+.send-negotiation {
+
+	background-color: #f7f7f7;
+	border: 1px solid #a8a8a8;
+	padding: .75em;
+	margin-top: 4em;
+	margin-bottom: 1.5em;
+	color: #333;
+
+	// Shadow Generator
+	-webkit-box-shadow: 3px 4px 5px -2px rgba(189,189,189,1);
+	-moz-box-shadow: 3px 4px 5px -2px rgba(189,189,189,1);
+	box-shadow: 3px 4px 5px -2px rgba(189,189,189,1);
+
+	h4 {
+		color: $flexi-grey;
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 1.08em;
+	}
+
+	button {
+			background-color: $flexi-blue;
+			color: white;
+			border: 2px solid $flexi-blue;
+			padding: 0.4em;
+			font-weight: 400;
+			cursor: pointer;
+			margin: 1em;
+			float: right;
+			text-transform: uppercase;
+			border-radius: 0.2em;
+	}
+
+	button:hover {
+			background-color: #f7f7f7;
+			color: $flexi-grey;
+	}
+
+	.paragraph {
+		margin-top: 1em;
+		margin-bottom: 1em;
+		p {
+			color: #333;
+			font-weight: 600;
+			opacity: 1;
+			font-size: 1em;
+		}
+
+	}
+
+	.cost {
+		margin-top: 1em;
+		margin-bottom: 1em;
+
+		p {
+			color: #333;
+			font-weight: 600;
+			opacity: 1;
+			font-size: 1em;
+		}
+	}
+
+	.buy-btn {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+}
+
+// Tooltip positioning fix for web viewer
+.app-dec {
+	top: 25px !important;
+}
+
+.approve-holder {
+
+	// Approve and decline buttons
+	.holder {
+		float: right;
+
+		i {
+			font-size: 1.2em;
+			float: left;
+			padding-top: 0.14em;
+			padding-right: 0.85em;
+		}
+
+		.approve,
+		.decline, 
+		.counter-offer {
+			padding-left: 2.5em;
+			padding-right: 2.5em;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+		  border-radius: 6px !important; 
+		  margin: 1em;
+		}
+
+		.approve {
+			color: #fff;
+			border: 2px solid #04C26C;
+			background-color: #04C26C;
+			font-weight: 600;
+			i {
+				color: #fff;
+			}
+		}
+
+		.decline {
+			border: 2px solid #ff003b;
+			background-color: #ff003b;
+			color: #fff;
+			font-weight: 600;
+			i {
+				color: #fff;
+			}
+		}
+
+		.counter-offer {
+			border: 2px solid $flexi-yellow;
+			background-color: $flexi-yellow;
+			color: #fff;
+			font-weight: 600;
+			i:before {
+				color: #fff !important;
+				font-size: 1.1em !important;
+				opacity: 1 !important;
+				margin: 0em !important;
+				padding: 0em !important;
+			}
+			i {
+				color: #fff !important;
+				font-size: 1.4em !important;
+				margin: 0em !important;
+				margin-right: 1em !important;
+				padding: 0em !important;
+			}
+		}
+
+		.decline:hover,
+		.approve:hover,
+		.counter-offer:hover {
+			color: #444;
+			background-color: #efefef !important;
+		}
+
+		.decline:hover i,
+		.approve:hover i,
+		.counter-offer:hover i:before{
+			color: #444 !important;
+		}
+
+	}
+
+	position: static;
+	overflow: auto;
+	background-color: #fff;
+
+	.holder {
+		background-color: #fff;
+	}
+
+	i {
+		font-size: 1.2em;
+		float: left;
+		padding-top: 0.14em;
+		padding-right: 0.85em;
+	}
+
+
+} //approve-holder
+
+.modal {
+	textarea {
+		width: 100%;
+		min-height: 38vh;
+	}
+}
+
+/*send to negotiation 2*/
+.btn-box {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+		button {
+			background-color: $blue-main;
+			color: white;
+			border:2px solid $blue-main;
+			padding: 0.4em 1.5em;
+			font-weight: 400;
+			cursor: pointer;
+			margin:1em;
+	}
+}
+
+.top-panel {
+	height: 4.5em;
+	background-color: #f7f7f7;
+	border-bottom: #345973 solid 1px;
+}
+
+// Modals
+@media (min-width: 576px) {
+	.modal-dialog {
+	    max-width: 90%;
+	    margin: 1.75rem auto;
+	}	
+}
+
+#chooseModal .modal-dialogue .modal-content{
+	width: 95% !important;
+	max-width: 95% !important;
+}
+
+// Loader
+.loading-holder {
+	display: inline;
+	position: relative;
+	padding-left: 1em;
+	.logo-viewer {
+		width: 160px;
+		margin-top: 7px;
+	}
+	.loading {
+		width: 45px;
+		margin-left: 0.5em;
+		padding-top: 10px;
+	}
+	span {
+		position: absolute;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 13px;
+		padding-left: 0.5em;
+		top: 0.6em;
+		left: 17.5em;
+		width: 25em;
+	}
+
+} //loading-holder
+
+
+
+// Glyphicons
+.glyphicons {
+	color: #fff;
+}
+
+// Modals
+.modal-footer > button {
+	background-color: rgb(44, 75, 123);
+	border-radius: 1px;
+	text-transform: uppercase;
+}
+
+.modal-header i {
+	color: rgb(44, 75, 123);
+	font-size: 1.7em;
+	margin-right: 0.5em;
+}
+
+.modal-body {
+	font-size: 1.2em;
+}
+
+
+// Loading Spinner Overlay
+#spinnerOverlay {
+	background-color: rgba(255,255,255, 0.8);
+	text-align: center;
+	z-index: 99999 !important;
+	top: 0px !important;
+	h2 {
+		display: inline-block;
+		color: #fff;
+		font-weight: 100;
+	}
+	img {
+		width: 110px;
+	}
+	.spin-hold {
+		position: relative;
+		top: 50%;
+		transform: perspective(1px) translateY(-50%);
+		p {
+			color: #333;
+			font-size: 1em;
+			font-weight: 600;
+			margin-top: 0em;
+			margin-left: -5em;
+		}
+	}
+}
+
+/*
+ *  jquery-easy-loading - v1.3.0
+ *  Easily add and manipulate loading states of any element on the page
+ *  http://github.com/CarlosBonetti/jquery-loading
+ *
+ *  Made by Carlos Bonetti <carlosb_bc@hotmail.com>
+ *  Under MIT License
+ */
+/* This CSS file just define some default styles and loaders */
+/* You don't need to include it if you're working with your custom overlay loader element */
+
+.loading-overlay {
+  display: table;
+  opacity: 0.7;
+}
+
+.loading-overlay-content {
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-size: 1.15em;
+  font-weight: bold;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.loading-overlay.loading-theme-light {
+  background-color: #fff;
+  color: #000;
+}
+
+.loading-overlay.loading-theme-dark {
+  background-color: #000;
+  color: #fff;
+}
+
+.a1,
+.a2 {
+	width: 49.5%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.alert-info.download-notice,
+.alert-info.check-notes  {
+	
+	border-radius: .1em!important;
+	background-color: #d9edf7;
+	border: 1px solid #bce8f1;
+	color: #31708f;
+	margin: 0em 0em 0.5em 0em;
+	padding: 0.6em;
+	vertical-align: top;
+
+	p {
+		display: inline;
+		font-size: 1em;
+		font-weight: 400;
+		padding-left: 2em;
+	}
+
+	i:before {
+		padding-right: 0.5em;
+		color: #345973 !important;
+		font-size: 0.5em !important;
+		padding: 0em !important;
+		margin: 0em !important;
+		font-weight: 600;
+	}
+
+	.glyphicons {
+		padding: 0.2em 0.2em 0em 0em !important; 
+	}
+
+}
+
+.client-v, .agent {
+	width: 100%;
+	display: inline-block;
+	padding: 0.5em;
+}
+
+.client-v {
+	margin-top: 0em;
+	margin-bottom: 1em;
+}
+
+.check-notes, 
+.download-notice {
+	vertical-align: top;
+	min-height: 2em;
+}
+
+.tippy-tooltip .tippy-backdrop {
+	border: 1px solid $flexi-blue;
+	background-color: #f7f7f7;
+}
+
+.tippy-tooltip {
+	border: 2px solid $flexi-blue;
+	font-size: 0.7rem;
+	animation: pulse 1.8s infinite;
+	padding: .2rem .3rem;
+}
+
+.tippy-content {
+	color: #333;
+	font-weight: 600;
+}
+
+.tippy-popper {
+	z-index: 1 !important;
+}
+
+// Pulse Animation Settings:
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(52,89,115, 0.4);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 5px rgba(52,89,115, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(52,89,115, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(52,89,115, 0.4);
+    box-shadow: 0 0 0 0 rgba(52,89,115, 0.4);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 5px rgba(52,89,115, 0);
+      box-shadow: 0 0 0 5px rgba(52,89,115, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(52,89,115, 0);
+      box-shadow: 0 0 0 0 rgba(52,89,115, 0);
+  }
+}
+
+.mobile-message {
+	display: none;
+}

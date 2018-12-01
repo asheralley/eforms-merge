@@ -1,0 +1,169 @@
+html
+	html(lang='en', style='background: none;')
+		include inc/_head.pug
+	body
+		.container-fluid                 
+			.row.status-container
+				.col-12
+					.alert.alert-info
+						i.fas.fa-info-circle
+						p#alertMessage Please note that each contact will be updated
+				div.row(data-step="1" data-intro="Welcome, <b>REINZ NEGOTIATIONS</b>.<br><br> <i>Initiate the process by selecting whom to send the offer to first</i>.<br><br> This platform allows you to: <br><ul><li>View the progress of an offer sent for negotiations</li><li>Facilitate the offer process by forwarding an offer through to other clients included in negotiations</li><li>View changes made in real time and make changes when necessary</li></ul>Click 'Next' to view what information is contained within each of the sections displayed.")
+					.col-sm-3.col-md-6.col-lg-3.con(data-step="2" data-intro="'Primary Purchaser' contains the details added to this section under the contact tab when the eForm was created. <br><br> All 'Contacts' added under the 'Contacts Section' of the eForm will display here as in the example. Details displayed for each contact can update as the agent and the client interact with the system and the offer during the negotiation process.")
+						.col-sm-12.inner
+							h4 Primary Purchaser
+							i.far.fa-envelope.info-check(data-toggle="tooltip", data-placement="top", title="Send notification email", data-step="3", data-intro="To initiate the 'Negotiation Process' or send/forward an offer to any 'Contact' displayed in this area, select the email icon. You can send an offer to a 'Contact' as many times as you like but only to one 'Contact' at a time. ")                         
+							p.name(data-step="4" data-intro="The name represents the 'Primary Purchaser' which was added to this section under the contact tab when the eForm was originally created.") Jack Armstrong                           
+							.info
+								.edits.inactive
+									i.fas.fa-edit.info-icon                              
+									p(data-step="5" data-intro="The number of times the contact has edited the offer.")
+										span.number 0
+										span Edits - Beta
+								p.phone(data-step="6" data-intro="Represents the contacts mobile phone number added to the contact tab when the eForm was originally created. Each time you use the email icon (top right) to send the offer to the contact, a unique SMS code will be generated and sent to the cell phone number displayed here. This number can be changed via the email icon (top right). ") 
+									span 
+										strong
+											i.fas.fa-phone
+									span#phNumber 027 599 3020  
+								p.email(data-step="7" data-intro="Represents the contacts email address added to this section under the contact tab when the eForm was originally created. Once the email icon (top right) is selected to send an offer, it will send to the email address displayed here. ") 
+									span 
+										strong
+											i.fas.fa-at
+									span#emailInfo johnSmith@gmail.com                             
+								p.token(data-step="8", data-position="right", data-intro="Once an offer is sent to a client for review using the email icon (top right), a unique SMS code is generated and sent to the mobile phone number displayed. That code displays here for your reference. A new code is generated each time the offer is re-sent to the contact.")
+									i.fas.fa-tags
+									|  Token: ZCTA41                            
+							p.status(data-step="9" data-intro="If ‘Approved’ is displayed the contact has approved the offer. The date this occurred will also display.")
+								i.fas.fa-check-circle 
+								| Approved 01/01/2017                    
+					.col-sm-3.col-md-6.col-lg-3.con(data-step="10" data-intro="'Secondary Purchaser' relates to the details added to this section under the contact tab when the eForm was originally created. ")
+						.col-sm-12.inner
+							h4 Secondary Purchaser
+							i.far.fa-envelope.info-check(data-toggle="tooltip", data-placement="top", title="Send notification email")                            
+							p.name Nathan Jones                            
+							.info
+								.edits.inactive
+									i.fas.fa-edit.info-icon             
+									p
+										span.number 0
+										span Edits - Beta
+								p.phone 
+									span 
+										strong
+											i.fas.fa-phone
+									span#phNumber 021 555 8888  
+								p.email
+									span 
+										strong
+											i.fas.fa-at
+									span#emailInfo jDogg@gmail.com                               
+								p.token
+									i.fas.fa-tags
+									|  Token: IUA769                            
+							p.status.declined(data-step="11" data-intro="If 'Declined' is displayed this means the contact has declined the offer.") 
+								i.fas.fa-times-circle 
+								| Declined 01/01/2017                    
+					.col-sm-3.col-md-6.col-lg-3.con(data-step="12" data-intro="'Primary Vendor' relates to the details added to this section under the contact tab when the eForm was originally created. ") 
+						.col-sm-12.inner
+							h4 Primary Vendor
+							i.far.fa-envelope.info-check(data-toggle="tooltip", data-placement="top", title="Send notification email")                          
+							p.name Joan Smith                            
+							.info
+								.edits
+									i.fas.fa-hourglass-start.info-icon 
+									p(data-step="13" data-intro="Once the offer is sent to a contact via the email icon (top right), a 24-hour time limit will automatically start. Only one client can access an offer at a time, if they don’t open the offer within 24 hours the SMS code and link will expire, and the offer will need to be re-sent to the client from here.") 
+										span.number 12
+										span Hours remaining
+								p.phone 
+									span 
+										strong
+											i.fas.fa-phone
+									span#phNumber 022 000 0011 
+								p.email
+									span 
+										strong
+											i.fas.fa-at
+									span#emailInfo joanSmith@gmail.com                               
+								p.token
+									i.fas.fa-tags
+									|  Token: ZCTA41                           
+							p.status.review(data-step="14" data-intro="‘In Review’ means the contact has received the SMS code, received the email and has also opened the offer.") 
+								i.fas.fa-clock
+								| In Review 01/01/2017                 
+					.col-sm-3.col-md-6.col-lg-3.con
+						.col-sm-12.inner
+							h4.inactive Secondary Vendor                           
+							.row
+								button.btn.assign(data-step="15" data-intro="To include another client in the negotiation, select ‘Click to Assign’.")  CLICK TO ASSIGN                   
+					.col-sm-12.offset-sm-12.btn-container                      
+						button.cancel Cancel                      
+						button.sign Send for Signing                      
+						button.new Send to New Client
+		// Send to negotiatin begins
+		button.modal-test.email-details#modalTest(data-toggle="modal" data-target="#exampleModal") Email Details Modal
+		.container
+			.row
+				.col-xs-12.div.send-negotiation
+					h4 Send to Negotiation
+					|                 
+					.paragraph
+						p
+							| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt risus sodales mi rhoncus, eu suscipit felis interdum. Vestibulum tincidunt leo ipsum, non congue felis pretium id. Nullam faucibus
+					|                 
+					.cost
+						p Negotiation or Signing a contract has a fixed cost of $10 incl gst
+					|                 
+					div
+						.buy-btn
+							button BUY NOW WITH PAYPAL
+				|             
+				.col-xs-12.div.send-negotiation
+					h4 Send to Negotiation
+					|                 
+					.paragraph
+						p
+							| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tincidunt risus sodales mi rhoncus, eu suscipit felis interdum. Vestibulum tincidunt leo ipsum, non congue felis pretium id. Nullam faucibus.
+						|                     
+						br
+						|                     
+						p
+							| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit temporibus sequi eos et omnis saepe natus quidem excepturi asperiores ipsa, officiis, aliquid optio reprehenderit, blanditiis nam beatae architecto quia molestiae!
+					|                 
+					div
+						.buy-btn
+							button Negotiation
+							|                         
+							button Send To Sign
+		// Modal
+		#exampleModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="exampleModalLabel", aria-hidden="true")
+			.modal-dialog(role="document")
+				.modal-content
+					.modal-header
+						h5#exampleModalLabel.modal-title SMS EMAIL CONFIRMATION
+						|         
+						button.close(type="button", data-dismiss="modal", aria-label="Close")
+							span(aria-hidden="true") ×
+					|       
+					.modal-body
+						.form-group
+							label(for="exampleInputEmail1") Email Subject
+							| 
+							input#exampleInputEmail1.form-control(type="email", aria-describedby="emailHelp", placeholder="Enter email", value="REINZ Property Agreement - Login to Review")
+						.form-group
+							label(for="comment") Email Content:
+							|   
+							textarea#comment.form-control(rows="5")
+								| Dear Jo Bloggs,
+								|
+								| You have been sent an SMS authorisation code from licensed Real Estate Agent Deborah Barns to access  a REINZ digital property agreement. Please check phone 021 854 398. Do not forward or give this code to anyone. Click the login button below to enter the code and review, sign or make changes to the digital agreement.
+								|
+								| If you have not received a code or have any questions about this process, please call an your agent.
+								|
+								| Kind Regards,
+								|
+								| REINZ eForms
+					.modal-footer
+						button.btn.btn-secondary(type="button", data-dismiss="modal") Cancel
+						|         
+						button.btn.btn-primary(type="button") Send
+			include inc/_scripts.pug

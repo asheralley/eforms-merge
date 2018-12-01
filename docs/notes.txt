@@ -1,0 +1,18 @@
+EFORMS Evaluation Key:
+
+---- evaluation key begin ----
+demo:jared@veratech.co.nz:721d08bd0137bea577e64f4017b5b9a4768434555eb74ac8f8
+---- evaluation key end ----
+
+
+Create webpack dev with node imports environment for eFromstron-frontEnd
+
+Installed Webpack with possible config file option
+
+https://hackernoon.com/webpack-the-basics-2712a7ad640b
+https://www.npmjs.com/package/webpack-stream
+
+
+08-06-2018
+Pug files need further update and workflow
+Border on input needs work

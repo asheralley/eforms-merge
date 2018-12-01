@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- when ready, replace all references to https://demo.pdftron.com below with your own server -->
+	<script src='https://demo.pdftron.com/demo/WebViewer/lib/html5/external/jquery-3.2.1.min.js'></script>
+	<script src='https://demo.pdftron.com/demo/WebViewer/lib/WebViewer.js'></script>
+
+	<div id='viewer' style='width: 1024px; height: 600px;'></div>
+	<script>
+	  var viewerElement = document.getElementById('viewer');
+	  var myWebViewer = new PDFTron.WebViewer({
+	    path: 'https://demo.pdftron.com/demo/WebViewer/lib',
+	    l: 'demo:jared@veratech.co.nz:721d08bd0137bea577e64f4017b5b9a4768434555eb74ac8f8', //replace with your free trial license key from https://www.pdftron.com/form/download-trial
+	    initialDoc: 'https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf', // replace with your own PDF file
+	    pdftronServer: 'https://demo.pdftron.com' // remove option to run client-side only, or replace later with your own server
+	  }, viewerElement);
+	</script>
+</body>
+</html>

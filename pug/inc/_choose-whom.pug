@@ -1,0 +1,33 @@
+.col-md-12.choose-whom
+  .row
+    .col-md-12
+      h6 Select a recipient to receive the document for review and amendment
+      p
+        | Please check the phone number of the selected recipient as they will receive a txt verification code in order to login and review the document. Only one contact can review and edit a document at a time.
+  .row
+    .col-lg-6.col-sm-12
+      label.btn.btn-lg.btn-block.radio
+        | Sarah Burns (Secondary Vendor)-021 845 398
+        input#radio1(type='radio', name='recipient')
+    .col-lg-6.col-sm-12
+      label.btn.btn-lg.btn-block.radio
+        | Jack Armstrong (Primary Purchaser)-021 789 892
+        input#radio2(type='radio', name='recipient')
+  .row.recipents
+    .col-lg-6.col-sm-12
+      label.btn.btn-lg.btn-block.radio
+        | Deborah Barns (Primary Vendor)-027 678 766
+        input(type='radio', name='recipient', id='radio3 radio')
+    .col-lg-6.col-sm-12
+      label.btn.btn-lg.btn-block.radio
+        | Jill Armstrong (Secondary Purchaser)-021 875 746
+        input#radio4(type='radio', name='recipient')
+  .row
+    .col-md-12
+      h6  Please include a message to accompany the document
+      input(type='text', placeholder='Message Subject')
+      .areas-highlight
+        textarea(placeholder='Message')
+      .submit-div
+        button#login.btn.btn-secondary.submit(type='button')  SUBMIT
+
