@@ -1,0 +1,58 @@
+﻿//===================================================
+
+$(function () {
+
+    $(".dropdownLi").hover(
+    function () {
+        $('.dropdown-menu', this).stop(true, true).fadeIn("fast");
+        $(this).toggleClass('open');
+    },
+    function () {
+        $('.dropdown-menu', this).stop(true, true).fadeOut("fast");
+        $(this).toggleClass('open');
+    });
+
+    refreshStats();
+
+});
+
+function refreshStats(){
+    loadRecentUpdated();
+    loadRecentCreated();
+}
+
+//===================================================
+
+function loadRecentUpdated() {
+    $.ajax({
+        type: "Get",
+        url: "/eform/recentUpdatedForms/",
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#recentUpdatedForms").html(data);
+
+    }).fail(function (jqXHR, textStatus) {
+        
+    });
+}
+
+//===================================================
+
+function loadRecentCreated() {
+    $.ajax({
+        type: "Get",
+        url: "/eform/recentCreatedForms/",
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#recentCreatedForms").html(data);
+
+    }).fail(function (jqXHR, textStatus) {
+     
+    });
+}
+
+//===================================================

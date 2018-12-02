@@ -1,0 +1,258 @@
+// UI Cleaning 2018
+
+// Overall font reset
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,700,700i,900');
+
+html, body {	
+	font-family: 'Roboto', sans-serif !important;
+}
+
+// Heading Resets
+h1{
+	font-family: 'Roboto', sans-serif !important;
+	color: $font !important;
+}
+h2{
+	font-family: 'Roboto', sans-serif !important;
+	color: $font !important;
+}
+h3{
+	font-family: 'Roboto', sans-serif !important;
+	color: $font !important;
+}
+h4{
+	font-family: 'Roboto', sans-serif !important;
+	color: $font !important;
+}
+h5{
+	font-family: 'Roboto', sans-serif !important;
+	color: $font !important;
+}
+h6{
+	font-family: 'Roboto', sans-serif !important;
+	color: $font !important;
+}
+
+// Wrapper for main panel non-nav area in eForms
+.colten-wrapper {
+
+	// Heading Resets
+	h1{
+		color: $font !important;
+	}
+	h2{
+		color: $font !important;
+	}
+	h3{
+		color: $font !important;
+	}
+	h4{
+		color: $font !important;
+	}
+	h5{
+		color: $font !important;
+	}
+	h6{
+		color: $font !important;
+	}
+
+	// Random classes sub heading fix.
+	.caption-subject .font-red .uppercase {
+		color: $font !important;
+	}
+
+	// Remove Blue Heading  - Clauses
+	.caption span.caption-subject.font-red.uppercase {
+		color: $font !important;
+		font-size: 15px !important;
+	}
+
+
+
+	// Archived forms panel - my forms page
+	.search-forms li h4 {
+		line-height: 1.45 !important;
+	}
+
+	.address-reference {
+		font-style: normal !important;
+	}
+
+	.date-created {
+		font-weight: normal !important;
+	}
+
+}
+
+// Side tab for side panel fixes
+div#tab-box:hover .fa.fa-sign-out.new-trigger-ani {
+    background-color: $blue-b;
+    border-color: $blue-b;
+}
+
+#slider-contents {
+
+	// Autosave Headings
+	.restore-autosave h5 {
+		color: #333 !important; 
+	}
+
+	// Button and icons
+	.audit-save i {
+		color: #fff !important;
+	}
+
+	// Autosaver hover fix
+	.auto-saver:hover {
+	    background-color: $grey-background-dark !important;
+	    border: 1px solid $grey-border !important;
+	}
+
+	.restore-saver h5 {
+		color: #fff !important;
+	}
+
+	// Autosaver hover fix
+	.auto-saver {
+	    background-color: $grey-background-dark !important;
+	    border: 1px solid $grey-border !important;
+	}
+
+	.dt-autosave {
+		font-style: normal !important;
+	}
+
+	.slide-icon-audit {
+		background-color: $grey-background-dark !important;
+		border: 1px solid $grey-border !important;
+	}
+
+	.btn{
+	    background-color: $grey-background-dark !important;
+	    border-color: $blue-b !important;
+	    border-width: 1px;
+	    border-radius: 1px!important;
+	    color: #fff;
+	}
+	.btn:hover,
+	.btn:active,
+	.btn:visited,
+	.btn:focus{
+	    background-color: $grey-background-dark !important;
+	    border-color: $blue-b !important;
+	    border-width: 1px;
+	    color: $blue-b !important;
+	}
+
+	//Tab content underline	
+	.page-quick-sidebar-wrapper .page-quick-sidebar .nav-justified > li.active > a {
+	    border-bottom: 3px solid $blue-a;
+	}
+
+}
+
+// More Slider content: 
+
+#slider-contents .audit-save i, #slider-contents .restore-saver h5 {
+    color:$blue-b !important;
+}
+
+#slider-contents .audit-save i, #slider-contents .restore-saver i {
+    color:$blue-b !important;
+}
+
+#slider-contents .audit-save i, #slider-contents .restore-saver h5 {
+    color: $blue-b !important;
+}
+
+.slide-icon-add-trans i.fa.fa-plus {
+    color: $blue-b;
+}
+
+#slider-contents .btn {
+    color: $blue-b;
+}
+
+.bs-callout.bs-callout-danger {
+    background-color: #c9c9c9;
+}
+
+// icon sizing
+[class^="fa-"]:not(.fa-stack), 
+[class^="glyphicon-"], 
+[class^="icon-"], 
+[class*=" fa-"]:not(.fa-stack), 
+[class*=" glyphicon-"], 
+[class*=" icon-"] {
+	font-size: 15px !important;
+}
+
+// Whats this question mark icons on home page
+.select-form .fa-question-circle {
+	color: $blue-b !important;
+}
+
+// Label Panels
+.panel-body.warning-note, p .form-label {
+	background-color: $blue-b !important;
+	border-radius: 1px !important;
+}
+
+// My Forms / Transfer Old Sale - 
+.select-template button:first-child {
+	margin-top: -5px;
+}
+
+// Floating Side Menu Override
+.portlet {
+	.floating-menu{
+	    background-color: none;
+	    width: 13.3em;
+	    right: 0;
+	    padding-left: 0.5em;
+	    border-radius: 1px;
+	    padding-right: 1.8em;
+	    .btn:first-child {
+	    	margin-left: 0em!important;
+	    }
+	    .btn{
+	        background-color: $blue-b;
+	        padding: 4px 12px;
+	        color: #fff;
+	        border-color: $blue-b;
+	        border-width: 1px;
+	        border-radius: 1px!important;
+	        font-weight: 400;
+	        width: 12.8em;
+	        text-align: left;
+	        margin-left: -1px; 
+	    }
+	}
+}
+
+p.warning-note {
+    background-color: $blue-b;
+    border-color: $blue-b;
+    color: #fff;
+    border-radius: 1px;
+    padding: 5px;
+}
+
+.select-template button:first-child {
+	margin-top: -6px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

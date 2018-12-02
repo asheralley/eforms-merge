@@ -1,0 +1,290 @@
+﻿//===================================================
+
+$(function () {
+    loadFormTermModal();
+
+    $("#addNewClauseForm").validate({
+        focusInvalid: false, // do not focus the last invalid input
+        rules: {
+            clauseTitle: { required: true },
+            clauseContent: { required: true }
+        }
+    });
+
+    $('#manageDisabledClause').on('hidden.bs.modal', function () {
+        loadClause('tab_1_1_3');
+    })
+});
+
+//===================================================
+
+function loadClause(tabID) {
+    loadClause(tabID, false);
+}
+
+//===================================================
+
+function loadClause(tabID,DRC) {
+    var versionID = $("#versionID").val();
+
+    $("#" + tabID).html('<img src="/assets/global/img/ajax-loading.gif" />');
+
+    $.ajax({
+        type: "Get",
+        url: "/Eform/loadFormClause/",
+        data: { id: versionID, DRC: DRC },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#" + tabID).html(data);
+        $('#' + tabID).tab('show');
+
+    }).fail(function (jqXHR, textStatus) {
+        console.log("Failed to load clauses : " + textStatus);
+    });
+}
+
+//===================================================
+
+function crossTerm(id) {
+
+    isChecked = $("#chk_" + id).prop("checked");
+
+    $.ajax({
+        type: "Post",
+        url: "/Eform/updateTermVersionLink/",
+        data: { tid: id, versionID: $("#versionID").val(), lineThrough: isChecked },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        if (data.status) {
+            if (isChecked) {
+                $("#box_" + id).addClass("crossThrough");
+            }
+            else {
+                $("#box_" + id).removeClass("crossThrough");
+            }
+        }
+        else {
+            errorMsg(data.message);
+        }
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg("Request failed: " + textStatus);
+    });
+
+    
+
+}
+
+//===================================================
+
+function loadFormTermModal() {
+    var infoID = $("#eformId").val();
+
+    $.ajax({
+        type: "Get",
+        url: "/Eform/getFormTermsAndConditions/",
+        data: { infoID: infoID},
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+        $("#formTermsContent").html(data);
+
+    }).fail(function (jqXHR, textStatus) {
+        $("#formTermsContent").html("<p>Request failed: " + textStatus + "</p>");
+    });
+}
+
+//===================================================
+
+function addNewClause() {
+
+    
+
+    $("#newClauseerrorDiv").hide();
+    $("#newClauseErrorMsg").html('');
+
+    var isValid = $("#addNewClauseForm").valid();
+
+    if (isValid) {
+        var data = $("#addNewClauseForm").serializeArray();
+        data.push({ name: 'eformId', value: $("#eformId").val() });
+
+        $.ajax({
+            type: "Post",
+            url: "/Clause/addCustomClause/",
+            data: data,
+            cache: false
+        }).done(function (data) {
+            isAjaxRequestTimeOut(data);
+            
+            if (data.status) {
+
+                $("#clauseTitle").val('');
+                $("#replaceTermID").val('');
+                $("#clauseContent").val('');
+
+                showMsg("Clause Added!");
+                loadClause('tab_1_1_3');
+                $("#addClauseModal").modal('hide');
+                cleanAddClauseForm();
+                
+            }
+            else {
+                $("#newClauseErrorMsg").html(data.message);
+                $("#newClauseerrorDiv").show();
+            }
+
+        }).fail(function (jqXHR, textStatus) {
+            $("#newClauseErrorMsg").html("<p>Request failed: " + textStatus + "</p>");
+            $("#newClauseerrorDiv").show();
+        });
+    }
+}
+
+//===================================================
+
+function manageDisabledClause() {
+    $.ajax({
+        type: "Get",
+        url: "/Clause/getMemberDisabledClauese/",
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#manageDCDiv").html(data);
+        $("#manageDisabledClause").modal('show');
+        
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg(textStatus);
+    });
+}
+
+
+function reactiveClause(cid) {
+    $.ajax({
+        type: "Post",
+        url: "/Clause/reactiveClauese/",
+        data: { id : cid},
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        if (data.status) {
+            $("#dic_" + cid).remove();
+            showMsg(data.message);
+        }
+        else {
+            errorMsg(data.message);
+        }
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg(textStatus);
+    });
+}
+
+
+//===================================================
+
+function cleanAddClauseForm() {
+    $("#clauseTitle").val('');
+    $("#clauseContent").val('');
+    $('.replaceTerm').removeAttr('checked');
+    $('.replaceTermContent').removeClass('crossThrough');
+}
+
+//===================================================
+
+function copyClause(id) {
+    $("#holder").innerText = $("#content_" + id).html();
+
+    Copied = $("#holder").createTextRange();
+    try{
+        Copied.execCommand("Copy");
+        alert("Clause copied to clipboard.");
+    }
+    catch(e){
+        alert("Sorry, your browser doesn't support this feature.");
+    }
+    
+}
+
+//===================================================
+
+
+function editClause(id) {
+    //set the current edit clause id
+    $("#currentEditClauseID").val(id);
+
+    // set the edit content
+    var regex = /<br\s*[\/]?>/gi;
+    var contentToEdit = $.trim($("#clauseContent_" + id).html());
+    contentToEdit = contentToEdit.replace(regex, "\n");
+    $("#editClauseContent").val(contentToEdit);
+
+    //show the modal
+    $("#editClauseModal").modal('show');
+}
+
+//===================================================
+
+function saveCustomClause() {
+    var cid =  $.trim($("#currentEditClauseID").val());
+    var vid = $.trim($("#versionID").val());
+    var content = $.trim($("#editClauseContent").val());
+
+    var isValid = true;
+
+    if (cid == "") {
+        alert("Invalid Clause ID.");
+        isValid = false;
+    }
+
+    if (vid == "") {
+        alert("Invalid Version ID.");
+        isValid = false;
+    }
+
+    if (content == "") {
+        alert("Clause content cannot be blank");
+        isValid = false;
+    }
+
+    if (isValid) {
+        // replace the new line with br
+        var content = content.replace(/\n/g, "<br/>");
+
+        $(".editClauseAction").hide();
+        $(".editClauseActionLoading").show();
+
+        $.ajax({
+            type: "Post",
+            url: "/Clause/saveCustomClause/",
+            data: { clauseID: cid, versionID: vid, content: content },
+            cache: false
+        }).done(function (data) {
+            isAjaxRequestTimeOut(data);
+
+            if (data.status) {
+
+                // update the clause content
+                $("#clauseContent_" + cid).html(content);
+
+                $('#editClauseModal').modal('hide');
+            }
+            else {
+                alert(data.message);
+            }
+            $(".editClauseActionLoading").hide();
+            $(".editClauseAction").show();
+
+        }).fail(function (jqXHR, textStatus) {
+            alert(textStatus);
+            $(".editClauseActionLoading").hide();
+            $(".editClauseAction").show();
+        });
+    }
+}

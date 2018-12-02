@@ -1,0 +1,217 @@
+﻿//===================================================
+
+$(function () {
+    
+});
+
+//===================================================
+
+function loadForm(id) {
+    var eformID = $("#eformId").val();
+    var versionID = $("#versionID").val();
+
+    $(".toolbaraction").hide();
+    $("#toolbarloading").show();
+    showLoading();
+
+    $.ajax({
+        type: "Get",
+        url: "/SaleAndPurchaseAgreement/loadSnPForm/",
+        data: { formID: eformID, versionID: versionID },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#" + id).html(data);
+
+        $("#toolbarloading").hide();
+        $(".toolbaraction").show();
+        showAgreement();
+
+        window.scrollTo(0, $("#scrollP").val());
+
+    }).fail(function (jqXHR, textStatus) {
+        $("#" + id).html("Request failed: " + textStatus);
+
+        $("#toolbarloading").hide();
+        $(".toolbaraction").show();
+        showAgreement();
+    });
+}
+
+//===================================================
+
+function loadTerms(id) {
+    $.ajax({
+        type: "Get",
+        url: "/SaleAndPurchaseAgreement/loadSnPTerms",
+        data: { versionID: $("#versionID").val() },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#" + id).html(data);
+
+    }).fail(function (jqXHR, textStatus) {
+
+        $("#" + id).html("Request failed: " + textStatus);
+    });
+}
+
+//=====================================================================================
+
+function validationMain() {
+    //var address = $.trim($("#propertyAddressFull").val());
+    var startNo = $.trim($("#clauseStartNumber").val());
+
+    //if (address == "") { return "Address of the property cannot be blank." }
+    if ( !$.isNumeric(startNo)) { return "Appendix Clause start number is not valid." }
+
+    return "";
+}
+
+//===================================================
+
+function getFormData() {
+    var data = $("#mainAgreementForm").serializeArray();
+    return data;
+}
+
+//===================================================
+
+function saveForm() {
+    var isValid = validationMain();
+
+    var hasSalesperson = checkSalesperson();
+
+        if ($.trim(isValid) == "") {
+            $("#scrollP").val($(window).scrollTop());
+            $("#loadingCircle").show();
+            $(".toolbaraction").hide();
+            $("#toolbarloading").show();
+
+            showSaveModal();
+
+            $.ajax({
+                type: "Post",
+                url: "/SaleAndPurchaseAgreement/saveForm/",
+                data: getFormData(),
+                cache: false
+            }).done(function (data) {
+                isAjaxRequestTimeOut(data);
+
+
+
+                if (data.status) {
+                    showMsg("Save Complete");
+                    $("#versionID").val(data.data);
+                    loadForm('formContent');
+                    refreshStats();
+                    saveToCouldBtn();
+                }
+                else {
+                    errorMsg(data.message);
+                }
+                $("#loadingCircle").hide();
+                $("#toolbarloading").hide();
+                $(".toolbaraction").show();
+
+                closeSaveModal();
+
+            }).fail(function (jqXHR, textStatus) {
+                $("#loadingCircle").hide();
+                errorMsg(textStatus);
+                $("#toolbarloading").hide();
+                $(".toolbaraction").show();
+
+                closeSaveModal();
+
+            });
+        }
+        else {
+            errorMsg(isValid);
+        }
+}
+
+//===================================================
+
+
+
+function autoSaveForm() {
+
+    var isValid = validationMain();
+
+    if ($.trim(isValid) == "") {
+
+        showSaveModal();
+
+        $("#scrollP").val($(window).scrollTop());
+        $.ajax({
+            type: "Post",
+            url: "/SaleAndPurchaseAgreement/autoSaveForm/",
+            data: getFormData(),
+            cache: false
+        }).done(function (data) {
+            isAjaxRequestTimeOut(data);
+
+            //alert(data.message);
+            showMsg("Autosave Complete");
+
+            if (data.status) {
+
+                $("#versionID").val(data.data);
+                loadForm('tab_1_1_1');
+                saveToCouldBtn();
+            }
+            closeSaveModal();
+
+        }).fail(function (jqXHR, textStatus) {
+            errorMsg(textStatus);
+            closeSaveModal();
+        });
+    }
+    else {
+        errorMsg(isValid);
+    }
+}
+
+//==========================================================
+
+function cloneThisForm() {
+    var isValid = $("#cloneEformForm").valid();
+
+    if (isValid) {
+        var data = $("#cloneEformForm").serializeArray();
+
+        $.ajax({
+            type: "POST",
+            url: "/SaleAndPurchaseAgreement/cloneSnpAgreement",
+            dataType: "JSON",
+            data: data,
+            cache: false
+        }).done(function (data) {
+            isAjaxRequestTimeOut(data);
+
+            showMsg("Clone Completed.");
+            $("#cloneModal").modal('hide');
+
+            window.location = "/SaleAndPurchaseAgreement/showSaleAndPurchaseAgreement/" + data.data;
+
+        }).fail(function (jqXHR, textStatus) {
+            errorMsg(textStatus);
+
+        });
+    }
+}
+
+//===================================================
+
+function printFormToPDF() {
+    var hasSalesperson = checkSalesperson();
+
+        var versionID = $("#versionID").val();
+        window.open(
+          "/SaleAndPurchaseAgreement/printAgreement/?versionID=" + versionID,
+          '_blank'
+        );
+}

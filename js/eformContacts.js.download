@@ -1,0 +1,773 @@
+﻿$(function () {
+
+    //=======================================================================================
+
+    //$("#assignContactsForm").validate({
+    //    focusInvalid: false, // do not focus the last invalid input
+    //    rules: {
+    //        //contVendor: { required: true },
+    //        //contPurchaser: { required: true },
+    //       // contSolicitor: { required: true },
+    //       // contEformManagerID: { required: true },
+    //        contSalespersonID: { required: true }
+    //    }
+    //});
+
+    
+
+    //=======================================================================================
+
+    $('#searchContact').keyup(function () {
+        var searchTerm = $.trim($('#searchContact').val());
+
+        if (searchTerm.length > 2) {
+            $("#contactSearchResults").html('');
+
+            $.ajax({
+                type: "Get",
+                url: "/Contact/searchContacts/",
+                data: { term: searchTerm },
+                cache: false
+            }).done(function (data) {
+                isAjaxRequestTimeOut(data);
+                $("#contactSearchResults").html(data);
+
+            }).fail(function (jqXHR, textStatus) {
+                $("#contactSearchResults").html("Request failed: " + textStatus);
+            });
+        }
+
+        if (searchTerm.length == 0) {
+            $("#contactSearchResults").html('');
+        }
+
+        
+
+    });
+
+    //=======================================================================================
+
+    //if ($("#contVendor").length) {
+
+    //    $('#contVendor').autocomplete({
+    //        source: function (request, response) {
+    //            $.ajax({
+    //                type: "GET",
+    //                url: "/Contact/searchContactsByType/",
+    //                dataType: "json",
+    //                data: {
+    //                    term: $.trim($('#contVendor').val()),
+    //                    type: 1
+    //                },
+    //                success: function (data) {
+    //                    response(data);
+    //                }
+    //            });
+    //        },
+    //        select: function (event, ui) {
+
+    //            $("#contVendorID").val(ui.item.id);
+    //            $("#contVendor").val(ui.item.firstName + " " + ui.item.lastName + " ( " + ui.item.displayName + " )");
+
+    //            return false;
+    //        },
+    //        minLength: 3,
+    //        delay: 100,
+    //        open: function () {
+    //            $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+    //        },
+    //        close: function () {
+    //            $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+    //        }
+    //    }).data("ui-autocomplete")._renderItem = function (ul, item) {
+    //        console.log(item);
+
+    //        return $("<li></li>").append("<a>" + item.firstName + " " + item.lastName + " ( " + item.displayName + " ) </a>").appendTo(ul);
+    //    };
+
+    //}
+    
+
+    ////=======================================================================================
+
+    //if ($("#contPurchaser").length) {
+
+    //    $('#contPurchaser').autocomplete({
+    //        source: function (request, response) {
+    //            $.ajax({
+    //                type: "GET",
+    //                url: "/Contact/searchContactsByType/",
+    //                dataType: "json",
+    //                data: {
+    //                    term: $.trim($('#contPurchaser').val()),
+    //                    type: 1
+    //                },
+    //                success: function (data) {
+    //                    response(data);
+    //                }
+    //            });
+    //        },
+    //        select: function (event, ui) {
+
+    //            $("#contPurchaserID").val(ui.item.id);
+    //            $("#contPurchaser").val(ui.item.firstName + " " + ui.item.lastName + " ( " + ui.item.displayName + " )");
+
+    //            return false;
+    //        },
+    //        minLength: 3,
+    //        delay: 100,
+    //        open: function () {
+    //            $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+    //        },
+    //        close: function () {
+    //            $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+    //        }
+    //    }).data("ui-autocomplete")._renderItem = function (ul, item) {
+
+    //        return $("<li>").data("item.uiAutocomplete", item).append("<a>" + item.firstName + " " + item.lastName + " ( " + item.displayName + " ) </a>").appendTo(ul);
+    //    };
+
+    //}
+
+    
+   
+
+    //=======================================================================================
+
+
+});
+
+function showAddModal(id) {
+    showAddModal(id, 0);
+}
+
+function showAddModal(id, cid) {
+    var typeID = $("#contacttypeID").val();
+
+    $.ajax({
+        type: "GET",
+        url: "/Contact/LoadContactModal/",
+        data: { id: id, typeID: typeID, cloneid: cid }, // -1 means all types
+        cache: false,
+        success: function (data) {
+
+            //check if the user seesion is timeout when the ajax request is made
+            isAjaxRequestTimeOut(data);
+            $("#contactModalContent").html(data);
+            console.log(data);
+            $("#modal-add-contact").modal('show');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            $("#contactModalContent").html(xhr.responseText);
+            $("#modal-add-contact").modal('show');
+        }
+    });
+}
+
+function saveContact() {
+    var isValid = $("#ContactForm").valid();
+    
+    if (isValid) {
+
+        var eformId = $("#eformId").val();
+        var data = $("#ContactForm").serializeArray();
+
+        data.push({ name: 'eformId', value: eformId });
+
+        $.ajax({
+            type: "POST",
+            url: "/Contact/saveContact",
+            dataType: "JSON",
+            cache: false,
+            data: data,
+            success: function (data) {
+
+                //check if the user seesion is timeout when the ajax request is made
+                isAjaxRequestTimeOut(data);
+
+                if (data.status) {
+                    $("#modal-add-contact").modal('hide');
+
+                    showMsg("Contact Saved!");
+
+                    if (typeof eformId == 'undefined') {
+                        location.reload();
+                    }
+                    else {
+                        $('.nav-tabs a[href=#quick_sidebar_tab_7]').tab('show');
+                    }
+                    
+                }
+
+                $("#saveContactError").html(data.message);
+                $("#saveContactError").show();
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                errorMsg(xhr.responseText);
+            }
+        });
+    }
+}
+
+function assignContacts() {
+    var valid = $("#assignContactsForm").valid();
+
+    
+    if (valid) {
+        
+        $("#infoID").val( $("#eformId").val());
+
+        $(".btnassignCon").hide();
+        $(".assignConLoading").show();
+
+        $.ajax({
+            type: "POST",
+            url: "/Eform/assignContacts",
+            dataType: "JSON",
+            cache: false,
+            data:  $("#assignContactsForm").serialize(),
+            success: function (data) {
+
+                //check if the user seesion is timeout when the ajax request is made
+                isAjaxRequestTimeOut(data);
+
+                if (data.status) {
+                    showMsg(data.message);
+                }
+                else {
+                    errorMsg(data.message);
+                }
+
+                $(".assignConLoading").hide();
+                $(".btnassignCon").show();
+
+                //Reload the form
+                loadForm('formContent');
+                loadDocusignPanel();
+                
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                errorMsg(xhr.responseText);
+                $(".assignConLoading").hide();
+                $(".btnassignCon").show();
+            }
+        });
+    }
+}
+
+//===============================================================================
+
+function updateField(sid, did) {
+    $("#" + did).val($("#" + sid +" option:selected").text());
+}
+
+//=======================================================================================
+
+function archiveContact(id) {
+    $.ajax({
+        type: "Get",
+        url: "/contact/archiveContact/?id=" + id,
+        dataType: "JSON",
+        cache: false,
+        success: function (data) {
+
+            //check if the user seesion is timeout when the ajax request is made
+            isAjaxRequestTimeOut(data);
+
+            if (data.status) {
+                showMsg(data.message);
+                location.reload();
+            }
+            else {
+                errorMsg(data.message);
+            }
+
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            errorMsg(xhr.responseText);
+        }
+    });
+}
+
+
+//=======================================================================================
+
+function reactivateContact(id) {
+    $("#re_btn_" + id).hide();
+    $("#re_loading_" + id).show();
+
+    $.ajax({
+        type: "Get",
+        url: "/contact/reactivateContact/?id=" + id,
+        dataType: "JSON",
+        cache: false,
+        success: function (data) {
+
+            //check if the user seesion is timeout when the ajax request is made
+            isAjaxRequestTimeOut(data);
+
+            if (data.status) {
+                showMsg(data.message);
+                $("#re_btn_div_" + id).remove();
+            }
+            else {
+                errorMsg(data.message);
+                $("#re_loading_" + id).hide();
+                $("#re_btn_" + id).show();
+            }
+
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            errorMsg(xhr.responseText);
+        }
+    });
+}
+//=======================================================================================
+
+function showArchivedModal() {
+
+    $.ajax({
+        type: "Get",
+        url: "/contact/getArcihvedSolicitor/",
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#arSolicitors").html(data);
+        $("#activateSolicitorModal").modal("show");
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg("Request failed: " + textStatus);
+    })
+}
+
+//=======================================================================================
+
+function showArchivedContactModal() {
+
+    $.ajax({
+        type: "Get",
+        url: "/contact/getArcihvedContacts/",
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#arContacts").html(data);
+        $("#activateContactModal").modal("show");
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg("Request failed: " + textStatus);
+    })
+}
+
+//=======================================================================================
+
+function assignVendor() {
+
+    $("#vendorForm").validate({
+        focusInvalid: false, // do not focus the last invalid input
+        rules: {
+            contVendor: { required: true },
+            vendorEmail: { email: true }
+        }
+    });
+
+    var isValid = $("#vendorForm").valid();
+
+    if (isValid) {
+        var infoID = $("#infoID").val();
+        var data = $("#vendorForm").serialize() + "&infoID=" +infoID;
+
+        $(".slide-icon-assign-contact").hide();
+        $(".contactActionLoading").show();
+
+        $.ajax({
+            type: "POST",
+            url: "/contact/updateFormVendor/",
+            dataType: "json",
+            data: data,
+            cache:false,
+            success: function (data) {
+
+                if (data.status) {
+                    showMsg(data.message);
+                    loadContacts('tab_1_1_4', 'contab1');
+                    loadForm('formContent');
+                    loadDocusignPanel();
+                }
+                else {
+                    errorMsg(data.message);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+
+                $(".contactActionLoading").hide();
+                $(".slide-icon-assign-contact").show();
+
+                errorMsg("Request failed: " + xhr.responseText);
+            }
+        });
+    }
+}
+
+//=======================================================================================
+
+function assignPurchaser() {
+    $("#purchaserForm").validate({
+        focusInvalid: false, // do not focus the last invalid input
+        rules: {
+            contPurchaser: { required: true },
+            purchaserEmail: { email: true }
+        }
+    });
+    var isValid = $("#purchaserForm").valid();
+    
+    if (isValid) {
+        var infoID = $("#infoID").val();
+        var data = $("#purchaserForm").serialize() + "&infoID=" + infoID;
+
+        $(".slide-icon-assign-contact").hide();
+        $(".contactActionLoading").show();
+
+        $.ajax({
+            type: "POST",
+            url: "/contact/updateFormPurchaser/",
+            dataType: "json",
+            data: data,
+            cache: false,
+            success: function (data) {
+
+                if (data.status) {
+                    showMsg(data.message);
+                    loadContacts('tab_1_1_4', 'contab2');
+                    loadForm('formContent');
+                    loadDocusignPanel();
+                }
+                else {
+                    errorMsg(data.message);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+
+                $(".contactActionLoading").hide();
+                $(".slide-icon-assign-contact").show();
+
+                errorMsg("Request failed: " + xhr.responseText);
+            }
+        });
+    }
+}
+
+//=======================================================================================
+
+function assignSolicitor() {
+    var vsID = parseInt($("#contSolicitorVendorID").val(), 10);
+    var psID = parseInt($("#contSolicitorPurchaserID").val(), 10);
+
+    var vsName = $.trim($("#contSolicitorVendor").val());
+    var psName = $.trim($("#contSolicitorPurchaser").val());
+    var error = "";
+    var isValid = true;
+
+    if ((vsID == "NaN" || vsID < 1) && vsName == "") {
+        isValid = false;
+    }
+
+    if (!isValid && (psID == "NaN" || psID < 1) && psName == "") {
+        error = "Please choose a solicitor for the vendor/purchaser.";
+    }
+
+    if (error == "") {
+        var infoID = $("#infoID").val();
+        var data = "&contSolicitorVendorID=" + vsID + "&contSolicitorVendor=" + vsName + "&contSolicitorPurchaserID=" + psID + "&contSolicitorPurchaser=" + psName + "&infoID=" + infoID;
+
+        $(".slide-icon-assign-contact").hide();
+        $(".contactActionLoading").show();
+
+        $.ajax({
+            type: "POST",
+            url: "/contact/updateFormSolicitor/",
+            dataType: "json",
+            data: data,
+            cache: false,
+            success: function (data) {
+
+                if (data.status) {
+                    showMsg(data.message);
+                    loadContacts('tab_1_1_4', 'contab3');
+                    loadForm('formContent');
+                    loadDocusignPanel();
+                }
+                else {
+                    errorMsg(data.message);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+
+                $(".contactActionLoading").hide();
+                $(".slide-icon-assign-contact").show();
+
+                errorMsg("Request failed: " + xhr.responseText);
+            }
+        });
+    }
+    else {
+        alert(error);
+    }
+}
+
+//=======================================================================================
+
+function assignOffice() {
+    $("#contactOffice").validate({
+        focusInvalid: false, // do not focus the last invalid input
+        rules: {
+            contEformManagerID: { required: true },
+            contSalespersonID: { required: true }
+        }
+    });
+    var isValid = $("#contactOffice").valid();
+    
+    if (isValid) {
+        var infoID = $("#infoID").val();
+        var data = "&contEformManagerID=" + $("#contEformManagerID").val() + "&contEformManager=" + $("#contEformManager").val() + "&contSalespersonID=" + $("#contSalespersonID").val() + "&contSalesperson=" + $("#contSalesperson").val() + "&contSecondSalespersonID=" + $("#contSecondSalespersonID").val() + "&contSecondSalesperson=" + $("#contSecondSalesperson").val() + "&infoID=" + infoID;
+
+        $(".slide-icon-assign-contact").hide();
+        $(".contactActionLoading").show();
+
+        $.ajax({
+            type: "POST",
+            url: "/contact/updateFormOfficeContact/",
+            dataType: "json",
+            data: data,
+            cache: false,
+            success: function (data) {
+
+                if (data.status) {
+                    showMsg(data.message);
+                    loadContacts('tab_1_1_4', 'contab4');
+                    loadForm('formContent');
+                    loadDocusignPanel();
+                }
+                else {
+                    errorMsg(data.message);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+
+                $(".contactActionLoading").hide();
+                $(".slide-icon-assign-contact").show();
+
+                errorMsg("Request failed: " + xhr.responseText);
+            }
+        });
+    }
+}
+
+//=======================================================================================
+
+function removeVendor() {
+    var answer = confirm("Are you sure you want to remove all vendors?");
+
+    if (answer) {
+        var infoID = $("#infoID").val();
+
+        $(".slide-icon-assign-contact").hide();
+        $(".contactActionLoading").show();
+
+        $.ajax({
+            type: "POST",
+            url: "/contact/removeFormVendor/",
+            dataType: "json",
+            data: { infoID: infoID },
+            cache: false,
+            success: function (data) {
+
+                if (data.status) {
+                    showMsg(data.message);
+                    loadContacts('tab_1_1_4', 'contab1');
+                    loadForm('formContent');
+                    loadDocusignPanel();
+                }
+                else {
+                    errorMsg(data.message);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+
+                $(".contactActionLoading").hide();
+                $(".slide-icon-assign-contact").show();
+
+                errorMsg("Request failed: " + xhr.responseText);
+            }
+        });
+    }
+}
+
+//=======================================================================================
+
+function removePurchaser() {
+    var answer = confirm("Are you sure you want to remove all purchasers?");
+
+    if (answer) {
+        var infoID = $("#infoID").val();
+
+        $(".slide-icon-assign-contact").hide();
+        $(".contactActionLoading").show();
+
+        $.ajax({
+            type: "POST",
+            url: "/contact/removeFormPurchaser/",
+            dataType: "json",
+            data: { infoID: infoID },
+            cache: false,
+            success: function (data) {
+
+                if (data.status) {
+                    showMsg(data.message);
+                    loadContacts('tab_1_1_4', 'contab2');
+                    loadForm('formContent');
+                    loadDocusignPanel();
+                }
+                else {
+                    errorMsg(data.message);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+
+                $(".contactActionLoading").hide();
+                $(".slide-icon-assign-contact").show();
+
+                errorMsg("Request failed: " + xhr.responseText);
+            }
+        });
+    }
+}
+//=======================================================================================
+
+function removeSolicitor() {
+    removeSolicitor(0);
+}
+//=======================================================================================
+
+function removeSolicitor(type) {
+    var question = "Are you sure you want to remove all solicitors?"
+
+    if (type == 1 || type == 2) {
+        question = "Are you sure you want to remove this solicitor?"
+    }
+
+    var answer = confirm(question);
+
+    if (answer) {
+        var infoID = $("#infoID").val();
+
+        $(".slide-icon-assign-contact").hide();
+        $(".contactActionLoading").show();
+
+        $.ajax({
+            type: "POST",
+            url: "/contact/removeFormSolicitor/",
+            dataType: "json",
+            data: { infoID: infoID, type: type },
+            cache: false,
+            success: function (data) {
+
+                if (data.status) {
+                    showMsg(data.message);
+                    loadContacts('tab_1_1_4', 'contab3');
+                    loadForm('formContent');
+                    loadDocusignPanel();
+                }
+                else {
+                    errorMsg(data.message);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+
+                $(".contactActionLoading").hide();
+                $(".slide-icon-assign-contact").show();
+
+                errorMsg("Request failed: " + xhr.responseText);
+            }
+        });
+    }
+}
+
+//=======================================================================================
+
+function loadContacts(id) {
+    var eformID = $("#eformId").val();
+    var versionID = $("#versionID").val();
+
+    $.ajax({
+        type: "Get",
+        url: "/contact/loadContacts",
+        data: { versionID: versionID, infoID: eformID },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#" + id).html(data);
+
+    }).fail(function (jqXHR, textStatus) {
+
+        $("#" + id).html("Request failed: " + textStatus);
+    });
+}
+
+//=======================================================================================
+
+function loadContacts(id, openTabid) {
+    var eformID = $("#eformId").val();
+    var versionID = $("#versionID").val();
+
+    $.ajax({
+        type: "Get",
+        url: "/contact/loadContacts",
+        data: { versionID: versionID, infoID: eformID },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#" + id).html(data);
+
+
+        $('#' + openTabid).tab('show');
+
+    }).fail(function (jqXHR, textStatus) {
+
+        $("#" + id).html("Request failed: " + textStatus);
+    });
+}
+
+
+function searchContact(type) {
+    resetContactSearchModal();
+    $("." + type + "Class").show();
+    $("#searchContactModal").modal("show");
+
+}
+
+
+function resetContactSearchModal() {
+    $(".purchaserClass").hide();
+    $(".vendorClass").hide();
+    $("#cntStep2").hide();
+    $('#searchContactTxt').val('');
+    $("input[name='contactType']").prop("checked", false);
+}
+
+function showContactSearch() {
+    $("#cntStep2").show();
+}
+
+function checkSalesperson() {
+    var salespersonID = $.trim($("#contSalespersonID").val());
+    
+    if (salespersonID == "") {
+        var label = $.trim($("#contSalespersonLabel").text());
+        alert("Please assign a " + label.toLowerCase() + " to this eForm.");
+        return false;
+    }
+
+    return true;
+}

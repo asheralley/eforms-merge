@@ -1,0 +1,1142 @@
+/* Custom scss */
+
+// Sass Variables
+$blue-a: #8ec6ce;
+$blue-b: #345973;
+$alert-blue: #d9edf7;
+$grey-background: #f7f7f7;
+$grey-background-dark: #c9c9c9;
+$grey-border: #a8a8a8;
+$grey-border-light: #c8c8c8;
+$grey-faint: #e8e8e8;
+$alert-bg: #d9edf7;
+$alert-border: #bce8f1;
+$alert-color: #31708f;
+$font: #333333;
+$font-full: #000000;
+
+// Custom css .
+$blue-main: #345973;
+$flexi-blue: #83CCEC;
+$flexi-grey: #3E3E3E;
+$flexi-yellow: #FFDE25;
+
+
+table > tbody > tr td {
+	font-size: 0.95em;
+}
+
+// Input resets
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus {   
+  border-color: rgba(52,89,115, 0.8) !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(52,89,115, 0.6) !important;
+  outline: 0 none !important;
+}
+
+select, input, textarea{
+  // -webkit-appearance: none !important;
+  border-radius: 1px !important;
+  padding: 4px 10px !important;
+  border: 1px solid $grey-border;
+}
+
+/*Larger Checkboxes*/
+input[type=checkbox] {
+	width:1.5em; 
+	height:1.5em;
+}
+
+button {
+	text-transform: uppercase;
+}
+
+// Need Help Widget
+.src-component-Launcher-wrapper {
+	border-radius: 0.2em !important;
+	background-color: $blue-b !important;
+}
+
+// Main Logo Icon
+.main-logo:first-child {
+	height: 3.15px;
+	margin-right: 0.8em;
+}
+
+/*Remove double scrollbar when modal expands*/
+body.modal-open { overflow: hidden!important; }
+
+// Alert box resets
+.alert {
+	border-radius: 0.1em !important;
+	background-color: $alert-bg;
+	border: 1px solid $alert-border;
+	color: $alert-color;  
+	margin: 1em;
+}
+
+// Alert Boxes
+.alert{
+	margin-top: 1em;
+}
+
+.alert i { 
+	padding-right: 0.5em;
+}
+
+.alert-warning-b {
+	background-color: $blue-b;
+	border-color: $blue-b !important;
+	color: #fff;
+}
+
+.toaster {
+	display: block;
+	position: fixed;
+	width: 48% !important;
+	margin: 0 auto;
+	margin-top: 1em;
+	margin-bottom: 2em;
+	opacity: 0.98;
+	top: -20em;
+	left: 26%; 
+	z-index: 999;
+	-webkit-transition: top 0.3s ease-out;  /* Chrome 1-25, Safari 3.2+ */
+	     -moz-transition: top 0.3s ease-out;  /* Firefox 4-15 */
+	       -o-transition: top 0.3s ease-out;  /* Opera 10.50–12.00 */
+	          transition: top 0.3s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+	p {
+		display: inline;
+		font-size: 1.1em;
+	}
+}
+
+.show-toaster {
+	z-index: 999;
+	top: 5.8em;
+	-webkit-transition: top 0.3s ease-out;  /* Chrome 1-25, Safari 3.2+ */
+	     -moz-transition: top 0.3s ease-out;  /* Firefox 4-15 */
+	       -o-transition: top 0.3s ease-out;  /* Opera 10.50–12.00 */
+	          transition: top 0.3s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+}
+
+.close-toaster {
+	position: absolute;
+	top: 0.4em;
+	right: 1.5em;
+	font-size: 0.5em;
+	cursor: pointer;
+	font-weight: bold;
+    width: 18px;
+    height: 18px;
+    opacity: 1;
+    color: $blue-b;
+}
+
+.close-toaster:before, .close-toaster:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 16px;
+  width: 2px;
+  background-color: $blue-b;
+}
+
+.alert-warning-b .close-toaster {
+	color: #fff;
+} 
+.alert-warning-b .close-toaster:before, 
+.alert-warning-b .close-toaster:after {
+	background-color: #fff;
+}
+
+.close-toaster:hover {
+  opacity: 1;
+}
+
+.close-toaster:before {
+  transform: rotate(45deg);
+}
+
+.close-toaster:after {
+  transform: rotate(-45deg);
+}
+
+/*Button Default Resets.:*/
+.btn-default {
+	background-color: $blue-b;
+	padding: 4px 12px;
+	color: #fff;
+}
+
+// Hover and active states
+.page-content {
+
+	.btn:hover, .btn-default:hover {
+		background-color: $grey-background-dark !important;
+		border-color: $blue-b !important;
+		color: $blue-b !important; //Had to change this as it kept overriding my css, was #333
+	}
+
+	.btn:active, .btn-default:active,
+	.btn:visited, .btn-default:visited,
+	.btn:focus, .btn-default:focus {
+		background-color: #345973;
+		padding: 4px 12px;
+		color: #fff !important;
+	}
+
+}
+
+
+.sub-btn {
+	background-color: #fff;
+	color: #444;
+	border: 2px solid $blue-b;
+}
+
+.btn {
+	border-radius: 1px;
+}
+
+// Modal Resets
+.modal {
+
+	a {
+		color: $blue-b;
+		text-decoration: underline;
+		font-weight: 400;
+	}
+
+	button {
+		float: right;
+		border-radius: 1px;
+		background-color: $blue-b !important;
+		border-color: $blue-b !important;
+		color: #fff !important;
+		padding: 6px 14px !important;
+		margin: 2.4em 0.8em 0.8em 0.8em;
+	}
+
+	i {
+		color: $blue-b;
+		font-size: 16px;
+		padding-right: 0.5em;
+	}
+
+	.btn-default {
+	    padding: 6px 14px !important;
+	}
+
+	h4 {
+		font-size: 1.5em;
+		font-weight: 700 !important;
+		text-align: left;
+	}
+
+	h3 {
+		font-weight: normal !important;
+		font-size: 1em;
+	}
+
+	select, input, textarea{
+	  // -webkit-appearance: none !important;
+	  border-radius: 1px !important;
+	  padding: 4px 10px !important;
+	  border: 1px solid $grey-border;
+	}
+
+	.sub-btn {
+		float: none !important;
+	}
+
+	.help-block {
+		font-size: 1.1em;
+		margin-top: 0.9em !important;
+		margin-bottom: 0.9em !important;
+	}
+
+	.fa-exclamation-circle {
+		padding-right: 0.5em;
+	}
+	
+	// Notify class within modals
+	.notify {
+		margin-top: 1.4em;
+	}
+
+	.modal-header {
+    border-bottom: 1px solid $grey-background-dark !important;
+    margin-bottom: 1.2em;
+    -webkit-box-shadow: 0 2px 2px -1px $grey-background-dark;
+    -moz-box-shadow:    0 2px 2px -1px $grey-background-dark;
+    box-shadow:         0 2px 2px -1px $grey-background-dark;
+	}
+
+	.modal-footer {
+		margin-top: 1.65em;
+	}
+
+	.modal-header button.close {
+
+		color: #fff !important;
+		background-color: $blue-b !important;
+		padding: 0.8em !important;
+		border: 2px solid $blue-b;
+		position: absolute;
+		top: 0em;
+		right: -2.58em;
+		opacity: 1 !important;
+		text-indent: 0;
+		line-height: 0em;
+		text-align: left !important;
+		background-image: none !important;
+
+		span {
+			position: absolute;
+			top: 0.58em;
+			right: 0.33em;
+			font-size: 1.28em;
+		}
+
+	} //.modal-header button.close ends
+
+}   // modal ends
+
+.modal-content {
+	border-radius: 1px !important;
+	background-color: $grey-background !important;
+	// border: 1px solid $grey-border;
+}
+
+.modal-header h4.modal-title.text-center {
+    font-weight: normal;
+}
+
+.council-data-search {
+	margin: 0em 1em 0em 0em !important;
+	float: none !important;
+}
+
+
+/*2018 css updates*/
+.fa-question-circle {
+	font-size: 18px;
+}
+
+.docusign-panel, .send-to-sign, #docusignPanel {
+
+	border: 1px solid #c8c8c8;
+	border-radius: 1px;
+	padding: 1.4em;
+
+	img {
+		width: 80px;
+		float: right;
+	}
+
+	label, i {
+		font-size: 1em !important;
+		font-style: normal !important;
+	}
+
+
+	h4, h5 {
+		font-weight: bold;
+		margin-bottom: 1em;
+		color: #333;
+	}
+
+	h3 {
+		font-size: 1.4em;
+		color: #555;
+		font-weight: 800;
+		margin-bottom: 1.1em;
+		margin-top: 0.3em;
+	}
+
+	button.cancel-signing {
+		margin-top: 1em;
+		border-radius: 0.2em !important;
+		background-color: $flexi-blue !important;
+		border-color: $flexi-blue !important;
+	}
+
+	button.cancel-signing:hover {
+		border-radius: 0.2em !important;
+		background-color: #efefef !important;
+		border-color: $flexi-blue !important;
+	}
+
+	.sig-status {
+		button {
+			border-color: $flexi-blue;
+			background-color: $flexi-blue;
+			border-radius: 0.4em !important;
+		}
+
+		button:hover {
+			border-color: $flexi-blue !important;
+			background-color: #efefef !important;
+			border-radius: 0.4em !important;	
+		}
+
+		i {
+			color: $flexi-blue !important;
+			font-size: 1.4em !important;
+			margin-bottom: -0.5em;
+		}
+	}
+
+	.row {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
+}
+
+.docusign-confirm {
+	border: 1px solid #a8a8a8;
+	position: relative;
+	background-color: #f7f7f7;
+	padding: 0.8em;
+
+	h4, h5 {
+		font-weight: bold;
+		margin-bottom: 1em;
+	}
+
+	a {
+		color: $blue-b;
+	}
+
+	ul {
+		margin-bottom: 2em;
+	}
+
+	button {
+		border-radius: 1px;
+	}
+
+}
+
+// Float reset for parent div
+.docusign-panel:after, 
+.send-to-sign:after,
+.docusign-completed:after,
+.docusign-confirm:after,
+.recipient-order:after,
+.toggle-holder:after,
+.modal-body:after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+.notifiers {
+	margin-top: 1.7em;
+	margin-bottom: 1em;
+
+	span {
+		font-size: 2em;
+		color: #b7b7b7;
+	}
+
+	i {
+		font-size: 35px !important;
+		padding-left: 30px;
+		color: #b7b7b7;
+	}
+	.section {
+		position: relative;
+		background-color: #f7f7f7;
+		border-radius: 0.5em;
+		padding: 0.7em 0.2em 0.2em 0.75em;
+		min-height: 5.5em;
+		width: 24%;
+		margin-right: 1%;
+		border: 1px solid $flexi-blue;
+		p {
+			position: absolute;
+			bottom: 0;
+			font-size: 12px;
+			margin-bottom: 0.4em;
+			font-weight: 400;
+		}
+
+		span {
+			color: #333 !important;
+		}
+
+		i {
+			color: #333;
+		}
+
+
+	}
+	/*active class on div*/
+	.section.active {
+		span, i {
+			color: #333;
+			font-weight: bold;
+			font-size: 1.5em;
+		}
+		p {
+			color: #333;
+		}
+
+	}
+}
+
+.notify {
+	animation: pulse 1.8s infinite;
+}
+
+.signing-status {
+	border: 1px solid #a8a8a8;
+	background-color: #f7f7f7;
+	padding: 0.8em;
+	min-height: 12em;
+
+	h4 {
+		margin-top: 0em;
+	}
+
+	i {
+		padding-right: 0.5em;
+		color: $blue-b;
+	}
+
+	button {
+		background-color: $flexi-blue;
+		border-color: $flexi-blue;
+
+	}
+}
+
+.docusign, 
+.docu-send {
+	float: right;
+	border-radius: 2px;
+	margin-top: 0.8em;
+	border: 2px solid $blue-b;
+}
+
+.sig-date {
+	display: block;
+	font-size: 0.9em;
+	font-style: italic;
+	color: #5b5b5b;
+	margin-top: 0.3em;
+}
+
+.sig-status {
+	display: block;
+	margin-bottom: 1em;
+}
+
+.remind {
+	border-radius: 1px;
+	padding: 2px 7px;
+	font-size: 0.8em;
+	border: solid 2px $blue-b;
+	float: right;
+	margin: 0em -0.5em 0.3em 0.65em !important;  
+	display: block;
+}
+
+.recipient-order, .docusign-message, .docusign-additional {
+	border: 1px solid #a8a8a8;
+	background-color: #f7f7f7;
+	padding: 0.8em;
+	min-height: 10em;
+	margin-bottom: 0.6em; 
+
+	h4, h5 {
+		font-weight: bold;
+	}
+}
+
+.send-to-sign {
+	i {
+		color: $blue-b;
+		font-size: 16px;
+		padding-right: 0.5em;
+	}
+
+	h4, h5 {
+		font-size: 1.1em;
+		font-weight: bold;
+		margin-bottom: 1.4em;
+	}
+}
+
+.recipient-order {
+
+	position: relative;
+
+	.add-recipient {
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		-ms-box-sizing:border-box;
+		box-sizing:border-box;
+		border: 2px solid $blue-b;
+		font-size: 12px;
+		padding:  2px 5px; 
+		border-radius: 1px;
+		margin-top: -0.5em;
+	}
+
+	.re-add-recipient {
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		-ms-box-sizing:border-box;
+		box-sizing:border-box;
+		border: 2px solid $blue-b;
+		font-size: 12px;
+		padding:  2px 5px; 
+		float: right;
+		border-radius: 1px;
+	}
+
+	.fa-plus {
+		font-size: 12px;
+		color: $blue-b;
+	}
+	
+	//Bings list dropdown for adding recipients
+	.dropdown-menu {
+		margin: 25px 0 0 -3em !important;
+		border-radius: 1px;
+		border: 1px solid $grey-border;
+	}
+	.dropdown-menu::before, 
+	.dropdown-menu::after {
+	    border: none;
+	    content: none;
+	}
+	.dropdown-menu li a {
+		font-weight: normal;
+		line-height: 14px;
+		font-size: 0.95em;
+		text-decoration: none;
+	}
+	.ui-sortable {
+		margin-left: 0px;
+		padding-left: 0px;
+		li {
+			border-radius: 1px !important;
+			border: 1px solid $grey-border;
+			cursor: pointer !important;
+		}
+		li:active {
+			background-color: $grey-background;
+			border: 1px solid $blue-b;
+		}
+		i {
+			cursor: pointer;
+			font-size: 1.1em;
+			float: right;
+			padding-top: 0.2em;
+		}
+	}
+
+	button {
+		top: 1.65em;
+		right: 1em;
+	}
+
+}
+
+/*Class for opaque button*/
+.opaque	 {
+	opacity: 0.3;
+}
+
+/*Docusign logo*/
+.doc-logo {
+	position: absolute;
+	top: 1.2em;
+	right: 3.2em;
+	float: right;
+	width: 11em;
+}
+
+.docusign-message .form-group {
+	margin-bottom: 16px;
+}
+
+.docusign-message .form-check {
+	position: relative;
+}
+
+.docusign-additional, .terms-holder {
+
+	.form-check-label {
+		display: block;
+		margin-top: -27px;
+		padding-left: 30px;
+	}
+
+	.col-md-6 {
+		padding-left: 0;
+	}
+
+	h5 {
+		margin-bottom: 1.6em;
+	}
+}
+
+.terms-holder {
+	.form-check-label {
+		padding-left: 2.5em;
+	}
+
+	/*Larger Checkboxes*/
+	input[type=checkbox] {
+		margin-left: 0.4em;
+	}
+}
+
+// If Terms holder is unsigned
+.terms-holder.notify {
+	padding: 0.4em;
+	border: 1px solid $blue-a;
+	border-radius: 1px !important;
+	background-color: $alert-blue;
+	border-radius: 1px;
+}
+
+.terms-holder {
+	display: inline-block;
+	margin-top: 0.8em;
+	padding-left:  0.35em;
+}
+
+.terms-holder.form-check-label {
+	padding: 0.4em;
+}
+
+/*General Styles Fixes and Updates*/
+.portlet.light {
+	padding-top: 0px;
+}
+
+.form-sect-title {
+	margin: 18px 0 18px 0;
+}
+
+.dropdown-user.dropdown-dark a.dropdown-toggle {
+	padding: 24px 10px 18px 10px;
+}
+
+.img-circle {
+	margin-left: 12px;
+}
+
+.global input {
+	margin-right: 15px;
+	padding-right: 15px;
+}
+
+.docusign-completed {
+	border: 1px solid $grey-border-light;
+	padding: 1.4em;
+	h4 {
+		font-weight: bold;
+	}
+}
+
+.signing-completed {
+	border-collapse:separate; 
+	border-spacing: 0;
+	margin-top: 2em;
+	padding: 2em 2em 2em 2em;
+	background-color: #f7f7f7;
+	border: $grey-border 1px solid;
+	margin-bottom: 0em;
+
+	i {
+		color: $blue-b;
+		padding-right: 0.6em;
+	}
+}
+
+.d-sign-download {
+	margin-left: 1em;
+}
+
+.sig-complete-msg {
+	font-style: italic;
+}
+
+.docusign-enable {
+	float: right;
+	margin-top: 0.8em;
+	border-radius: 0.1em;
+}
+
+// Toggle switch
+.toggle-holder {
+	max-height: 3em;
+}
+
+.toggle-handle{
+	background-color: #fff !important;
+}
+
+.simple-sign {
+	float: right;
+	display: inline-block !important;
+	i {
+		display: inline-block;
+		float: right;
+		padding: 0.6em 1em 0em 0;
+	}
+}
+
+.toggle-title {
+	float: right;
+	margin: 0.5em 1em 0 0;
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.toggle {
+
+	border: $grey-border 1px solid !important;
+	border-radius: 1px;
+	margin-bottom: 0.5em;
+	float: right;
+
+	.btn-primary {
+		background-color: $blue-b !important;
+	}
+
+	.btn-default {
+	    padding: 4px 8px;
+	}
+
+	.btn {
+		padding: 4px 10px 5px 5px !important;
+	}
+
+}
+
+.toggle:hover {
+	border: 1px solid $blue-b !important;
+}
+
+// Modal Css
+.simple-sign-modal {
+	button {
+		float: right;
+		border-radius: 1px;
+	}
+}
+
+// Droppin Css
+// This is for styling to make it look like other blocks in panel
+.councilInfoDiv {
+	
+	border: 1px solid #a8a8a8;
+	background-color: #f7f7f7;
+	padding: .8em;
+	min-height: 10em;
+	margin-bottom: 1.5em;
+
+	a {
+		text-decoration: underline;
+		color: $blue-b;
+	}
+
+	h4:first-child {
+		display: inline-block;
+	}
+
+	i:first-child {
+		margin-right: 0.35em;
+		display: inline-block;
+	}
+	
+	.councilInfoHeading{
+	    margin-bottom: 1.15em;
+	}
+
+	.informationDiv{
+	    width: 100%;
+	    margin-bottom: 15px;
+	}
+
+	.heading-tooltip{
+		margin-top: 0.75em;
+		margin-right: 0.45em;
+	    float: right;
+	}
+
+	.address-search{
+	    border-radius: 1px !important;
+	    border: 1px solid #cccccc;
+	}
+
+	.address-bar{
+	    padding: 0;
+	    display: inline-block;
+	    margin-right: 10px;
+	    margin-bottom: 15px;
+	    width: 60%;
+	}
+
+	.stat-btn{
+	    margin-bottom: 2.4px;
+	    float: right;
+	}
+
+	.council-information{
+		padding: 0.7em;
+	    margin-bottom: 2em;
+		background:rgba(255,255,255, 0.85);
+		border: 1px solid $grey-border;
+
+	    .table-row:not(:last-child) {
+	    	padding: 0.4em 0.8em 0.4em 0.4em;
+	    	border-bottom: 1px solid $grey-faint;
+	    }
+
+	    .table-row:last-child {
+	    	padding: 0.4em 0.8em 0.4em 0.4em;
+	    }
+
+	}
+
+	.table-button{
+	    float: right;
+	    font-size: 0.9em;
+	    padding: 2px 9px !important;
+
+	    i {
+			font-size: 0.8em !important;
+	    }
+
+	}
+
+	.table-row{
+	    padding: 0;
+	    margin-bottom: 10px;
+	}
+
+	.table-item{
+	    padding: 0.4em 0.4em 0.4em 0.4em;
+	    min-height: 30px;
+	}
+
+	.table-item:nth-child(2){
+	    padding: 0.4em 0.4em 0.4em 1em;
+	}
+
+	.first-item{
+	    font-weight: bold;
+	}
+
+	.last-row-item{
+	    margin-bottom: 0;
+	}
+
+} //council-info-div-ends
+
+.street-search {
+
+	overflow: none !important;
+
+	.form-group {
+		margin-bottom: 2em;
+	}
+
+    .form-input{
+        width: 100%;
+    }
+
+    .form-tooltip{
+        font-size: 1.5em;
+    }
+
+    .address-row{
+        margin-right: -0.6em;
+        .address-input{
+            margin-right: 0;
+            padding: 0 0.68em 0 1.2em;
+        }
+    }
+
+    .form-search{
+        margin-left: 0;
+        padding-left: 0;
+        i{
+            margin-left: 0;
+            padding-left: 0;
+            color: #fff !important;
+            background-color: #345973 !important;
+            padding: 0.42em 0.5em;
+            border: 2px solid #345973;
+        }
+    }
+
+} // street-search
+
+.page-sidebar {
+	border-radius: 1px !important;
+}
+
+
+@media (max-width: 1600px) and (min-width: 1309px) {
+	#main-left-nav.page-sidebar-menu li a span.title.l-nav-title {
+	    font-size: 12px;
+	}
+}
+
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(52,89,115, 0.4);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 5px rgba(52,89,115, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(52,89,115, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(52,89,115, 0.4);
+    box-shadow: 0 0 0 0 rgba(52,89,115, 0.4);
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 5px rgba(52,89,115, 0);
+      box-shadow: 0 0 0 5px rgba(52,89,115, 0);
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(52,89,115, 0);
+      box-shadow: 0 0 0 0 rgba(52,89,115, 0);
+  }
+}
+
+// Alert Toaster Animation
+.cssanimations.csstransforms #note {
+    -webkit-transform: translateY(-50px);
+    -webkit-animation: slideDown 2.5s 1.0s 1 ease forwards;
+    -moz-transform:    translateY(-50px);
+    -moz-animation:    slideDown 2.5s 1.0s 1 ease forwards;
+}
+
+@-webkit-keyframes slideDown {
+    0%, 100% { -webkit-transform: translateY(-50px); }
+    10%, 90% { -webkit-transform: translateY(0px); }
+}
+@-moz-keyframes slideDown {
+    0%, 100% { -moz-transform: translateY(-50px); }
+    10%, 90% { -moz-transform: translateY(0px); }
+}
+
+/*iPad in portrait & landscape Media Queries*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  { 
+
+	.doc-logo {
+		position: absolute;
+		top: 1.7em;
+		right: 1em;
+		float: right;
+		width: 5em;
+	}
+
+}
+
+/*iPad in landscape*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) { 
+
+}
+
+/*iPad in portrait*/
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) { 
+
+}
+
+
+// Bootstrap Media Queries for form updates 10-05-2018
+
+/* Large desktops and laptops */
+@media (min-width: 1150px) {
+	.contract-section {
+		#propertyAddressFull {
+			width: 90% !important;
+		}
+	}
+}
+
+/* Landscape tablets and medium desktops */
+@media (max-width: 1340px) {
+
+	// Form Resets 10-05-2018
+	.contract-section div.saleAndPurchase {
+		padding: 15px;
+	}
+	
+
+	.contract-section {
+		#tenancyTenantName,
+		#purchaserGSTName,
+		#purchaserGSTAddress,
+		#propertyAddressFull {
+			display: block;
+			width: 95% !important;
+		}
+
+		#nomineeFullName,
+		#nomineeAddressFull,
+		#vendorGSTNumber,
+		table input {
+			display: block;
+			width: 100% !important;
+		}
+
+		input {
+			max-width: 95% !important;
+		}
+	}
+
+}
+
+// Sass Imports
+@import 'ui-cleaning';
+@import 'ui-updates';
+@import 'ui-introjs';
+
+
+
+
+
+
+

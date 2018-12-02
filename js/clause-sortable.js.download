@@ -1,0 +1,50 @@
+﻿$(function () {
+
+    //==============================================
+    $("#attatchedClauses").sortable({
+        //Placeholder variable below for dotted outlines.
+        placeholder: 'placeholder',
+        appendTo: document.body,
+        helper: "clone",
+        connectWith: "#reinzClauses,#companyClauses,#memberClauses",
+        receive: function (event, ui) {
+            var clauseID = ui.item.attr("id").replace("c_", "");
+            var versionID = $("#versionID").val();
+
+            attachEformClause(versionID, clauseID);
+
+            $('#' + ui.item.attr("id") + ' a').each(function (index) {
+
+                initXeditableField($(this).attr("id"), versionID, clauseID);
+
+            });
+
+            $('#disable_' + ui.item.attr("id")).hide('fast');
+            $('#del_' + ui.item.attr("id")).show('fast');
+            $("#edit_" + ui.item.attr("id")).show('fast');
+
+
+            var order = $("#attatchedClauses").sortable('serialize');
+            saveEformClauseOrder(versionID, order);
+
+            $("#infoText").hide();
+        },
+        stop: function (event, ui) {
+            var versionID = $("#versionID").val();
+
+            var order = $("#attatchedClauses").sortable('serialize');
+            saveEformClauseOrder(versionID, order);
+        }
+    });
+
+    $("#reinzClauses,#companyClauses,#memberClauses").sortable({
+        //Placeholder variable below for dotted outlines.
+        placeholder: 'placeholder',
+
+        connectWith: "#attatchedClauses",
+        receive: function (event, ui) {
+            var clauseID = ui.item.attr("id").replace("c_", "");
+            reset(clauseID);
+        }
+    }).disableSelection();;
+});

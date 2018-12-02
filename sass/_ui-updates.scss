@@ -1,0 +1,1546 @@
+$light-background: #0d0d0d;
+$light-border: none;
+$light-font: #222;
+$light-panel: #70737a;
+
+// Variables
+body {
+    background-color: transparent;
+    // z-index: -5 !important;
+}
+
+body:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:rgba(247,247,247, 0.9);
+  z-index: -5;
+  // min-height: 100vh;
+}
+
+// ***Background Image Setting
+html { 
+  background: url(../images/city-image.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+// Logo color fix
+.page-logo-rz {
+    border-color: transparent !important;
+    color: transparent !important;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 9999;
+    color: transparent !important;
+    border-color: transparent !important;
+    background-color: transparent !important;
+    img, 
+    a, 
+    a:hover,
+    a:visited,
+    a:active {    
+        border-color: transparent !important;
+        color: transparent !important;
+        -webkit-tap-highlight-color: transparent;
+        z-index: 9999;
+        color: transparent !important;
+        border-color: transparent !important;
+        background-color: transparent !important;
+    }
+}
+
+// Button Styling
+// My Forms page
+.select-template{
+    .btn-default{
+        border-radius: 1px!important;
+        border-color: $blue-b;
+        text-transform: uppercase;
+    }
+}
+
+// Nav Buttons
+.short-cuts{
+    a.btn:hover {
+        background-color: $grey-background-dark !important;
+        border-color: $blue-b !important;
+        border-width: 1px;
+        color: $blue-b !important;
+    }
+}
+
+// Search icon
+.search-box{
+    .btn{
+        background-color: $blue-b !important;
+        border-color: $blue-b !important;
+        border-width: 1px;
+        border-radius: 1px!important;
+        color: #fff;
+    }
+    .btn:hover,
+    .btn:active,
+    .btn:visited,
+    .btn:focus{
+        background-color: $grey-background-dark !important;
+        border-color: $blue-b !important;
+        border-width: 1px;
+        color: $blue-b !important;
+    }
+}
+
+// Main nav styling
+li.dropdown-extended{
+    .dropdown-menu{
+        border-radius: 1px !important;
+        li{
+            border-bottom: none!important;
+        }
+        li:first-child:hover,
+        li:last-child:hover{
+            border-radius: none !important;
+        }
+    }
+}
+
+// All pages with portlet class
+.portlet{
+    .btn-default{
+        border-radius: 1px!important;
+        border-color: $blue-b;
+    }
+    .btn:hover, .btn-default:hover {
+        color: $blue-b !important;
+        i{
+            color:$blue-b !important;
+        }
+    }
+
+    button.dt-button, div.dt-button, a.dt-button{
+        background-color: $blue-b;
+        padding: 4px 12px;
+        color: #fff;
+        border-color: $blue-b !important;
+        border-width: 1px;
+        border-radius: 1px!important;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+    button.dt-button:hover, div.dt-button:hover, a.dt-button:hover {
+        background-color: $grey-background-dark !important;
+        border-color: $blue-b !important;
+        border-width: 1px;
+        color: $blue-b !important;
+        text-transform: uppercase;
+    }
+    // This should override the css that keeps changing the print, copy, pdf, excel and csv buttons
+    .dt-buttons{
+        .dt-button:hover {
+            background-color: $grey-background-dark !important;
+            border-color: $blue-b !important;
+            border-width: 1px;
+            color: $blue-b !important;
+            text-transform: uppercase;
+        }
+    }
+    .save-settings i{
+       color: inherit !important;
+       text-transform: uppercase;
+    }
+    .assist-buttons{
+        button.btn.red-haze.btn-sm.dropdown-toggle{
+            background-color: $blue-b;
+            padding: 4px 12px;
+            color: #fff;
+            border-color: $blue-b !important;
+            border-width: 1px;
+            border-radius: 1px!important;
+            font-weight: 400;
+        }
+    }
+    .search-panel{
+        .dropdown-toggle{
+            margin-right: 0.8em!important;
+        }
+    }
+    .input-group-btn{
+            .btn:last-child{
+                margin-left: 0.8em!important;
+            }
+        }
+    .search-forms{
+        .btn{
+            margin-top: 0.8em !important;
+        }
+    }
+    .contract-section{
+        .label-primary{
+            background: $blue-b;
+            border-radius: 1px;
+        }
+    }
+    .floating-menu{
+        background-color: rgba(37, 35, 35, 0.30);
+        width: 13.3em;
+        right: 0;
+        padding-top: 1.1em;
+        padding-left: 0.8em;
+        border-radius: 1px;
+        .btn{
+            background-color: $blue-b;
+            padding: 4px 12px;
+            color: #fff;
+            border-color: $blue-b;
+            border-width: 1px;
+            border-radius: 1px!important;
+            font-weight: 400;
+            width: 13em;
+            text-align: left;
+        }
+    }
+}
+
+.search-panel{
+    .dropdown-menu{
+        left: 0 !important;
+        border-radius: 1px !important;
+        width: 11.7em;
+        li > a{
+            text-decoration: none !important;
+        }
+    }
+}
+
+.modal{
+    button:hover, button:active,
+    button:visited, button:focus,
+    .btn:hover, .btn-default:hover,
+    .btn:active, .btn-default:active,
+    .btn:visited, .btn-default:visited,
+    .btn:focus, .btn-default:focus {
+        background-color: $grey-background-dark !important;
+        border-color: $blue-b !important;
+        color: $blue-b !important;
+    }
+}
+
+.modal-body{
+    button:hover, button:active,
+    button:visited, button:focus,
+    .btn:hover, .btn-default:hover,
+    .btn:active, .btn-default:active,
+    .btn:visited, .btn-default:visited,
+    .btn:focus, .btn-default:focus {
+        background-color: $grey-background-dark !important;
+        border-color: $blue-b !important;
+        color: $blue-b !important;
+    }
+}
+
+// Validation Service page
+.reinz__form-inline{
+    .btn-primary, .btn-success{
+        background-color: $blue-b !important;
+        padding: 4px 12px;
+        color: #fff;
+        border-color: $blue-b !important;
+        border-width: 1px;
+        border-radius: 1px!important;
+        font-weight: 400;
+    }
+    .btn-primary:hover, .btn-success:hover,
+    .btn-primary:active, .btn-success:active,
+    .btn-primary:visited, .btn-success:visited,
+    .btn-primary:focus, .btn-success:focus{
+        background-color: $grey-background-dark !important;
+        border-color: $blue-b !important;
+        color: $blue-b !important;
+    }
+}
+
+// Blue Icons in tables
+    .table{
+            i{
+                color: $blue-b !important;
+            }
+    }
+
+
+    #slider-contents .audit-save i, #slider-contents .restore-saver h5 {
+        color:$blue-b !important;
+    }
+
+    #slider-contents .audit-save i, #slider-contents .restore-saver i {
+        color:$blue-b !important;
+    }
+
+    #slider-contents .audit-save i, #slider-contents .restore-saver h5 {
+        color: $blue-b !important;
+    }
+
+    .slide-icon-add-trans i.fa.fa-plus {
+        color: $blue-b;
+    }
+
+    #slider-contents .btn {
+        color: $blue-b;
+    }
+
+
+// New Ui Menu Structure for hide show transition
+
+.main-panel.col-xs-10 {
+    width: 86%;
+    -webkit-transition: width 0.2s ease-out;
+    -moz-transition: width 0.2s ease-out;
+    -o-transition: width 0.2s ease-out;
+    transition: width 0.2s ease-out;
+    transition: width 0.2s;
+}
+
+.main-panel.col-xs-10.menu-off {
+    width: 100%;
+    -webkit-transition: width 0.2s ease-out;
+    -moz-transition: width 0.2s ease-out;
+    -o-transition: width 0.2s ease-out;
+    transition: width 0.2s ease-out;
+    transition: width 0.2s;
+}
+
+.col-xs-2.nav-column {
+    width: 13%; 
+    position: static;
+    top: 90px;
+    margin-left: 1%;
+    -webkit-transition: margin-left 0.2s ease-out;
+    -moz-transition: margin-left 0.2s ease-out;
+    -o-transition: margin-left 0.2s ease-out;
+    transition: margin-left 0.2s ease-out;
+    transition: margin-left 0.2s;
+    z-index: 99999;
+    padding-left: 0px !important;
+
+}
+
+#main-left-nav.page-sidebar-menu li:last-child a {
+    border-bottom: none;
+}
+
+
+// Hide some of intro.js
+.introjs-helperNumberLayer { display: none; }
+
+.col-xs-2.nav-column.menu-off {
+    position: static;
+    top: 90px;
+    margin-left: -15%;
+    -webkit-transition: margin-left 0.2s ease-out;
+    -moz-transition: margin-left 0.2s ease-out;
+    -o-transition: margin-left 0.2s ease-out;
+    transition: margin-left 0.2s ease-out;
+    transition: margin-left 0.2s;
+    z-index: 99999
+}
+
+i.fa-bars.ui-trigger {
+    position: absolute;
+    top: 32px;
+    left: 16px;
+    font-size: 1.8em !important;
+    color: #fff;
+    display: block;
+    cursor: pointer;
+    font-weight: 100;
+}
+
+i.fa-bars.ui-trigger:hover {
+    color: #8EC6CE;
+}
+
+.page-logo-rz {
+    position: absolute;
+    top: 0px;
+    left: 55px;
+}
+
+.page-sidebar {
+    background-color: rgba(22, 22, 22, 1);
+}
+
+.page-sidebar-menu li a span.title.l-nav-title {
+    padding-left: 0.4em !important;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.menu-tooltip {
+    .tooltip-inner {
+        background-color: #345973;
+    }
+    .tooltip-arrow {
+        color: #345973;
+        border-bottom-color: #345973 !important;
+    }
+    top: 60px !important;
+    left: 0px !important;
+}
+
+
+// Properties Section
+// Dark Styling for properties page: 
+.portlet.light.properties-section, 
+.portlet.light.settings-section  {
+    background-color: #f7f7f7;
+    color: #fff;
+    border: 1px solid #a3a3a3;
+    padding-left: 2em;
+    border-radius: 0.1em;
+
+    h3.form-sect-title {
+        color: $blue-b !important;
+        display: inline-block;
+        padding-bottom: 0.3em;
+        margin: 1.2em 0 1.5em 0;
+        font-size: 1.5em;
+        font-weight: 300;
+        padding-top: 0.1em;
+    }
+
+    // Properties Listing Page
+    .properties-select {
+        float: right;
+        margin-top: 1.5em;
+        margin-bottom: 0em;
+        font-weight: 300;
+        height: 3.5em;
+        padding: 1em !important;
+        // border-color: #7a7a7a;
+        width: 23.4em;
+        color: #222;
+        background-color: #c9c9c9;
+    }
+
+    h4 {
+        color: #222;
+    }
+
+    .portlet-title {
+        border-bottom: none;
+    }
+
+    // Select box styling
+    .form-control {
+        background-color: #fff;
+        color: $blue-b;
+        border: 1px solid $blue-b;
+    }
+} //Ends
+
+.properties-section .prop-listings {
+    h4 {
+        text-transform: uppercase;
+        margin-top: 2.5em;
+        font-size: 1.3em;
+        color: $blue-b !important;
+        font-weight: 300;
+        margin-bottom: 1.2em;
+        margin-left: 0.15em;
+    }
+    // Properties list items
+    li {
+        list-style: none;
+        background-color: #fff;
+        color: #333;
+        margin: 0.2em 0.5em 0.4em 0.5em;
+        padding: 1.3em;
+        margin-left: 0em;
+        color: #222;
+        font-weight: 300;
+        border: $blue-a 1px solid;
+    }
+
+    li:hover {
+        cursor: pointer;
+        border-color: $blue-a;
+    }
+    i {
+        float: right;
+        font-size: 1em !important;
+        padding-top: 0.2em;
+        color: $blue-a;
+    }
+} // Ends
+
+ul.properties-list {
+    margin-bottom: 2.5em;
+    padding-left: 0em !important;
+    margin-left: 0em !important;
+}
+
+.placeholder-box {
+    margin-top: 1.3em;
+    min-height: 50em; 
+    background-color: #f7f7f7;
+    border-radius: 0em;
+
+    .property-contract-listing {
+
+        padding-left: 0.6em;
+        background-color: #f7f7f7;
+
+        li {
+            position: relative;
+            list-style: none;
+            display: inline-block;
+            width: 31%;
+            margin-top: 2em;
+            margin-bottom: 0.4em;
+            margin-right: 2%;
+            border: $blue-a  1px solid;
+            background-color: #efefef;
+            padding: 0.5em 0.5em 1em 0.5em;
+            font-weight: 100;
+            color: #222 !important;
+        }
+
+        .share-mail {
+            position: absolute;
+            bottom: 0.9em;
+            right: 0.5em;
+            border: 1px solid $blue-b;
+            background-color: #fff;
+            color: white !important;
+            padding: 0.2em 0.5em 0.2em 0.5em;
+            font-size: 0.8em;
+            width: 6em;
+            font-weight: 300;
+            a { 
+                color: $blue-b;
+                text-decoration: none;
+            }
+            i {
+                opacity: 0.9;
+                color: $blue-b;
+                text-decoration: none;
+                margin-right: 0.7em;
+                font-size: 12px !important;
+            }
+        }
+
+
+        li:hover {
+            border: $blue-b 1px solid;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 1em;
+            height: 230px;
+            padding-top: 0.35em;
+            padding-left: 0.35em;
+            padding-right: 0.35em;
+        }
+        p {
+            padding-left: 1em;
+            margin-bottom: 0em;
+            color: #888;
+            font-weight: 500;
+        }
+        li:hover {
+            cursor: pointer;
+        }
+        .contract-info {
+            margin-top: 1.2em;
+            margin-bottom: 0.5em;
+            font-weight: 300;
+            font-size: 1.05em;
+            color: $blue-b;
+        }
+        .person {
+            font-size: 0.9em;
+            padding-left: 1.1em;
+        }
+
+    } // Property-contratc-listing-ends
+
+} // Ends
+
+// Settings Section
+.portlet.settings-section {
+
+    h3.form-sect-title {
+        margin-bottom: 0.5em !important;
+    }
+
+    h4 {
+        color: $blue-b !important;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin: 1em 0em 1em 0em;
+    }
+
+    .individual,
+    .company {
+        padding-top: 0.8em;
+    }
+
+    // Individual Settings Panel
+    .individual,
+    .company,
+    .flexisign {
+
+        // min-height: 14em;
+        border: 1px solid $blue-b;
+        margin:  1em 0em 1em 0em;
+        background-color: #f2f2f2;
+        border-radius: 0.1em;
+
+        p:nth-child(1) {
+            margin-top: 1em;
+        }
+        p {
+            color: #222;
+            margin-bottom: 2em;
+            padding-left: 1em;
+        }
+        select:nth-child(1) {
+            margin-top: 1em;
+        }
+        select.form-control.settings-select {
+            margin-bottom: 1.5em;
+            padding: 0.1em !important;
+            font-size: 0.9em;
+            height: 30px;
+        }
+        i:nth-child(1) {
+            margin-top: 0.69em;
+        }
+        i {
+            color: $blue-b;
+            display: block;
+            // float: right;
+            font-size: 1.8em !important;
+            margin-bottom: 1.32em;
+            margin-left: 70%;
+        }
+        .checkbox {
+            margin-left: 1.3em;
+            margin-bottom: 1.85em;
+        }
+
+        // Text inputs company settings
+        input[type=text]:nth-child(1) {
+            margin-top: 0.7em;
+        }
+
+        input[type=text]:nth-child(2) {
+            margin-bottom: 1.2em;
+            height: 2.2em;
+        }
+
+        input[type=text] {
+            margin-bottom: 1.2em;
+            height: 2.2em;
+        }
+
+        .disable-clause {
+            margin-bottom: 1.55em;
+        }
+
+    } // ENDS
+
+    .company {
+        i:first-child {
+            margin-top: 0.5em;
+        }
+    }
+
+    .individual {
+        i {
+            margin-bottom: 1.42em;
+        }
+        input[type=check]:first-child {
+            margin-top: 0.1em;
+        }
+        .checkbox {
+            margin-top: -0.5em;
+            margin-bottom: 2em;
+        }
+    }
+
+    .flexisign {
+        padding-top: 0.4em;
+        margin-top: 3.1em;
+        h4.staff-title {
+            padding-left: 0.7em;
+        }
+        h4 {
+            margin-bottom: 2em;
+        }
+        p.info {
+            margin-bottom: 1.6em;
+        }
+        p:nth-child(1) {
+            margin-top: 1.45em;
+        }
+        p {
+            text-transform: none;
+            margin-bottom: 3em;
+        }
+        p.staff-member {
+            padding-top: 0.4em;
+        }
+        i:nth-child(1) {
+            margin-top: -0.2em;
+        }
+        i {
+            margin-left: 55%;
+            font-size: 1.4em !important;
+            margin-bottom: 1.65em;
+        }
+        hr {
+            border: 1px solid #ccc;
+            margin-top: 0em;
+            width: 95%;
+            margin: 0 auto;
+            margin-bottom: 1.4em;
+        }
+        .checkbox {
+            margin-top: 0.8em;
+        }
+
+        select.form-control {
+            font-size: 0.8em !important;
+        }
+
+        .access-levels {
+            p {
+                margin-bottom: 1.8em;
+            }
+            select.form-control {
+                margin-top: 1em;
+                font-size: 0.8em !important;
+            }
+        }
+
+    } // flexisign ends
+
+    .flexi-logo {
+        position: absolute;
+        top: -0.5em;
+        right: 0.8em;
+    }
+
+}  //settings-section ends
+
+.portlet.light.authorisation-section {
+
+    background-color: #f7f7f7;
+    color: #fff;
+    border: 1px solid #a3a3a3;
+    padding-left: 2em;
+    border-radius: 0.1em;
+    position: relative;
+    
+    .flexi-logo {
+        position: absolute;
+        width: 120px;
+        right: 1.6em;
+        top: 3.2em;
+    }
+
+
+    .alert {
+        margin-top: 1em;
+    }
+
+    .portlet.light.authorisation-section h4.select-msg {
+        text-align: center;
+        font-weight: 400;
+    }
+
+    h3.form-sect-title {
+        color: $blue-b !important;
+        display: inline-block;
+        padding-bottom: 0.3em;
+        margin: 1.2em 0 1.5em 0;
+        font-size: 1.5em;
+        font-weight: 300;
+        padding-top: 0.1em;       
+    }
+
+    h4 {
+        color: $blue-b !important;
+        font-weight: 300;
+        margin: 1em 0em 1em 0em;
+        font-size: 1.1em;
+    }
+
+    // Properties list items
+    li {
+        list-style: none;
+        background-color: #fff;
+        color: #333;
+        margin: 0.2em 0.5em 0.4em 0.5em;
+        padding: 0.8em;
+        margin-left: 0em;
+        color: #222;
+        font-weight: 300;
+        border: $blue-a 1px solid;
+        position: relative;
+        cursor: pointer;
+
+        span {
+            display: block;
+            padding-left: 3.3em;
+        }
+
+        .who-is {
+            color: $blue-b;
+
+        }
+
+    }
+
+    i {
+        float: right;
+        color: $blue-b;
+        margin-top: -1.65em;   
+        font-size: 1.3em !important;
+    }
+
+    .post-approval {
+        span {
+            padding-left: 0.2em;
+        } 
+    }
+
+    .checkbox {
+        display: inline;
+        position: absolute;
+        top: 0.6em;
+        left: 2.8em;
+    }
+
+    .flexi-image {
+        display: block;
+        width: 30em;
+        margin: 0 auto;
+        margin-top: 9em;
+        margin-bottom: 0.5em;
+        text-align: center;
+    }
+
+    .needing-approval {
+
+        position: relative;
+
+        .approve-ticked {
+            position: absolute;
+            top: -3em;
+            right: 2em;
+        }
+
+    }
+
+    .approval-msg {
+        color: #222;
+        font-weight: 300;
+        font-size: 1.2em;
+        margin-top: 1.2em;
+        color: $blue-b !important;
+        text-align: center;
+    }
+
+    .web-viewer {
+
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        .decline-form {
+            position: absolute;
+            top: -2.8em;
+            right: 0em;
+            width: 11em;
+            border-radius: 0.2em !important;
+            i {
+                position: absolute;
+                top: 2em;
+                left: 0.5em;
+                color: #fff;
+            }
+        }
+
+        .approve-form {
+            position: absolute;
+            top: -2.8em;
+            right: 11.8em;
+            width: 11em;
+            background-color: #83CCEC;
+            border: 2px solid #83CCEC;
+            border-radius: 0.2em !important;
+            i {
+                position: absolute;
+                top: 2em;
+                left: 0.5em;
+                color: #fff;
+            }   
+        }
+
+        .approve-form:hover {
+           background-color: #efefef;
+           border: 2px solid #ff1c36; 
+        }
+
+        .show-props {
+            position: absolute;
+            top: -2.8em;
+            left: 11.8em;
+            width: 18em;
+            background-color: $flexi-blue;
+            border: 2px solid $flexi-blue;
+            border-radius: 0.2em !important;
+            i {
+                position: absolute;
+                top: 2em;
+                left: 0.5em;
+                color: #fff;
+            }   
+        }
+
+        .decline-form {
+            background-color: #ff1c36;
+            border: 2px solid #ff1c36;
+            color: #fff;
+        }
+
+        .decline-form:hover {
+            background-color: #efefef !important;
+            border: 2px solid #ff1c36 !important;
+            color: #222;
+        }
+
+        .show-props:hover,
+        .approve-form:hover {
+            background-color: #efefef !important;
+            border: 2px solid #83CCEC !important;
+            color: #222 !important;  
+            i {
+                color: #222 !important;
+            }
+        }
+
+        .show-props:hover {
+            background-color: #efefef !important;
+            border: 2px solid $flexi-blue !important;
+            color: #222 !important;  
+            i {
+                color: #222 !important;
+            }
+        }
+
+    } // Web Viewer Ends
+
+    // Animated property listing
+    .property-listings-holder {
+        position: absolute;
+        top: 10em;
+        left: -90em;
+        width: 50%;
+        z-index: 1;
+        background-color: #f7f7f7;
+        padding: 1.5em;
+        border: 1px solid #a3a3a3;
+
+        // Shadow Effect
+        -webkit-box-shadow: 4px -3px 9px -3px rgba(0,0,0,0.75);
+        -moz-box-shadow: 4px -3px 9px -3px rgba(0,0,0,0.75);
+        box-shadow: 4px -3px 9px -3px rgba(0,0,0,0.75);
+    }
+
+} // authorisation section
+
+#propListingHolder {
+    .hide-prop-panel {
+        position: absolute;
+        top: 1.85em;
+        right: 13em;
+        display: inline;
+        width: 7em;
+        background-color: #3E3E3E;
+        border: solid 2px #3E3E3E !important;
+        color: #fff;
+        border-radius: 0.2em !important;
+        i {
+            position: absolute;
+            top: 2em;
+            left: 0.5em;
+            color: #fff !important;
+        }
+    }
+
+    .approve-ticked {
+        border-radius: 0.2em !important;
+    }
+
+}
+
+.property-listings-holder {
+    .approve-ticked:hover {
+        background-color: #efefef;
+        border: solid 2px #83CCEC !important;
+        color: #222 !important;     
+    }
+
+    .hide-prop-panel:hover {
+        background-color: #efefef;
+        border: solid 2px #3E3E3E !important;
+        color: #222 !important;
+
+        i {
+            color: #222 !important;
+        }
+    }
+}
+
+.page-sidebar {
+   z-index: 5 !important;
+}
+
+.flexi-logo {
+    width: 10em;
+    margin-top: -2.6em;
+}
+
+.flexi-mini-logo {
+    position: absolute;
+    right: 1.4em;
+    top: 0.8em;
+    width: 12em;
+}
+
+.form-decline-modal {
+    img {
+        width: 16em;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 1em;
+    }
+    p {
+        text-align: center;
+    }
+    textarea {
+        width: 20em;
+    }
+}
+
+// Create Forms Update 2018:
+
+.create-form-page{
+    .colten-wrapper{
+        background-color: transparent;
+    }
+    .portlet.light{
+        background-color: transparent;
+    }
+}
+.page-wrapper {
+    margin-top: 6.8em;
+}
+
+
+.page-sidebar{
+    max-width: 199px;
+    margin: 0 auto;
+    background-color: #FAFAFA;
+    .page-sidebar-menu{
+        li a{
+            color: $blue-b !important;
+            width: 95%;
+            margin: 0 auto;
+            i{
+                color: $blue-b !important;
+            }
+            span{
+                color: $blue-b !important;
+            }
+        }
+        .active{
+            a{
+                i{
+                    color: $blue-a !important;
+                }
+                span{
+                    color: $blue-a !important;
+                }
+            }
+        }
+        li a:hover,
+        li a:active,
+        li a:focus{
+            color: $blue-a !important;
+            i{
+                color: $blue-a !important;
+            }
+            span{
+                color: $blue-a !important;
+            }
+        }
+    }
+}
+
+#main-left-nav.page-sidebar-menu li a{
+    border-bottom: 1px solid $blue-a;
+}
+
+.select-form{
+    .form-area{
+        background-color: #FAFAFA;
+        padding: 1em 4.1em !important;
+        .select-form-title{
+            h3{
+                text-transform: uppercase;
+                color: $blue-b !important;
+                font-size: 2em;
+                padding: 0 0 0.2em 0;
+            }
+        }
+    }
+    h5{
+        border: none;
+        margin-bottom: 1.3em;
+        padding-bottom: 0;
+    }
+    .doc-border{
+        border: 1px solid $blue-a;
+        background: #E6E7E9;
+        margin-bottom: 0.8em;
+        //min-height: 340px;
+        h5{
+            font-weight: 300;
+            color: $blue-b !important;
+            margin-bottom: 0;
+            text-transform: initial;
+        }
+    }
+}
+
+
+.recent-forms{
+    background-color: #FAFAFA;
+    padding: 1.2em 3em !important;
+    margin-right-right: -15px !important;
+    h5{
+        border: none;
+        margin-bottom: 0.8em;
+        margin-top: 1.1em;
+        padding-bottom: 0;
+        font-weight: 300;
+        font-size: 1.65em;
+        color: $blue-b !important;
+    }
+    .recent-forms-box{
+        border: 1px solid $blue-a;
+        padding: 0.5em 0.9em;
+        margin: 0.9em 0;
+        .form-title{
+            color: $blue-a;
+            font-size: 1.2em;
+            font-weight: 300;
+            margin-bottom: 0.2em;
+        }
+        .recent-date{
+            text-transform: uppercase;
+            font-weight: 500;
+
+        }
+    }
+}
+
+.quick-search{
+    background-color: #FAFAFA;
+    padding: 1.2em 3em !important;
+    h5{
+        border: none;
+        margin-bottom: 0.8em;
+        margin-top: 1.1em;
+        padding-bottom: 0;
+        font-weight: 300;
+        font-size: 1em;
+        color: $blue-b !important;
+    }
+    .panel-default{
+        border: none;
+        .panel-body{
+            padding: 0;
+            border: none;
+            .input-group{
+                display: block;
+                .form-control{
+                    margin-bottom: 1.1em;
+                    color: $blue-b !important;
+                }
+            }
+        }
+        .input-group-btn{
+            .dropdown-toggle{
+                width: 100%;
+                text-align: left;
+                background-color: #E6E7E9;
+                color: darkgray;
+                border: none;
+                padding: 1em 1.8em;
+                margin-bottom: 0.8em;
+                .chevron-down{
+                    float: right;
+                    margin-top: -1.45em;
+                }
+            }
+            .dropdown-toggle:hover{
+                color: $blue-b !important;
+            }
+            .dropdown-toggle:focus,
+            .dropdown-toggle:visited{
+                color: darkgrey !important;
+            }
+            .search-btn{
+                margin-left: 0 !important;
+                padding: 1.1em 1.8em
+            }
+        }
+    }
+}
+
+
+.select-form {
+    
+    .form-area {
+        padding: 0.5em 0.5em 0.5em 0.5em !important;
+    }
+
+    .doc-border {
+        padding: 0.7em 0em 0.7em 0em;
+    }
+
+    h3 {
+        margin-left: -0.4em;
+        margin-bottom: 0.35em;
+        color: red !important;
+        font-size: 1.4em;
+    }
+
+    h5 {
+        margin-top: 1em;
+        padding-top: 0em;
+        padding-left: 0.7em;
+        padding-right: 0.7em;
+        font-size: 1em;
+    }
+
+    .form-holder {
+        width: 22%;
+        display: inline-block;
+
+        img {
+            width: 88%;
+            // min-height: 1em;
+            max-height: 12em; 
+        }
+        
+        margin-bottom: 0.3em;
+        margin-right: 0.6em;
+    }
+
+    .col-xs-4 {
+        padding-right: 0px;
+    }
+
+} //select-form
+
+.recent-forms,
+.quick-search {
+    h5 {
+        font-size: 1.5em;
+        margin-left: -0.7em;
+    }
+}
+
+/* SHADOW/GLOW TRANSITIONS EFFECT */
+/* Glow */
+.hvr-glow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(214, 56, 55, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow; 
+}
+
+.doc-border {
+  width: 99%;
+  margin: 0 auto;
+  border: 3px #dbd5d5 solid;
+  border-radius: 2px;
+  padding: 1em;
+  border-radius: 1px;
+  min-height: 20em; 
+}
+
+.doc-border h5 {
+  min-height: 4.2em;
+  font-size: 17;
+  font-weight: bold;
+  color: #333; 
+}
+
+.select-form .form-area {
+    background-color: #FAFAFA;
+    padding: 1em 2.1em!important;
+}
+
+// Properties Listing Page
+.address-filter {
+    margin-top: 0em;
+    margin-bottom: 1.5em;
+    font-weight: 300;
+    height: 3.5em;
+    padding: 1em !important;
+    // border-color: #7a7a7a;
+    width: 100%;
+    color: #222;
+    background-color: #c9c9c9;
+}
+
+.needing-approval {
+
+    .approve-ticked {
+        border-radius: 0.2em !important;
+        background-color: $flexi-blue;
+        border-color: $flexi-blue;
+    }
+
+    .approve-ticked:hover {
+        background-color: #efefef !important;
+        color: #222 !important;
+        border-color: $flexi-blue !important;
+    }
+
+}
+
+.create-form-page {
+
+    .sub-flexi {
+
+        position: relative;
+        padding: 0.8em 0.8em 2em 0.8em !important;
+
+        p {
+            text-transform: none;
+        }
+
+        .flexi-prices {
+            padding-left: 1.5em;
+            margin-left: 0em;
+        }
+
+        span {
+            margin-left: 0.5em;
+        }
+
+        img {
+            width: 6.5em;
+            display: inline;
+            margin-left: 1em;
+            margin-top: -8px;
+        }
+
+        .flexi-go {
+            background-color: $flexi-blue;
+            border:  2px solid $flexi-blue;
+            border-radius: 0.2em !important;
+            margin-top: 1.5em;
+        }
+
+        .flexi-go:hover {
+            background-color: #efefef;
+            border:  2px solid $flexi-blue !important;
+            border-color: $flexi-blue !important;
+            color: #444 !important;
+        }
+
+        .flex-sub-tc {
+            padding-left: 1.6em;
+            padding-right: 0.5em;
+            display: inline;
+        }
+
+        .tc-flex {
+            display: inline;
+        }
+
+        a {
+            text-decoration: underline;
+            display: inline;
+        }
+
+        .flexi-price {
+            position: absolute;
+            bottom: 0.4em;
+            right: 2.4em;
+            font-size: 2.2em;
+            margin-top: -1em;
+            font-weight: 500;
+        }
+
+        .per-m {
+         position: absolute;
+         bottom: 3.2em;
+         right: 1.4em;
+         font-size: 0.8em;
+         margin-top: -1em;
+         font-weight: 500;   
+        }
+
+    } //sub-flexi ends
+
+    .sub-flexi-b {
+
+        position: relative;
+        padding: 0.8em 0.8em 1.2em 0.8em !important;
+        overflow: auto;
+
+        p {
+            text-transform: none;
+        }
+
+        .flexi-prices {
+            padding-left: 1.5em;
+            margin-left: 0em;
+        }
+
+        span {
+            margin-left: 0.5em;
+        }
+
+        img {
+            width: 6.5em;
+            display: inline;
+            margin-left: 1em;
+            margin-top: -8px;
+        }
+
+        .flexi-go {
+            background-color: $flexi-blue;
+            border:  2px solid $flexi-blue;
+            border-radius: 0.2em !important;
+            margin-top: 1.5em;
+        }
+
+        .flexi-go:hover {
+            background-color: #efefef;
+            border:  2px solid $flexi-blue !important;
+            border-color: $flexi-blue !important;
+            color: #444 !important;
+        }
+
+        .flex-sub-tc {
+            padding-left: 1.6em;
+            padding-right: 0.5em;
+            display: inline;
+        }
+
+        .tc-flex {
+            display: inline;
+        }
+
+        a {
+            text-decoration: underline;
+            display: inline;
+        }
+
+        h4 {
+            position: relative;
+            margin-right: 1em;
+            margin-bottom: 1em;
+            margin-top: 1.7em;
+            text-transform: uppercase;
+            font-size: 1.15em;
+            color: #345973!important;
+        }
+
+        .flexi-price {
+            position: absolute;
+            bottom: -0.5em;
+            right: 1.3em;
+            display: inline-block;
+            font-size: 2.2em;
+            margin-top: 0.1em;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .per-m {
+         position: absolute;
+         bottom: 0em;
+         right: -1.4em;
+         font-size: 0.6em;
+         margin-top: -1em;
+         font-weight: 500; 
+         color: #333;  
+        }
+
+        .flexi-update {
+            background-color: $flexi-blue;
+            border:  2px solid $flexi-blue;
+            border-radius: 0.2em !important;
+            margin-top: 1em;
+            margin-left: 1em;
+            float: right;
+        }
+
+        .flexi-cancel {
+            background-color: $flexi-grey;
+            border:  2px solid $flexi-grey;
+            border-radius: 0.2em !important;
+            margin-top: 1em;
+            margin-left: 1em;
+            float: right;
+        }
+
+    }
+
+}
+
+// Flexi sign assist buttons differentiation fix - 22-11-2018
+.send-to-flexi {
+    background-color: $flexi-blue !important;
+    color: #fff !important;
+    border-radius: 0.2em;
+    border-color: $flexi-blue !important;
+}
+
+
+#eformButtons .send-to-flexi:hover {
+    background-color: #efefef !important;
+    color: #222 !important;
+    border-radius: 0.2em;
+    border-color: $flexi-blue !important;
+}

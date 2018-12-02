@@ -1,0 +1,494 @@
+/* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Myriad Pro";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ .contract-section p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.5pt;
+	font-family:"Arial",sans-serif;}
+.contract-section h1
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.25pt;
+	margin-bottom:.0001pt;
+	text-indent:-21.25pt;
+	line-height:150%;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.5pt;
+	font-family:"Arial",sans-serif;
+	font-weight:normal;
+}
+.contract-section h2
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:21.25pt;
+	text-indent:-21.25pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.5pt;
+	font-family:"Arial",sans-serif;
+	font-weight:normal;}
+.contract-section h3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:42.55pt;
+	text-indent:-21.3pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:normal;}
+
+.contract-section h4
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:63.8pt;
+	text-indent:-21.25pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12pt;
+	font-family:"Arial",sans-serif;
+	font-weight:normal;}
+.contract-section h5
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:3.0cm;
+	text-indent:-21.25pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.5pt;
+	font-family:"Arial",sans-serif;
+	font-weight:normal;}
+.contract-section h6
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:center;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;}
+.contract-section p.MsoHeading7, .contract-section li.MsoHeading7, .contract-section div.MsoHeading7
+	{margin-top:4.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+.contract-section p.MsoHeading8, .contract-section li.MsoHeading8, .contract-section div.MsoHeading8
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:122.2pt;
+	text-indent:-72.0pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+.contract-section p.MsoHeading9, .contract-section li.MsoHeading9, .contract-section div.MsoHeading9
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:129.4pt;
+	text-indent:-79.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+.contract-section p.MsoHeader, .contract-section li.MsoHeader, .contract-section div.MsoHeader
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.5pt;
+	font-family:"Arial",sans-serif;}
+.contract-section p.MsoFooter, .contract-section li.MsoFooter, .contract-section div.MsoFooter
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.5pt;
+	font-family:"Arial",sans-serif;}
+.contract-section p.MsoTitle, .contract-section li.MsoTitle, .contract-section div.MsoTitle
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:120%;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:18.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+.contract-section p.MsoBodyTextIndent, .contract-section li.MsoBodyTextIndent, .contract-section div.MsoBodyTextIndent
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:21.25pt;
+	text-indent:-21.25pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;}
+.contract-section p.MsoAcetate, .contract-section li.MsoAcetate, .contract-section div.MsoAcetate
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:8.0pt;
+	font-family:"Tahoma",sans-serif;}
+.contract-section p.MsoListParagraph, .contract-section li.MsoListParagraph, .contract-section div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.5pt;
+	font-family:"Arial",sans-serif;}
+.contract-section p.ContactDetails, .contract-section li.ContactDetails, .contract-section div.ContactDetails
+	{mso-style-name:ContactDetails;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:7.0pt;
+	font-family:"Arial",sans-serif;}
+.contract-section p.TNCL1, .contract-section li.TNCL1, .contract-section div.TNCL1
+	{mso-style-name:TNCL1;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:14.2pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-14.2pt;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+.contract-section p.TNCL4, .contract-section li.TNCL4, .contract-section div.TNCL4
+	{mso-style-name:TNCL4;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:122.2pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-14.2pt;
+	font-size:7.0pt;
+	font-family:"Arial",sans-serif;}
+.contract-section p.TNCL5, .contract-section li.TNCL5, .contract-section div.TNCL5
+	{mso-style-name:TNCL5;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:77.95pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-14.15pt;
+	font-size:7.0pt;
+	font-family:"Arial",sans-serif;}
+.contract-section p.2ndScheduleClauses, .contract-section li.2ndScheduleClauses, .contract-section div.2ndScheduleClauses
+	{mso-style-name:"2nd Schedule Clauses";
+	margin-top:4.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:42.55pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-42.55pt;
+	font-size:8.0pt;
+	font-family:"Arial",sans-serif;}
+.contract-section p.2ndScheduleClauses2, .contract-section li.2ndScheduleClauses2, .contract-section div.2ndScheduleClauses2
+	{mso-style-name:"2nd Schedule Clauses 2";
+	margin-top:4.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:63.8pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	font-size:8.0pt;
+	font-family:"Arial",sans-serif;}
+.contract-section .MsoChpDefault
+	{font-size:10.0pt;}
+ 
+
+.saleAndPurchase h1
+	{margin-top:12.0pt;
+	margin-right:0cm;
+    text-indent:0;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:16.0pt;
+    font-weight:bold;
+	font-family:"Arial",sans-serif;}
+.saleAndPurchase h2
+	{margin-top:12.0pt;
+	margin-right:0cm;
+    text-indent:0;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Arial",sans-serif;
+    font-weight:bold;
+	font-style:italic;}
+.saleAndPurchase h3
+	{margin:0cm;
+	margin-bottom:.0001pt;
+    text-indent:0;
+	page-break-after:avoid;
+	font-size:12.0pt;
+    font-weight:bold;
+	font-family:"Arial",sans-serif;}
+.saleAndPurchase h4
+	{margin-top:0cm;
+	margin-right:-2.85pt;
+	margin-bottom:0cm;
+    text-indent:0;
+	margin-left:35.45pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-35.45pt;
+    font-weight:bold;
+	page-break-after:avoid;
+	border:none;
+	padding:0cm;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;}
+.saleAndPurchase h6
+	{margin-top:0cm;
+	margin-right:0cm;
+    text-indent:0;
+	margin-bottom:0cm;
+	margin-left:14.2pt;
+	margin-bottom:.0001pt;
+	text-indent:-14.2pt;
+	line-height:15.0pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+    font-weight:bold;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;}
+.saleAndPurchase p{
+   
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;
+}
+
+.saleAndPurchase h6{
+   
+	text-align:left;
+}
+
+.contract-section p.TNCL3, .contract-section li.TNCL3, .contract-section div.TNCL3
+	{mso-style-name:TNCL4;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:49.6pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-14.2pt;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;}
+
+.contract-section p.TNCL4, .contract-section li.TNCL4, .contract-section div.TNCL4
+	{mso-style-name:TNCL4;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:63.8pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-14.2pt;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;}
+.contract-section p.TNCL5, .contract-section li.TNCL5, .contract-section div.TNCL5
+	{mso-style-name:TNCL5;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:77.95pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-14.15pt;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;}
+
+
+/* Page Definitions */
+ @page WordSection1
+	{size:21.0cm 842.0pt;
+	margin:1.0cm 42.55pt 1.0cm 42.55pt;}
+.contract-section div.WordSection1, .contract-section div.WordSection1a{
+	width: 860px;
+	
+ 	background-repeat: no-repeat;
+ 	background-attachment: fixed;
+ 	background-position: 515px 570px;
+	border: 1px solid;
+	padding: 34px;
+    overflow: auto;
+}/*background-image: url(../../assets/admin/layout4/img/contract-image.png); */
+	{page:WordSection1;}
+@page WordSection2
+	{size:21.0cm 842.0pt;
+	margin:42.55pt 42.55pt 42.55pt 42.55pt;}
+.contract-section div.WordSection2
+	{page:WordSection2;}
+
+.contract-section div.saleAndPurchase{
+ 	background-repeat: no-repeat;
+ 	background-attachment: fixed;
+ 	background-position: 525px 570px;
+	border: 1px solid;
+	padding: 34px;
+    overflow: auto;
+}
+/*background-image: url(../../assets/admin/layout4/img/saleAndPurchase.png); */
+
+
+ /* List Definitions */
+ .contract-section ol
+	{margin-bottom:0cm;}
+.contract-section ul
+	{margin-bottom:0cm;}
+
+/*Contract Input Fields*/
+.contract-input-field {
+ display: inline;
+ width: 260px;
+ margin-left: 10px;
+ margin-bottom: 4px;
+}
+
+.contract-input-field-sm {
+ display: inline;
+ width: 200px;
+ margin-left: 10px;
+ margin-bottom: 4px;
+}
+
+.contract-input-field-sm-b {
+ display: inline;
+ width: 90px;
+ margin-left: 10px;
+ margin-bottom: 4px;
+}
+
+/* Auction Form Styles*/
+
+.contract-section div.auctionForm{
+	width: 860px;
+	
+ 	background-repeat: no-repeat;
+ 	background-attachment: fixed;
+ 	background-position: 525px 570px;
+	border: 1px solid;
+	padding: 34px;
+    overflow: auto;
+}
+/*background-image: url(../../assets/admin/layout4/img/saleAndPurchase.png); */
+
+.auctionForm h3
+	{margin-top:1.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:54.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:-18.0pt;
+	font-size:7.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:normal;}
+
+.auctionForm p.TNCL2,.auctionForm li.TNCL2,.auctionForm div.TNCL2
+	{mso-style-name:TNCL2;
+	margin-top:1.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:35.45pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:-21.25pt;
+	font-size:7.0pt;
+	font-family:"Arial",sans-serif;}
+.auctionForm p.TNCL3, .auctionForm li.TNCL3, .auctionForm div.TNCL3
+	{mso-style-name:TNCL3;
+	margin-top:1.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:49.6pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:-14.15pt;
+	font-size:7.0pt;
+	font-family:"Arial",sans-serif;}
+.auctionForm p.TNCL4,.auctionForm li.TNCL4,.auctionForm div.TNCL4
+	{mso-style-name:TNCL4;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:63.8pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:-14.2pt;
+	font-size:7.0pt;
+	font-family:"Arial",sans-serif;}
+.auctionForm p.TNCL5,.auctionForm li.TNCL5,.auctionForm div.TNCL5
+	{mso-style-name:TNCL5;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:49.65pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:7.0pt;
+	font-family:"Arial",sans-serif;}
+
+
+.auctionForm p.TNCL3-Clear,.auctionForm li.TNCL3-Clear,.auctionForm div.TNCL3-Clear
+	{mso-style-name:"TNCL3 - Clear";
+	margin-top:1.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:49.65pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:-14.2pt;
+	font-size:7.0pt;
+	font-family:"Arial",sans-serif;}

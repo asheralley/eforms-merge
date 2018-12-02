@@ -1,0 +1,65 @@
+﻿//===================================================
+
+
+function setTimeoutC(v) {
+    $("#timeOutC").val(parseInt(v, 10));
+}
+
+function startCountDown() {
+    var timeOutcheck = setInterval(function () {
+        var timeOutInMinutes = parseInt($("#timeOutC").val(), 10);
+        var nTO = timeOutInMinutes - 1;
+        $("#timeOutC").val(nTO)
+
+        if (nTO <= 0) {
+            //reload the page
+            alert("Your session has timed out.");
+            location.reload();
+        }
+        else if (nTO == 1) {
+            $('#timeOutModal').modal('show');
+        }
+    }, 60000);
+}
+
+function clearValue(id) {
+    $("input[name=" + id + "]").prop('checked', false);
+    $("#" + id + "_Y").removeClass("strikerThrough");
+    $("#" + id + "_N").removeClass("strikerThrough");
+}
+
+function checkboxHtmlCrossout(id, ischecked) {
+
+    if (ischecked) {
+        if ($("#chk_" + id).hasClass("strikerThrough")) {
+            $("#chk_" + id).removeClass("strikerThrough");
+        }
+
+    }
+    else {
+        if (!$("#chk_" + id).hasClass("strikerThrough")) {
+            $("#chk_" + id).addClass("strikerThrough"); 
+        }
+    }
+}
+
+function raduiHtmlCrossout(id, value) {
+    if (value == "true" || value == "True") {
+        if ($("#" + id + "_Y").hasClass("strikerThrough")) {
+            $("#" + id + "_Y").removeClass("strikerThrough");
+        }
+        if (!$("#" + id + "_N").hasClass("strikerThrough")) {
+            $("#" + id + "_N").addClass("strikerThrough");
+        }
+
+    }
+    else {
+        if ($("#" + id + "_N").hasClass("strikerThrough")) {
+            $("#" + id + "_N").removeClass("strikerThrough");
+        }
+        if (!$("#" + id + "_Y").hasClass("strikerThrough")) {
+            $("#" + id + "_Y").addClass("strikerThrough");
+        }
+    }
+}
+

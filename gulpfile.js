@@ -48,6 +48,18 @@ gulp.task('styles', function() {
         .pipe(connect.reload());
 });
 
+//Upgrade Styles Task
+gulp.task('styles-upgrade', function() {
+    gulp.src('sass/custom-upgrade.scss')
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(minifyCss())
+        // Piping to 2 dirs - root and the html-solution
+        .pipe(gulp.dest('./css/'))
+        .pipe(gulp.dest('./html/css'))
+        .pipe(connect.reload());
+});
+
 gulp.task('pug', function(){
     gulp.src('pug/*.pug')
         .pipe(plumber())
@@ -75,11 +87,12 @@ gulp.task('html', function() {
 
 //Watch task to watch for file changes
 gulp.task('watch', function(){
-	gulp.watch('scss/**/*.scss', ['styles']);
+    gulp.watch('scss/**/*.scss', ['styles']);
+    gulp.watch('sass/**/*.scss', ['styles-upgrade']);
 	gulp.watch('./*.html', ['html']); 
 	gulp.watch('js/*.js', ['lint', 'webpack']);
     gulp.watch(['*.pug', '**/*.pug'], ['pug']);
 });
 
 // gulp.task('default', ['serve', 'styles', 'html', 'lint', 'watch']);
-gulp.task('default', ['serve', 'webpack', 'styles', 'html', 'pug', 'watch']);
+gulp.task('default', ['serve', 'webpack', 'styles', 'styles-upgrade', 'html', 'pug', 'watch']);

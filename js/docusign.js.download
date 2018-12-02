@@ -1,0 +1,308 @@
+﻿
+$(function () {
+
+
+});
+
+function enableDocusign() {
+    var eformID = $("#eformId").val();
+    
+
+    $.ajax({
+        type: "GET",
+        url: "/DigitalSigning/GetRecipentList/" + eformID,
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        if (data.status) {
+            $("#docusignIntro").hide();
+            loadDocusignPanel();
+        }
+        else {
+            alert(data.message);
+        }
+
+    }).fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+
+
+
+}
+
+function loadDocusignPanel() {
+    var eformID = $("#eformId").val();
+
+
+    $.ajax({
+        type: "GET",
+        url: "/DigitalSigning/loadDocusignPanel/" + eformID,
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#docusignPanel").html(data);
+
+    }).fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+}
+
+function setSigningText() {
+    var vName = $("#vName").val();
+    var pName = $("#pName").val();
+
+    $("#signOption1").html(vName);
+    $("#signOption2").html(pName);
+}
+
+function removeRecipient(c) {
+    var answer = confirm("Are you sure you want to remove this recipient?");
+    if (answer) {
+        $("." + c).appendTo($("#removedRecipient"));
+
+        $("#LAddRecipient").append(('<li class="dropdown-item" id="re_' + c + '" ><a href="javascript:void(0);" onclick="reAddRecipient(\'' + c + '\')">' + ($("." + c).text()).slice(0, -2)+ '</a></li>'));
+    }
+
+    $("#btnAddRecipient").show();
+
+}
+
+function reAddRecipient(id) {
+    $("#re_" + id).remove();
+    $("." + id).appendTo($("#sortableSignOrder"));
+    $('#sortableSignOrder').sortable('destroy');
+    $("#sortableSignOrder").sortable();
+
+    if ($('#btnAddRecipient ul li').length == 0) {
+        $("#btnAddRecipient").hide();
+    }
+}
+
+function sendSignRequest() {
+
+    var subject = $.trim($("#subject").val());
+    var bcontent = $.trim($("#bodyContent").val());
+    
+    if (subject == '') {
+        alert("Please enter a valid message subject.");
+    }
+    else if ($('#sortableSignOrder li').length == 0) {
+        alert("Please make sure you have at least one recipient for this signing request.");
+    }
+    else {
+        var order = $("#sortableSignOrder").sortable('serialize');
+
+        if ($.trim(order) == '') {
+            $("#docusignModal").modal('hide');
+            alert("Please make sure you have at least one recipient in the sign order.");
+        }
+        else {
+            var docs = "";
+
+            $.each($("input[name='attachSignDoc']:checked"), function () {
+
+                if (docs == "") {
+                    docs = $(this).val();
+                }
+                else {
+                    docs = docs + "," + $(this).val()
+                }
+
+            });
+
+            requestSingingV2(order, docs, subject, bcontent);
+
+
+        }
+    }
+
+    
+}
+
+function requestSingingV2(recipients, documents,subject, content) {
+
+    if ($.trim(recipients) != "") {
+
+        $("#docusignModal").modal('hide');
+
+
+        var eformID = $("#eformId").val();
+        showLoading();
+        hideButtons();
+        $.ajax({
+            type: "POST",
+            url: "/DigitalSigning/RequestSignatureV2/",
+            data: { id: eformID, recipients: recipients, documents: documents, subject: subject, content: content },
+            cache: false
+        }).done(function (data) {
+            isAjaxRequestTimeOut(data);
+            if (data.status) {
+                location.reload();
+            }
+            else {
+                alert(data.message);
+                showAgreement();
+                showButtons();
+            }
+
+        }).fail(function (jqXHR, textStatus) {
+            $("#cvtMainDiv").html("Request failed: " + textStatus);
+            showAgreement();
+            showButtons();
+        });
+    }
+    else {
+        alert("Please check your signing recipients.");
+    }
+}
+
+function initSignSortableOrder() {
+    $("#sortableSignOrder").empty();
+    // $("#sortableSignOrder").sortable('destroy')
+
+    var pvID = $("#contVendorID").val();
+    var svID = $("#contSecVendorID").val();
+
+    var ppID = $("#contPurchaserID").val();
+    var spID = $("#contSecPurchaserID").val();
+
+    if (pvID != "") {
+        var n = $.trim($("#pv_name").val());
+        var e = $.trim($("#pv_email").val());
+    }
+}
+
+function unlock(id) {
+    $.ajax({
+        type: "GET",
+        url: "/DigitalSigning/releaseSignLock/" + id,
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        if (data.status) {
+            location.reload();
+        }
+        else {
+            alert(data.message);
+        }
+
+    }).fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+}
+
+
+function loadDocusignProcess(id) {
+    $.ajax({
+        type: "GET",
+        url: "/DigitalSigning/loadDocusignProcess/" + id,
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+        $("#docusignProcessPanel").html(data);
+
+    }).fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+}
+
+function loadDocusignComplete(id) {
+    $.ajax({
+        type: "GET",
+        url: "/DigitalSigning/loadDocusignComplete/" + id,
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+        $("#docusignCompletePanel").html(data);
+
+    }).fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+}
+
+function cancelSigning() {
+    var id = $("#eformId").val();
+
+    var answer = confirm("Are you sure you want to cancel this digital signing request?");
+
+    if (answer) {
+
+        $("#CancelSigningLoarding").show();
+        $("#btnCancelSigning").hide();
+
+        $.ajax({
+            type: "GET",
+            url: "/DigitalSigning/CancelSigning/" + id,
+            cache: false
+        }).done(function (data) {
+            isAjaxRequestTimeOut(data);
+
+            alert(data.message);
+
+            if (data.status) {
+                location.reload();
+            }
+            else {
+                $("#CancelSigningLoarding").hide();
+                $("#btnCancelSigning").show();
+            }
+        }).fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+            $("#CancelSigningLoarding").hide();
+            $("#btnCancelSigning").show();
+        });
+    }
+    
+}
+
+
+function showRemindModal(id) {
+
+    $("#riName").html($("#r_n_" + id).val());
+    $("#Remindsubject").val('');
+    $("#RemindContent").val(''); 
+    $("#remindEmailRecipientID").val(id);
+
+    $("#digitalSignRemindEmailModal").modal('show');
+}
+
+
+function sendReminderEmail() {
+    var valid = $("#digitalSignRemindEmail").valid();
+    console.log(valid);
+    if (valid) {
+
+        $("#sendReminderLoading").show();
+        $(".emailButtons").hide();
+
+        var subject = $("#Remindsubject").val(); 
+        var bodyContent = $("#RemindContent").val(); 
+        var id = $("#remindEmailRecipientID").val(); 
+
+        $.ajax({
+            type: "POST",
+            url: "/DigitalSigning/SendRemindEmail/",
+            data: {id :id, subject : subject, bodyContent : bodyContent},
+            cache: false
+        }).done(function (data) {
+            isAjaxRequestTimeOut(data);
+
+            $("#sendReminderLoading").hide();
+            $(".emailButtons").show();
+            alert(data.message);
+
+            if (data.status) {
+
+                $("#digitalSignRemindEmailModal").modal('hide');
+            }
+
+        }).fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+            $("#sendReminderLoading").hide();
+            $(".emailButtons").show();
+        });
+    }
+}

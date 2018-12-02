@@ -1,0 +1,46 @@
+﻿$(function () {
+    $('#clauseSearch').keyup(function () {
+        var term = $.trim($(this).val());
+
+        //show all clauses
+        $('.listItem').show();
+
+        if (term.length < 1) {
+            // hide all accordion menu
+            $('#collapse_1').collapse('hide');
+            $('#collapse_2').collapse('hide');
+            $('#collapse_3').collapse('hide');
+        }
+        else if (term.length > 3) {
+           
+            searchClause(term, "collapse_1");
+            searchClause(term, "collapse_2");
+            searchClause(term, "collapse_3");
+        }
+
+        
+    });
+});
+
+function searchClause(term, id) {
+    var bShowMenu = false;
+
+    $('#' + id + ' li').each(function (i) {
+        var id = $(this).attr('id').split("_");
+
+        var contentToSearch = $('#content_' + id[1]).html().toLowerCase();;
+        var n = contentToSearch.search(term.toLowerCase());
+
+        if (n < 0) {
+            $(this).hide();
+        }
+        else if (bShowMenu == false) {
+            bShowMenu = true;
+        }
+    });
+
+    if (bShowMenu) {
+        $('#'+id).collapse('show');
+    }
+
+}
