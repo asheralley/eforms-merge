@@ -1,0 +1,111 @@
+<!-- back to top link -->
+  <a href="#" class="back-to-top" title="Back to top">Back to top</a>
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+     <div class="container-fluid top-wrapper">
+        <div class="row">
+           <!-- Logo Section -->
+           <div class="col-xs-2">
+              <div class="navbar-header">
+                 <div class="page-logo-rz">
+                    <a href="/">
+                    <img src="./images/eForms-SmallCircle-White-01.png" alt="" class="main-logo" style="height:54px;">
+                    <img src="./images/mini-logo.png" alt="" class="main-logo">
+                    </a>
+                 </div>
+              </div>
+           </div>
+           <!-- Logo Section ENDS -->
+           <div class="col-xs-10">
+              <div class="nav-tools">
+                 <div class="alert-icons">
+                    <ul class="nav navbar-nav top-menu" id="topNav">
+                       <li class="separator hide">
+                       </li>
+                       <!-- BEGIN NOTIFICATION DROPDOWN -->
+                       <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                       <li class="dropdown-extended dropdown-notification dropdown-dark dropdownLi" id="recentUpdatedForms">
+                       </li>
+                       <!-- END NOTIFICATION SECTION -->
+                       <li class="separator hide">
+                       </li>
+                       <!-- BEGIN NOTIFICATION DROPDOWN -->
+                       <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                       <li class="dropdown-extended dropdown-notification dropdown-dark  dropdownLi" id="recentCreatedForms">
+                       </li>
+                       <!-- END NOTIFICATION SECTION -->
+                       <li class="separator hide">
+                       </li>
+                       <!-- BEGIN INBOX DROPDOWN -->
+                       <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                       <!-- BEGIN INBOX DROPDOWN -->
+                       <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                       <!-- END INBOX DROPDOWN -->
+                       <li class="separator hide">
+                       </li>
+                       <!-- BEGIN TODO DROPDOWN -->
+                       <!-- BEGIN USER LOGIN DROPDOWN -->
+                       <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                       <li class="dropdown-user dropdown-dark">
+                          <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                             <span class="username username-hide-on-mobile">
+                             Clayton
+                             </span>
+                             <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
+                             <img alt="" class="img-circle" src="./images/avatar11.jpg"  width="41" height="41"/>
+                          </a>
+                          <ul class="dropdown-menu dropdown-menu-default">
+                             <li class="divider"></li>
+                             <li>
+                                <a href="https:///www.reinz.co.nz">
+                                <i class="fa fa-circle"></i> Back to REINZ
+                                </a>
+                             </li>
+                             <li>
+                                <a href="/Account/LogOff">
+                                <i class="fa fa-mail-reply"></i> Log Out
+                                </a>
+                             </li>
+                          </ul>
+                       </li>
+                       <!-- END USER LOGIN DROPDOWN -->
+                    </ul>
+                 </div>
+                 <!-- START OF NOTIFCAITONS SECTION -->
+                 <!-- ShortCuts -->
+                 <div class="short-cuts" id="toolBtns">
+                    <a href="#" class="btn btn-primary toolbaraction" onclick="saveForm();"  data-placement="bottom" title="Save" id="btnSaveForm">
+                    <i href="#" class="fa fa-save"></i>
+                    </a>
+                    <a href="#" class="btn btn-primary toolbaraction" onclick="loadCloneForm();" data-placement="bottom" title="Clone" id="btnCLoneForm">
+                    <i href="#" class="fa fa-copy"></i>
+                    </a>
+                    <a href="#" onclick="printFormToPDF();" class="btn btn-primary toolbaraction" data-placement="bottom" title="Create a PDF">
+                    <i href="#" class="fa fa-file-pdf-o"></i>
+                    </a>
+                    <a href="#" class="btn btn-primary toolbaraction" onclick="loadEmailForm();" data-placement="bottom" title="Email" id="btnDistribution">
+                    <i href="#" class="fa fa-envelope-o"></i>
+                    </a>
+                    <a href="javascript:void(0);" class="btn btn-primary toolbaraction" data-placement="bottom" title="Audit Log" data-toggle="modal" data-target="#modalExportTranLog">
+                    <i class="fa fa-book"> </i>
+                    </a>
+                    <img src="./images/loading-black-white.gif" id="toolbarloading"  style="display:none;margin-top:25px;"/>
+                 </div>
+                 <!-- Shortcuts END -->
+                 <!-- GLOBAL SEARCH -->
+                 <div class="search-box">
+                    <form class=" global-search" role="search" id="mainSearch">
+                       <button type="button" class="btn btn-default" data-toggle="modal" onclick="searchMain()" ><span class="fa fa-search"></span></button>
+                       <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Search..." id="mainSearchInput">
+                       </div>
+                    </form>
+                 </div>
+              </div>
+           </div>
+           <!-- Sidebar Section -->
+        </div>
+        <!-- closing row -->
+     </div>
+     <!-- closing container-fluid / top-wrapper -->
+  </nav>

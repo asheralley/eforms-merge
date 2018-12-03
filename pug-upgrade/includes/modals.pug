@@ -1,0 +1,664 @@
+<!-- END QUICK SIDEBAR -->
+<!-- Quick Sidebar Ends -->
+<!-- Modals-->
+<div class="modal fade" id="cloneModal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title text-center">Clone my eform</h4>
+         </div>
+         <div class="modal-body" id="CloneEformContent">
+         </div>
+         <!-- Modal Body Ends -->
+      </div>
+      <!-- /.modal-content -->
+   </div>
+   <!-- /.modal-dialog -->
+</div>
+<!-- /.modal end -->
+
+
+<!-- /.modal end -->
+</div>
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="modal-loader">
+   <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      </div>
+   </div>
+</div>
+<a href="#" class="backTotop"><i class="fa fa-angle-up"></i></a>
+<div class="modal fade" id="modalExportTranLog">
+   <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center ">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title text-center">Export Transaction Log</h4>
+            </div>
+            <div class="modal-body" >
+               <div class="panel panel-primary">
+                  <div style="padding:15px;">
+                     <input type="checkbox" id="includePrivateExport" />
+                     <label>Include Privately Flagged Notes</label>
+                  </div>
+                  <div class="panel-heading">
+                     <h3 class="panel-title">This tool will export a PDF of all transactions on this eForm. It will now provide all the changes to individual fields or clauses. It is designed to provide a paper log of the process of creating this eForm, including saving it, exporting it and assigning details.</h3>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+                  <button type="button" class="btn btn-default slide-icon-assign-contact" onclick="exportAuditLog()">EXPORT</button>
+               </div>
+            </div>
+            <!-- Modal Body Ends -->
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
+</div>
+
+
+<!-- /.modal -->
+<div class="modal fade" id="modal-add-contact">
+   <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center ">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title text-center">Contact Details</h4>
+            </div>
+            <div class="modal-body" id="contactModalContent">
+            </div>
+            <!-- Modal Body Ends -->
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
+</div>
+
+
+<!-- /.modal -->
+<div class="modal fade" id="modal-main-search">
+   <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center ">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title text-center">Search Results</h4>
+            </div>
+            <div class="modal-body" id="mainSearchContent">
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+               </div>
+            </div>
+            <!-- Modal Body Ends -->
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
+</div>
+
+
+<!-- /.modal -->
+<div class="modal fade" id="timeOutModal">
+   <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center ">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title text-center" >Warning!</h4>
+            </div>
+            <div class="modal-body" >
+               <p>Your session will expire in 1 minute. click on ok to save your form and remain logged in.</p>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+                  <button type="button" class="slide-icon-assign-contact btn btn-default" data-dismiss="modal" onclick="saveForm()">OK</button>
+               </div>
+            </div>
+            <!-- Modal Body Ends -->
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
+</div>
+
+
+<!-- /.modal -->
+<div class="modal fade" id="newDefaultTemplate">
+   <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center ">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title text-center">SET DEFAULT TEMPLATE</h4>
+            </div>
+            <div class="modal-body">
+               <div class="panel panel-primary">
+                  <div class="panel-heading">
+                     <h3 class="panel-title"><b>Please Note:</b> You can only have the maximum of 5 default templates for each type of the form. The clauses will not be included into the default template.</h3>
+                     //- Alert box in Pug format
+                     .alert.alert-info.notify
+                       i.fa.fa-exclamation-circle
+                       | Please make sure you have at least one recipient for this signing request.
+                     //- Alert Box in pug format ends
+                  </div>
+               </div>
+               <div class="panel panel-primary">
+                  <div class="panel-heading">
+                     <h3 class="panel-title">Template Name</h3>
+                  </div>
+                  <div class="panel-body" >
+                     <form id="newDTForm">
+                        <input class="form-control" id="newDefaultTemplateName" maxlength="50" name="newDefaultTemplateName" type="text" value="" />
+                     </form>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+                  <button type="button" class="btn btn-default" onclick="setCurrentFormAsDefault()">SAVE CURRENT FORM AS DEFAULT TEMPLATE</button>
+               </div>
+            </div>
+            <!-- Modal Body Ends -->
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
+</div>
+
+
+<!-- /.modal -->
+<div class="modal fade" id="addClauseModal">
+   <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center ">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title text-center">ADD NEW CLAUSE</h4>
+            </div>
+            <div class="modal-body" id="addClauseContent">
+               <form id="addNewClauseForm">
+                  <div class="panel panel-primary" id="newClauseerrorDiv" style="display:none;">
+                     <div class="panel-heading">
+                        <h3 class="panel-title" id="newClauseErrorMsg" style="color:red;"></h3>
+                     </div>
+                  </div>
+                  <div class="form-group row">
+                     <label for="clauseTitle" class="col-sm-3 form-control-label">CLAUSE TITLE</label>
+                     <div class="col-sm-9">
+                        <input class="form-control" id="clauseTitle" name="clauseTitle" type="text" value="" />
+                     </div>
+                  </div>
+                  <input id="clauseType" name="clauseType" type="hidden" value="3" />    
+                  <div class="form-group row">
+                     <button class="slide-icon-save-contact btn btn-default" data-toggle="modal" href="#currentFormTerms" style="margin-left:15px;">Replace an existing term</button>
+                     <input id="replaceTermID" name="replaceTermID" type="hidden" value="" />
+                  </div>
+                  <div class="form-group row">
+                     <label for="clauseContent" class="col-sm-3 form-control-label">Clause CONTENT</label>
+                     <div class="col-sm-9">
+                        <textarea class="form-control" cols="20" id="clauseContent" name="clauseContent" rows="2" style="height:180px;">
+                        </textarea>
+                     </div>
+                  </div>
+               </form>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
+                  <button onclick="addNewClause();" class="slide-icon-save-contact btn btn-default" type="button">SAVE</button>
+               </div>
+            </div>
+            <!-- Modal Body Ends -->
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
+</div>
+
+
+<!-- /.modal -->
+<div class="modal fade" id="currentFormTerms">
+   <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center ">
+         <div class="modal-content" style="width:80%;">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title text-center">TERMS and CONDITIONS</h4>
+            </div>
+            <div class="modal-body" id="formTermsContent">
+            </div>
+            <!-- Modal Body Ends -->
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
+</div>
+
+
+<!-- /.modal -->
+<div class="modal fade" id="addNoteModal">
+   <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center ">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title text-center">NEW NOTE</h4>
+            </div>
+            <div class="modal-body">
+               <form id="newNoteForm">
+                  <p id="noteError" style="color:red;"></p>
+                  <div style="padding:15px;">
+                     <input type="checkbox" id="isPrivate"  />
+                     <label >Is Private</label>
+                  </div>
+                  <div class="panel panel-primary">
+                     <div class="panel-heading">
+                        <h3 class="panel-title">TITLE</h3>
+                     </div>
+                     <div class="panel-body">
+                        <input class="form-control" id="title" name="title" type="text" value="" />
+                     </div>
+                  </div>
+                  <div class="panel panel-primary">
+                     <div class="panel-heading">
+                        <h3 class="panel-title">CONTENT</h3>
+                     </div>
+                     <div class="panel-body">
+                        <textarea class="form-control" cols="20" id="note" maxlength="300" name="note" rows="2" style="height:180px;">
+                        </textarea>
+                     </div>
+                  </div>
+               </form>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default noteBtn" data-dismiss="modal">CLOSE</button>
+                  <button type="button" class="btn btn-default slide-icon-save-contact noteBtn" onclick="saveNote();">SAVE</button>
+                  <img class="btn-default" style="display:none;" src="/assets/global/img/ajax-loading.gif" id="noteLoading" />
+               </div>
+            </div>
+            <!-- Modal Body Ends -->
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
+</div>
+
+
+<!-- /.modal -->
+<div class="modal fade" id="viewNote">
+   <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center ">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title text-center">Note</h4>
+            </div>
+            <div class="modal-body" id="viewNoteContent">
+            </div>
+            <!-- Modal Body Ends -->
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
+</div>
+
+
+<!-- /.modal end -->
+<div class="modal fade" id="manageDisabledClause">
+   <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center ">
+         <div class="modal-content">
+            <div class="modal-header" >
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title text-center">Disabled Clauses</h4>
+            </div>
+            <div class="modal-body" id="manageDCDiv"></div>
+            <!-- Modal Body Ends -->
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
+</div>
+<!-- /.modal -->
+
+<!-- /.modal -->
+<div class="modal fade" id="cloneModal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title text-center">Clone my eform</h4>
+         </div>
+         <div class="modal-body" id="CloneEformContent">
+         </div>
+         <!-- Modal Body Ends -->
+      </div>
+      <!-- /.modal-content -->
+   </div>
+   <!-- /.modal-dialog -->
+</div>
+<!-- /.modal end -->
+
+<!-- Modal-->
+#emailFormModal.modal.fade.in
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+        h4.modal-title.text-center Email eForm
+      #emailFormContent.modal-body
+        style.
+          .error {
+          color: red;
+          }
+        script.
+          $(function () {
+          //==============================================
+          $("#sendEmailForm").validate({
+          focusInvalid: false, // do not focus the last invalid input
+          rules: {
+          recipient: { required: true, email: true },
+          sec_recipient: { email: true },
+          subject: {required: true}
+          }
+          });
+          //==============================================
+          $(".htmlClean").each(function () {
+          $(this).keyup(function () {
+          var text = '<p>' + $(this).val() + '</p>';
+          $(this).val($(text).text());
+          });
+          });
+          });
+        form#sendEmailForm.form-horizontal(role='form', novalidate='novalidate')
+          input(type='hidden', name='forminfoID', value='3269')
+          .form-body
+            .alert.alert-info.notify
+              i.fa.fa-exclamation-circle
+              | Please make sure you have at least one recipient for this signing request.
+            span.help-block
+              | Recipient Email Address:
+            input#recipient.form-control.input-inline.input-large(type='text', name='recipient', value='', placeholder='example@example.com')
+            br(style='clear:both;')
+            span.help-block
+              | Second Recipient Email Address:
+            input#sec_recipient.form-control.input-inline.input-large(type='text', name='sec_recipient', value='', placeholder='example@example.com')
+            br(style='clear:both;')
+            span.help-block
+              | Send to form contact:
+            select#formContact.form-control.input-medium.select2me(name='formContact')
+              option(value='')  Select One 
+              option(value='test@testa.com')  Send to vendor test@testa.com
+              option(value='atet@dassdt.com')  Send to purchaser atet@dassdt.com
+            span.help-block
+              input#sendMeEmail(type='checkbox', value='true', name='sendMeEmail')
+              |  Send me in this email
+            span.help-block
+              | Subject:
+            input#subject.form-control.input-inline.input-large.htmlClean(type='text', name='subject', value='', placeholder='Email Subject')
+            br(style='clear:both;')
+            span.help-block
+              | Body:
+            textarea#content.form-control.input-inline.input-large(name='content', style='height:266px;', placeholder='Enter your email content here')
+        .modal-footer
+          button.cancel.btn.btn-default.emailButtons(type='button', data-dismiss='modal')
+            | CANCEL
+          button.slide-icon-save-contact.btn.btn-default.emailButtons(type='button', onclick='sendForm();')
+            | SEND
+          img#emailLoading.btn-default(style='display:none;', src='/assets/global/img/ajax-loading.gif')
+      // Modal Body Ends
+    // /.modal-content
+  // /.modal-dialog
+<!-- /.modal end -->
+
+//- Modal Starts
+#streetSearchModal.modal.fade.in
+  .vertical-alignment-helper
+    .modal-dialog.vertical-align-center
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+          h4.modal-title.text-center Property Address
+        .modal-body
+          #loadingCircle.uil-ellipsis-css.center-block(style='transform: scale(0.6); float: left; display: none;')
+            .ib
+              .circle
+                div
+              .circle
+                div
+              .circle
+                div
+              .circle
+                div
+          #contentLoadRafAdrdress(style='clear:both;')
+            script.
+              $(function () {
+              //=======================================================================================
+              $('#rafStreet').autocomplete({
+              source: function (request, response) {
+              $.ajax({
+              type: "GET",
+              url: "/Eform/searchRafStreet/",
+              dataType: "json",
+              data: {
+              term: $.trim($('#rafStreet').val())
+              },
+              success: function (data) {
+              response(data);
+              }
+              });
+              },
+              select: function (event, ui) {
+              $("#rafStreet").val(ui.item.address);
+              return false;
+              },
+              minLength: 3,
+              delay: 100,
+              open: function () {
+              $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+              },
+              close: function () {
+              $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+              }
+              }).data("ui-autocomplete")._renderItem = function (ul, item) {
+              return $("<li></li>").append("<a>" + item.address + "</a>").appendTo(ul);
+              };
+              });
+            form.form-horizontal
+              .form-body
+                .form-group
+                  label#rafStError.col-xs-12.control-label(style='color:red;text-align:left;')
+                .form-group
+                  label.col-xs-3.control-label Display Name:
+                  .col-xs-9
+                    input#displayName.form-control.col-lg-12(type='text', name='displayName', value='', placeholder='Display Name', maxlength='50')
+                .form-group
+                  label.col-xs-3.control-label Unit/Street No:
+                  .col-xs-9
+                    input#rafStreetNo.form-control.col-lg-12(type='text', name='rafStreetNo', value='', placeholder='Unit or Street No', maxlength='40')
+                .form-group
+                  label.col-xs-3.control-label Street Name:
+                  .col-xs-9
+                    input#rafStreet.form-control.col-lg-12.ui-autocomplete-input(type='text', name='rafStreet', value='', placeholder='Enter the street name here', autocomplete='off')
+                input#salesPersonID(name='salesPersonID', type='hidden', value='338735')
+                .form-group
+                  label.col-xs-3.control-label Create from Template:
+                  .col-xs-9
+                    select#templateID.form-control.input-medium.select2me
+                      option(value='0') No Template
+                      option(value='14') default Template 1
+            .modal-footer
+              button.btn.btn-default.rafBtn(type='button', data-dismiss='modal') CLOSE
+              button.btn.btn-default.slide-icon-save-contact.rafBtn(type='button', onclick='newFormWithRaf();') CREATE
+              img#rafStLoading.btn-default(src='/assets/global/img/ajax-loading.gif', style='display:none;')
+        // Modal Body Ends
+      // /.modal-content
+    // /.modal-dialog
+// Modal Ends
+
+<div class="modal fade" id="formSavingModal">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-body">
+            <div class="input-group" style="font-size:18px;">
+               <p><img  src="/assets/global/img/ajax-loading.gif" /> Please wait, we are saving your form.</p>
+            </div>
+         </div>
+         <!-- Modal Body Ends -->
+      </div>
+      <!-- /.modal-content -->
+   </div>
+   <!-- /.modal-dialog -->
+</div>
+<!-- /.modal end -->
+
+<div class="modal fade in" id="transerOldClauseModal">
+    <div class="vertical-alignment-helper">
+
+        <div class="modal-dialog vertical-align-center ">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title text-center">TRANSFER OLD DRAFT SALE AND PURCHASE FORMS</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div id="oldFormInfoDiv">
+                        | This tool will transfer Sale and Purchase Agreements from the old eForm platform by searching for the ten most recently created. It does not bring across all fields from the old system, only the main form fields. You cannot transfer vendor, purchaser, solicitor or clauses due to differences in the system. Are you sure you still wish to view for and transfer your Sale and Purchase forms?
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default noteBtn" data-dismiss="modal">CLOSE</button>
+                            <button type="button" class="btn btn-default slide-icon-save-contact noteBtn" onclick="transerFormStep1();">CONTINUE</button>
+                        </div>
+                    </div>
+                    <div id="officeSalespersonDiv" style="display:none;">
+                        <input id="shadoTransferSalesperson" name="shadoTransferSalesperson" type="hidden" value="338735">                    
+                    </div>
+                    
+                    <div id="oldFormDiv" style="display:none;">
+                        
+                        <img class="btn-default" src="/assets/global/img/ajax-loading.gif"> Searching for Forms
+                    </div>
+                    
+                </div><!-- Modal Body Ends -->
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+
+    </div>
+</div>
+
+
+<div class="modal fade in" id="convertFormModal">
+   <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center ">
+         <div class="modal-content" id="convertFormContent">
+            <div id="convertWarning">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                  <h4 class="modal-title text-center">WARNING!</h4>
+               </div>
+               <div class="modal-body">
+                  This tool will migrate your form and make it into another type as a new form. Any fields that do not exist on the new form type will not be copied across and lost during transfer. Use with extreme caution, attached documents and history will not be transferred.
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default noteBtn" data-dismiss="modal">CLOSE</button>
+                  <button type="button" class="btn btn-default slide-icon-save-contact noteBtn" onclick="showConvertForm();">CONTINUE</button>
+               </div>
+            </div>
+            <div id="convertForm" style="display:none;">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                  <h4 class="modal-title text-center">CONVERT FORM</h4>
+               </div>
+               <div class="modal-body" id="cvtMainDiv">
+                  <button type="button" class="btn btn-default btn-primary" onclick="convertForm('1')">TO THE AUCTION AGREEMENT</button><br style="clear:both;"><br style="clear:both;">
+                  <button type="button" class="btn btn-default btn-primary" onclick="convertForm('4')">TO THE Particulars &amp; Conditions Of Sale Of Real Estate By Tender</button>
+                  <br style="clear:both;"><br style="clear:both;">
+                  <button type="button" class="btn btn-default noteBtn" data-dismiss="modal">CLOSE</button>
+               </div>
+            </div>
+         </div>
+         <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+   </div>
+</div>
+
+
+//- Default Templates Modal
+#defaultTemplatesModal.modal.fade.in
+  .vertical-alignment-helper
+    .modal-dialog.vertical-align-center
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+          h4#defaultTemplateListHeader.modal-title.text-center
+        #defaultTemplatesContent.modal-body
+          .panel.panel-primary
+            .panel-body
+              h3.panel-title
+                | default Template 1
+                button.btn.btn-default(style='float:right;', onclick="setFormValueToDefalut('14')") USE THIS TEMPLATE
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') CLOSE
+            button.slide-icon-assign-contact.btn.btn-default(type='button', data-toggle='modal', data-target='#newDefaultTemplate') SET CURRENT FORM AS DEFAULT TEMPLATE
+          script.
+            $(function () {
+            $("#defaultTemplateListHeader").html('DEFAULT TEMPLATES FOR AGREEMENT FOR SALE AND PURCHASE');
+            });
+        // Modal Body Ends
+      // /.modal-content
+    // /.modal-dialog
+//- Default Templates Modal
+
+<div class="modal fade in" id="transerOldClauseModal">
+    <div class="vertical-alignment-helper">
+
+        <div class="modal-dialog vertical-align-center ">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title text-center">TRANSFER OLD DRAFT SALE AND PURCHASE FORMS</h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <div id="oldFormInfoDiv">
+                        This tool will transfer Sale and Purchase Agreements from the old eForm platform by searching for the ten most recently created. It does not bring across all fields from the old system, only the main form fields. You cannot transfer vendor, purchaser, solicitor or clauses due to differences in the system. Are you sure you still wish to view for and transfer your Sale and Purchase forms?
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default noteBtn" data-dismiss="modal">CLOSE</button>
+                            <button type="button" class="btn btn-default slide-icon-save-contact noteBtn" onclick="transerFormStep1();">CONTINUE</button>
+                        </div>
+                    </div>
+                    <div id="officeSalespersonDiv" style="display:none;">
+                        <input id="shadoTransferSalesperson" name="shadoTransferSalesperson" type="hidden" value="338735">
+                    </div>
+                    <div id="oldFormDiv" style="display:none;">
+                        <img class="btn-default" src="/assets/global/img/ajax-loading.gif"> Searching for Forms
+                    </div>
+                    
+                </div><!-- Modal Body Ends -->
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+
+    </div>
+</div>
+
+
+
+
+

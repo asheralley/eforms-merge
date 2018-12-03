@@ -71,6 +71,18 @@ gulp.task('pug', function(){
         .pipe(connect.reload());
 });
 
+//Upgrade Pug task
+gulp.task('pug-upgrade', function(){
+    gulp.src('pug-upgrade/*.pug')
+        .pipe(plumber())
+        .pipe(pug({pretty: true}))
+        .pipe(rename('status-panel-old.html'))
+        // Piping to 2 dirs - root and html
+        .pipe(gulp.dest('./html'))
+        .pipe(gulp.dest('./'))
+        .pipe(connect.reload());
+});
+
 //JS Lint Task for correcting and monitoring your custom.js
 gulp.task('lint', function(){
     gulp.src('js/custom.js')
@@ -92,7 +104,8 @@ gulp.task('watch', function(){
 	gulp.watch('./*.html', ['html']); 
 	gulp.watch('js/*.js', ['lint', 'webpack']);
     gulp.watch(['*.pug', '**/*.pug'], ['pug']);
+    gulp.watch(['*.pug-upgrade', '**/*.pug'], ['pug']);
 });
 
 // gulp.task('default', ['serve', 'styles', 'html', 'lint', 'watch']);
-gulp.task('default', ['serve', 'webpack', 'styles', 'styles-upgrade', 'html', 'pug', 'watch']);
+gulp.task('default', ['serve', 'webpack', 'styles', 'styles-upgrade', 'html', 'pug', 'pug-upgrade', 'watch']);

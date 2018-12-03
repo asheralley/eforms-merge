@@ -1,0 +1,72 @@
+.main-panel.col-xs-10
+  .colten-wrapper
+    .page-content
+      // BEGIN PAGE HEAD
+      .page-head
+        // BEGIN PAGE TITLE
+      // END PAGE HEAD
+      .portlet.light.authorisation-section
+        .portlet-title
+          .both-save-notifiers
+            #saveComplete.save-complete-div
+              i.fa.fa-save
+              span.visible-lg-inline SAVED
+            #saveFailed.save-fail-div
+              i.fa.fa-times
+              span#saveErrorSpan.visible-lg-inline
+          img.flexi-mini-logo(src="images/flexi-mini.jpg", alt="")
+          .row
+            .col-lg-7
+              h3.form-sect-title
+                | FlexiSign Manager Approvals
+          .row
+            .col-md-5
+              h4
+                | Needing Approval
+              .needing-approval
+                .row
+                  .col-md-12
+                    button.btn.btn-default.approve-ticked#approveTicked(type='button')
+                      | Approve Ticked
+                    ul.properties-list.needing-approval
+                      each val in ['48 Black Teal Close Unsworth Heights', '48 Black Teal Close Unsworth Heights', '48 Black Teal Close Unsworth Heights']
+                        li
+                          .checkbox.approval-check
+                            label
+                              input(type='checkbox')
+                          span.prop-title= val
+                          span.who-is
+                            | Reuben Billings (Today)
+                          i.fa.fa-check(data-placement='right', data-toggle='tooltip', href='#', data-original-title='Approve')
+                      each val in ['48 Black Teal Close Unsworth Heights', '48 Black Teal Close Unsworth Heights']
+                        li
+                          .checkbox.approval-check
+                            label
+                              input(type='checkbox')
+                          span.prop-title= val
+                          span.who-is
+                            | Reuben Billings (Today)
+                          i.fa.fa-check-circle-o(data-placement='right', data-toggle='tooltip', href='#', data-original-title='Approved')
+              h4
+                | Past Approval
+              .post-approval
+                .row
+                  .col-md-12
+                    ul.properties-list.post-approval
+                      each val in ['48 Black Teal Close Unsworth Heights', '48 Black Teal Close Unsworth Heights', '48 Black Teal Close Unsworth Heights', '48 Black Teal Close Unsworth Heights', '48 Black Teal Close Unsworth Heights']
+                        li
+                          span.prop-title= val
+                          span.who-is
+                            | Reuben Billings (Today)
+                          i.fa.fa-close(data-placement='right', data-toggle='tooltip', href='#', data-original-title='Declined')
+            //- Right side of template
+            .col-md-7
+              //- img.flexi-image(src='images/flexisign-lg.png')
+              .alert.alert-warning.notify
+                h4.select-msg
+                  | Please select the form on the left to view the contract that has had approval requested from you. 
+
+                    
+
+
+

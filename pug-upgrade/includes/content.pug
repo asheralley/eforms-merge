@@ -1,0 +1,45 @@
+.main-panel.col-xs-10
+  .colten-wrapper
+    .page-content
+      // BEGIN PAGE HEAD
+      .page-head
+        // BEGIN PAGE TITLE
+      // END PAGE HEAD
+      .portlet.light.authorisation-section
+        .portlet-title
+          .both-save-notifiers
+            #saveComplete.save-complete-div
+              i.fa.fa-save
+              span.visible-lg-inline SAVED
+            #saveFailed.save-fail-div
+              i.fa.fa-times
+              span#saveErrorSpan.visible-lg-inline
+          img.flexi-mini-logo(src="images/flexi-mini.jpg", alt="")
+          //- Property listing div added with animation
+          //- Animated property listing include
+          include property-listings.pug
+          .row
+            .col-lg-7
+              h3.form-sect-title
+                | FlexiSign Manager Approvals
+          .row
+            .col-md-5
+              h4
+                | Contract View
+          .row
+            .col-md-12
+              .web-viewer
+                button#showPropsList.btn.btn-default.show-props(type='button') Show Property Listings
+                  i.fa.fa-arrow-left
+                button#approveForm.btn.btn-default.approve-form(type='button') Approve
+                  i.fa.fa-check 
+                button#declineForm.btn.btn-default.decline-form(type='button') Decline
+                  i.fa.fa-close
+                img(src="images/web-viewer.jpg")
+
+
+
+                    
+
+
+

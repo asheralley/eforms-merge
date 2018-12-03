@@ -1,0 +1,170 @@
+.main-panel.col-xs-10
+  .colten-wrapper
+    .page-content
+      // BEGIN PAGE HEAD
+      .page-head
+        // BEGIN PAGE TITLE
+      // END PAGE HEAD
+      .portlet.light.settings-section
+        .portlet-title
+          .both-save-notifiers
+            #saveComplete.save-complete-div
+              i.fa.fa-save
+              span.visible-lg-inline SAVED
+            #saveFailed.save-fail-div
+              i.fa.fa-times
+              span#saveErrorSpan.visible-lg-inline
+          .row
+            .col-lg-7
+              h3.form-sect-title
+                | Settings
+          .row
+            .col-md-6
+              h4
+                | Individual Settings
+              .individual
+                .row
+                  .col-md-5
+                    p
+                     | Autosave Frequency:
+                    p
+                     | Default Manager:
+                    p
+                     | Printed Font:
+                    p
+                     | Make Font Bold:
+                    p
+                     | Disable Drag-Drop Clauses:
+                  .col-md-4
+                    select.form-control.settings-select#autosaveSelect
+                      option 2 minutes
+                      option 5 minutes
+                      option 10 minutes
+                      option 20 minutes
+                      option 30 minutes
+                    select.form-control.settings-select#managerSelect
+                      option Option A
+                      option Option B
+                      option Option C
+                      option Option D
+                    select.form-control.settings-select#fontSelect
+                      option Option A
+                      option Option B
+                      option Option C
+                      option Option D
+                    .checkbox#boldSelect
+                      label
+                        input(type='checkbox')
+                    .checkbox#dragDropSelect
+                      label
+                        input(type='checkbox')
+                  .col-md-3
+                    i.fa.fa-question-circle
+                    i.fa.fa-question-circle
+                    i.fa.fa-question-circle
+                    i.fa.fa-question-circle
+                    i.fa.fa-question-circle
+              h4
+                | Company Settings
+              .company
+                .row
+                  .col-md-5
+                    p
+                     | Company eForm Name:
+                    p
+                     | Disable REINZ Clauses:
+                    p
+                     | Appendix Page Title:
+                    p
+                     | Disable Sharing:
+                  .col-md-4
+                    input.form-control#eFormName(type='text', placeholder='eForm name')
+                    .checkbox.disable-clause#disableClauseSelect
+                      label
+                        input(type='checkbox')
+                    input.form-control#pageTitle(type='text', placeholder='Page title')
+                    .checkbox#disableSharingSelect
+                      label
+                        input(type='checkbox')
+                  .col-md-3
+                    i.fa.fa-question-circle
+                    i.fa.fa-question-circle
+                    i.fa.fa-question-circle
+                    i.fa.fa-question-circle
+            .col-md-6
+              h4
+                img.flexi-logo(src='images/flexi-mini.jpg')
+                .flexisign
+                  .row
+                    .col-xs-5
+                      p
+                       | Enable Flexisign for Staff:
+                      p
+                       | Manager Approval Level:
+                    .col-xs-5
+                      .checkbox#enableFlexi
+                        label
+                          input(type='checkbox')
+                      select.form-control.settings-select#managerLevel
+                        option Option A
+                        option Option B
+                        option Option C
+                        option Option D
+                    .col-xs-2
+                      i.fa.fa-question-circle
+                      i.fa.fa-question-circle
+                  hr
+                  p.info
+                    | You can change individual staff access to flexisign to either require managers approval or not. If enabled each form has to be approved by a manager before it can be digitally signed. It does not require a managers approval to be used in negotiations. 
+                  .row.access-levels
+                    .col-xs-5
+                      h4.staff-title
+                        | Staff Member
+                      p.staff-member
+                       | Reuben Billings
+                      p.staff-member
+                       | Reuben Billings
+                      p.staff-member
+                       | Reuben Billings
+                      p.staff-member
+                       | Reuben Billings
+                      p.staff-member
+                       | Reuben Billings
+                      p.staff-member
+                       | Reuben Billings
+                    .col-xs-5
+                      h4
+                        | Access Level
+                      select.form-control.access-level
+                        option Option A
+                        option Option B
+                        option Option C
+                        option Option D
+                      select.form-control.access-level
+                        option Option A
+                        option Option B
+                        option Option C
+                        option Option D
+                      select.form-control.access-level
+                        option Option A
+                        option Option B
+                        option Option C
+                        option Option D
+                      select.form-control.access-level
+                        option Option A
+                        option Option B
+                        option Option C
+                        option Option D
+                      select.form-control.access-level
+                        option Option A
+                        option Option B
+                        option Option C
+                        option Option D
+                      select.form-control.settings-select
+                        option Option A
+                        option Option B
+                        option Option C
+                        option Option D
+
+
+

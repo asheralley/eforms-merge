@@ -1,0 +1,69 @@
+<div class="modal fade street-search in" id="streetSearch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Type of Form</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group row form-row">
+                        <label for="displayName" class="col-sm-4 col-form-label input-lable">Display Name:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control-plaintext form-input" id="displayName" placeholder="A unique on-screen display name">
+                        </div>
+                    </div>
+                    <div class="form-group row form-row">
+                        <div class="col-sm-12">
+                            <button type="button" class="btn btn-default modal-btn form-btn council-data-search collapsed" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Enable Council Data Search</button>
+                            <span aria-hidden="true" data-toggle="popover" data-placement="right" data-content="This will change the below street search to a full address search using REINZ address data. Good for existing properties" data-original-title="" title=""><i class="fa fa-question-circle form-tooltip"></i><a>What's this</a></span>
+                        </div>
+                    </div>
+                    <div class="form-group row form-row address-row">
+                        <label for="addressSearch" class="col-sm-4 col-form-label input-lable">Address Search</label>
+                        <div class="col-sm-7 address-input">
+                            <input type="text" class="form-control-plaintext form-input" id="addressSearch" placeholder="Unit or Street No.">
+                        </div>
+                        <div class="col-sm-1 form-search">
+                            <span><a><i class="fa fa-search"></i></a></span>
+                        </div>
+                    </div>
+                    <div class="collapse" id="collapseExample" aria-expanded="false" style="height: 0px;">
+                        <div class="form-group row form-row">
+                            <label for="unitStreetNo" class="col-sm-4 col-form-label input-lable">Unit/Street No.</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control-plaintext form-input" id="unitStreetNo" placeholder="Unit or Street No.">
+                            </div>
+                        </div>
+                        <div class="form-group row form-row">
+                            <label for="streetName" class="col-sm-4 col-form-label input-lable">Street Name</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control-plaintext form-input" id="unitStreetNo" placeholder="Enter a Street Name Here">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row form-row">
+                        <label for="salesPerson" class="col-sm-4 col-form-label input-lable">Create For Salesperson</label>
+                        <div class="col-sm-7">
+                            <select id="salesPerson" class="form-control">
+                                <option selected="">Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row form-row">
+                        <label for="salesPerson" class="col-sm-4 col-form-label input-lable">Use Template</label>
+                        <div class="col-sm-7">
+                            <select id="salesPerson" class="form-control">
+                                <option selected="">Choose...</option>
+                                <option>No Template</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                <button type="button" class="btn btn-default">CREATE</button>
+            </div>
+            <!-- modal body ends -->
+        </div>
+    </div>
+</div>

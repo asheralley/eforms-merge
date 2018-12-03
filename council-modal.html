@@ -20,7 +20,7 @@
 <![endif]-->
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,700,700i,900" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
 <link href="./css/bootstrap-upgrade.min.css" rel="stylesheet" type="text/css">
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN THEME STYLES -->
@@ -43,7 +43,6 @@
 <!-- Logo Section -->
 <div class="col-xs-2">
 <div class="navbar-header">
-<i class="fa fa-bars ui-trigger" id="uiTrigger" data-toggle="tooltip" data-placement="bottom" title="Toggle Menu Here" data-offset="500"></i>
 <div class="page-logo-rz">
 <a href="/">
 <img src="./images/eForms-SmallCircle-White-01.png" alt="" class="main-logo" style="height:54px;">
@@ -110,19 +109,19 @@
 <!-- START OF NOTIFCAITONS SECTION -->
 <!-- ShortCuts -->
 <div class="short-cuts" id="toolBtns">
-<a href="#" class="btn btn-primary toolbaraction" onclick="saveForm();" data-toggle="tooltip" data-placement="bottom" title="Save" id="btnSaveForm">
+<a href="#" class="btn btn-primary toolbaraction" onclick="saveForm();"  data-placement="bottom" title="Save" id="btnSaveForm">
 <i href="#" class="fa fa-save"></i>
 </a>
-<a href="#" class="btn btn-primary toolbaraction" onclick="loadCloneForm();" data-toggle="tooltip" data-placement="bottom" title="Clone" id="btnCLoneForm">
+<a href="#" class="btn btn-primary toolbaraction" onclick="loadCloneForm();" data-placement="bottom" title="Clone" id="btnCLoneForm">
 <i href="#" class="fa fa-copy"></i>
 </a>
-<a href="#" onclick="printFormToPDF();" class="btn btn-primary toolbaraction" data-toggle="tooltip" data-placement="bottom" title="Create a PDF">
+<a href="#" onclick="printFormToPDF();" class="btn btn-primary toolbaraction" data-placement="bottom" title="Create a PDF">
 <i href="#" class="fa fa-file-pdf-o"></i>
 </a>
-<a href="#" class="btn btn-primary toolbaraction" onclick="loadEmailForm();" data-toggle="tooltip" data-placement="bottom" title="Email" id="btnDistribution">
+<a href="#" class="btn btn-primary toolbaraction" onclick="loadEmailForm();" data-placement="bottom" title="Email" id="btnDistribution">
 <i href="#" class="fa fa-envelope-o"></i>
 </a>
-<a href="javascript:void(0);" class="btn btn-primary toolbaraction" data-toggle="tooltip" data-placement="bottom" title="Audit Log" data-toggle="modal" data-target="#modalExportTranLog">
+<a href="javascript:void(0);" class="btn btn-primary toolbaraction" data-placement="bottom" title="Audit Log" data-toggle="modal" data-target="#modalExportTranLog">
 <i class="fa fa-book"> </i>
 </a>
 <img src="./images/loading-black-white.gif" id="toolbarloading"  style="display:none;margin-top:25px;"/>
@@ -159,55 +158,43 @@
 <li class="active" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Create Form">
 <a href="/Eform/Create">
 <i class="fa fa-edit"></i>
-<span class="title l-nav-title">Create</span>
+<span class="title l-nav-title">CREATE</span>
 </a>
 </li>
 <li data-placement="right" data-toggle="tooltip" href="#" data-original-title="My Forms">
 <a href="/Eform/myForms">
-<i class="fa fa-th-list"></i>
-<span class="title l-nav-title">My Forms</span>
-</a>
-</li>
-<li data-placement="right" data-toggle="tooltip" href="#" data-original-title="My Forms">
-<a href="/Eform/myForms">
-<i class="fa fa-th-list"></i>
-<span class="title l-nav-title">Office Forms</span>
+<i class="fa fa-file-pdf-o"></i>
+<span class="title l-nav-title">MY FORMS</span>
 </a>
 </li>
 <li data-placement="right" data-toggle="tooltip" href="#" data-original-title="My Contacts">
 <a href="/Eform/manageMyContacts">
 <i class="fa fa-users"></i>
-<span class="title l-nav-title">My Contacts</span>
+<span class="title l-nav-title">MY CONTACTS</span>
 </a>
 </li>
 <li data-placement="right" data-toggle="tooltip" href="#" data-original-title="Manage My Default Templates">
 <a href="/Eform/manageTemplates">
 <i class="fa fa-file-text"></i>
-<span class="title l-nav-title">Templates</span>
-</a>
-</li>
-<li data-placement="right" data-toggle="tooltip" href="#" data-original-title="Search Form By Property" data-step="1" data-position="right" data-intro="Welcome back, we have made it easier to find the form you are looking for. Click on this menu item to see our new <b>Search By Property tool.</b>" id="navSearchByProperty" class="search-prop notify">
-<a href="/Eform/manageTemplates">
-<i class="fa fa-file-text"></i>
-<span class="title l-nav-title">Search By Property</span>
+<span class="title l-nav-title">TEMPLATES</span>
 </a>
 </li>
 <li data-placement="right" data-toggle="tooltip" href="#" data-original-title="Legal">
 <a href="/Eform/Legal">
 <i class="fa fa-shield"></i>
-<span class="title l-nav-title">Legal</span>
+<span class="title l-nav-title">LEGAL</span>
 </a>
 </li>
 <li data-placement="right" data-toggle="tooltip" href="" data-original-title="Settings">
 <a href="/settings">
 <i class="fa fa-gear"></i>
-<span class="title l-nav-title modal-test">Settings</span>
+<span class="title l-nav-title modal-test">SETTINGS</span>
 </a>
 </li>
 <li data-placement="right" data-toggle="tooltip" href="#" data-original-title="Support">
 <a href="/Eform/SUPPORT">
-<i class="fa fa-info-circle"></i>
-<span class="title l-nav-title">Support</span>
+<i class="fa fa-question-circle"></i>
+<span class="title l-nav-title">SUPPORT</span>
 </a>
 </li>
 <li data-placement="right" data-toggle="tooltip" href="#" data-original-title="FAQ">
@@ -219,13 +206,13 @@
 <li data-placement="right" data-toggle="tooltip" href="#" data-original-title="Super-User">
 <a href="/eformServices/validation">
 <i class="fa fa-cubes"></i>
-<span class="title l-nav-title">Validation Service</span>
+<span class="title l-nav-title">VALIDATION SERVICE</span>
 </a>
 </li>
 <li data-placement="right" data-toggle="tooltip" href="#" data-original-title="FAQ">
 <a href="/Eform/Terms">
 <i class="fa fa-square"></i>
-<span class="title l-nav-title">Eforms terms of usess</span>
+<span class="title l-nav-title">EFORMS TERMS OF USE</span>
 </a>
 </li>
 </ul>
@@ -306,12 +293,155 @@
 <div class="col-md-7"></div>
 <div class="col-md-5">
 <div class="send-to-sign" id="docusignPanel">
-<h4>Docusign Digital Signing aaa</h4>
+<form><!-- Council Info Begins -->
+<div class="councilInfoDiv">
+<div class="councilInfoHeading">
+<h4 class="inline-heading"><i class="fa fa-list"></i>Council Information</h4>
+<span class="heading-tooltip"><i class="fa fa-question-circle"></i><a data-toggle="modal" data-target="#councilInfo">What's this?</a></span>
+<span class="heading-tooltip"><i class="fa fa-question-circle"></i><a data-toggle="modal" data-target="#streetSearch">Open address modal</a></span>
+</div>
+<div class="informationDiv form-group row">
+<!-- This needs work -->
+<div class="address-bar">
+<label class="sr-only">Address</label>
+<input class="form-control address-search" type="text" placeholder="Address">
+</div>
+<button type="submit" class="btn btn-default councilstat-btn">View on Statistics</button>
+</div>
+<!-- Information from search -->
+<div class="row council-information">
+<div class="col-md-12 table-row">
+<span class="col-md-4 table-item first-item">Owners:</span>
+<span class="col-md-5 table-item">Reuben Billings and Phillipa Billings</span>
+<button class="btn sub-btn btn-default table-button" type="button" data-toggle="dropdown">
+<i class="fa fa-plus"></i>Use This
+</button>
+</div>
+<div class="col-md-12 table-row">
+<span class="col-md-4 table-item first-item">Title(s):</span>
+<span class="col-md-5 table-item">NA9032/12</span>
+<button class="btn sub-btn  btn-default table-button" type="button" data-toggle="dropdown">
+<i class="fa fa-plus"></i>Use This
+</button>
+</div>
+<div class="col-md-12 table-row">
+<span class="col-md-4 table-item first-item">Estate:</span>
+<span class="col-md-5 table-item">Freehold Simple</span>
+<button class="btn sub-btn btn-default table-button" type="button" data-toggle="dropdown">
+<i class="fa fa-plus"></i>Use This
+</button>
+</div>
+<div class="col-md-12 table-row">
+<span class="col-md-4 table-item first-item">District Plan:</span>
+<span class="col-md-5 table-item">30313</span>
+<button class="btn sub-btn btn-default table-button" type="button" data-toggle="dropdown">
+<i class="fa fa-plus"></i>Use This
+</button>
+</div>
+<div class="col-md-12 table-row">
+<span class="col-md-4 table-item first-item">Lot/Flat/Unit:</span>
+<span class="col-md-5 table-item">Lot 3</span>
+<button class="btn sub-btn btn-default table-button" type="button" data-toggle="dropdown">
+<i class="fa fa-plus"></i>Use This
+</button>
+</div>
+<div class="col-md-12 table-row last-row-item">
+<span class="col-md-4 table-item first-item">Land Area:</span>
+<span class="col-md-5 table-item">100m2</span>
+<button class="btn sub-btn btn-default table-button" type="button" data-toggle="dropdown">
+<i class="fa fa-plus"></i>Use This
+</button>
+</div>
+</div>
+</div>
+<!-- Council Info Ends --><h4>Docusign Digital Signing</h4>
 <p>To send this document electronically you need to ensure contacts have been assigned to the form.</p>
 <!-- Simple Sign Enable Panel -->
+<div class="toggle-holder">
+<label class="simple-sign" data-toggle="tooltip" data-placement="bottom" title="This will allow Simple Signing if enabled. Currently set to Full Signing & Initials as default." id="signToggle">
+<input type="checkbox" data-on="Simple Signing" data-off="Full Signing" id="toggleOne"  data-toggle="toggle" class="toggle-switch" data-class="fast" data-size="small">
+</label>
+</div>
+<!-- Simple Sign Enable Panel Ends  -->
+<div class="recipient-order">
+<div class="btn-group dropright open" id="btnAddRecipient" style="float: right;">
+<button class="add-recipient btn btn-default dropdown-toggle" id="docuSignRecipientDropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+<i class="fa fa-plus"></i>Re-add Recipient
+</button>
+<ul class="dropdown-menu" aria-labelledby="docuSignRecipientDropdown" style="margin-left:-80px;" id="LAddRecipient">
+<li class="dropdown-item" id="re_signOrder_2"><a href="javascript:void(0);" onclick="reAddRecipient(&#39;signOrder_2&#39;)">another test (atet@dassdt.com)</a>
+</li>
+<li class="dropdown-item" id="re_signOrder_2"><a href="javascript:void(0);" onclick="reAddRecipient(&#39;signOrder_2&#39;)">another test (atet@dassdt.com)</a>
+</li>
+</ul>
+</div>
+<h5>
+<i class="fa fa fa-users"></i> Recipient Order
+</h5>
+<!-- Bings Sortable Panel -->
+<p>Drag and drop to set the sign order.</p>
+<div id="orderListDiv">
+<ul id="sortableSignOrder" class="sortableList ui-sortable">
+<li class="listItem list-group-item signOrder_1 ui-sortable-handle" id="_e_1" style="position: relative; left: 0px; top: 0px;">test (test@testa.com) <i title="Remove Recipient" onclick="removeRecipient(&#39;signOrder_1&#39;)" class="fa fa-close"></i></li>
+</ul>
+<ul id="removedRecipient" style="display:none;">
+<li class="listItem list-group-item signOrder_2 ui-sortable-handle" id="_e_2" style="position: relative; left: 0px; top: 0px;">another test (atet@dassdt.com)
+<button type="button" class="close" title="Remove Recipient" onclick="removeRecipient(&#39;signOrder_2&#39;)"><span aria-hidden="true">×</span></button>
+</li>
+</ul>
+</div>
+<!-- Bings Sortable Panel !!Ends -->
 <div class="alert alert-info notify" role="alert">
 <i class="fa fa-exclamation-circle"></i> Please make sure you have at least one recipient for this signing request.
 </div>
+</div>
+<div class="docusign-message">
+<h5><i class="fa fa-comments-o"></i> Message</h5>
+<div class="form-group">
+<label for="usr">Message Subject</label>
+<input type="text" class="form-control" name="subject" id="subject" placeholder="Message Subject">
+</div>
+<div class="form-group">
+<label for="usr">Message Content</label>
+<textarea class="form-control" name="bodyContent" id="bodyContent" style="height:120px;" placeholder="Message Content"></textarea>
+</div>
+</div>
+<div class="docusign-additional">
+<h5><i class="fa fa-file"></i> Support Documents</h5>
+<div class="col-md-6">
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="multipleOffer.pdf" id="spd1" name="attachSignDoc">
+<label class="form-check-label" for="spd1">
+    <Multiple>Offer Form</Multiple></label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="multipleOffer2.pdf" id="spd2" name="attachSignDoc">
+<label class="form-check-label" for="spd1">
+    <Test>Form</Test></label>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="document3.pdf" id="spd3" name="attachSignDoc">
+<label class="form-check-label" for="spd1">
+    <Unit>Sale Form</Unit></label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="checkbox" value="document5.pdf" id="spd4" name="attachSignDoc">
+<label class="form-check-label" for="spd1">
+    <Hand>Cream Form</Hand></label>
+</div>
+</div>
+<!-- col-md-6 -->
+</div>
+<!-- docusign-additional-ends -->
+<!-- Terms and conditions checkbox -->
+<div class="form-check terms-holder notify" id="termsHolder">
+<input class="form-check-input terms-conditions" type="checkbox" value="terms-conditions" id="docuTermsConditions" name="termsConditions">
+<label class="form-check-label" for="spd1">
+    <I>Agree to the <a data-target="#simpleSignTerms" data-toggle="modal" href="#">Terms & Conditions</a></I></label>
+</div>
+<!-- Terms and conditions checkbox -->
 <!--*** Cancel signing button -->
 <button title="" data-placement="bottom" class="docu-send btn btn-default" type="button" id="sendToDoc">Send To Docusign
 </button>
@@ -319,6 +449,7 @@
 </div>
 <!-- send-to-sign ends -->
 <!-- send-to-sign ends -->
+</form>
 </div> <!-- send-to-sign panel ends -->
 </div>
 <!--  of col-md-4 ends-->
@@ -456,7 +587,7 @@
 <script src="./js/jquery.toastmessage.js.download"></script>
 <script src="./js/clipboard.min.js.download"></script>
 <script src="./js/bootstrap-toggle.min.js"></script>
-<script src="./js/custom-upgrade.js" type="text/javascript"> </script>
-<script src="js/bundle-upgarde.js" type="text/javascript"> </script>
+<script src="./js/custom.js" type="text/javascript"> </script>
+<script src="./js/ui-updates.js" type="text/javascript"> </script>
   </body>
 </html>

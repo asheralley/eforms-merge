@@ -1,0 +1,100 @@
+<!-- Quick-Sidebar-Trigger Tab Ends-->
+<div class="main-panel col-xs-10">
+   <div class="colten-wrapper">
+      <div class="page-content">
+
+       <!-- BEGIN PAGE HEAD -->
+       <div class="page-head">
+       <!-- BEGIN PAGE TITLE -->
+       </div>
+       <!-- END PAGE HEAD -->
+
+       <div class="col-xs-9 col-lg-6">
+           <h3 class="form-sect-title">
+               | Alert Boxes
+           </h3>
+
+           <div class="alert alert-warning-b notify">
+             <i class="fa fa-exclamation-circle"></i>Alert 'light'
+           </div> 
+
+           <div class="alert alert-warning notify">   
+             <i class="fa fa-exclamation-circle"></i>Alert 'dark'
+           </div>
+
+           <br> 
+
+           <h3 class="form-sect-title">
+               | Loading Spinners
+           </h3>
+           <p>Saved in /images as <i>loading.gif</i> and <i>loading-spinner-blue.gif</i></p>
+           <p>Spinner size below is controlled by css with property. All files are gifs.</p>
+
+           <div class="loading-spinners">
+             <img src="./images/loading.gif" alt="">
+             <img src="./images/loading-spinner-blue.gif" alt="">
+             <img src="./images/loading-spinner-blue.gif" alt="" style="width: 5em">
+             <img src="./images/loading-spinner-blue.gif" alt="" style="width: 3em">
+             <img src="./images/loading-spinner-blue.gif" alt="" style="width: 2em">
+             <img src="./images/loading-spinner-blue.gif" alt="" style="width: 1em">
+           </div>
+
+       </div>
+       <div class="row">
+          <div class="col-md-12">
+
+            <h3 style="padding-left: 0.6em; font-size: 1.7em;">ALERT BOXES - ALERT WARNING / TOASTER API</h3>
+              <button class="btn btn-default" id="showAlert" style="margin: 2em;">
+                | Show Alert With Close
+              </button>
+
+              <button class="btn btn-default" id="alertTimer" style="margin: 2em;">
+                | Show Alert With Timer
+              </button>
+
+              <button class="btn btn-default" id="alertTimer" style="margin: 2em;" onClick="uiMods.toaster(event, {text:'I can be easily changed and adjusted', timer: true, speed: 5000, color: 'dark'})">
+                | Inline Function Call Alert
+              </button>
+
+                <div class="col-md-10" style="margin-bottom: 6em;">
+                  <hr>
+                  <h5>Create</h5>
+                  <p>- To create a toaster use <i>uiMods.toaster(event, {options})</i></p>
+                  <p>- An <i>event object</i> must be passed as the first parameter every time the function is invoked: <i>uiMods.toaster(event)</i>.This can simply be the word event representing the event object</p>
+                  <h5>Options</h5>
+                  <p>- The toaster has preset defaults, so the <i>2nd options object/parameter {options}</i> is optional. If an options object is not included in the function call, the toaster will function with all defaults.</p>
+                  <p>- List of options uiMods.Toaster(event, <i>{options}</i>) and their defaults:
+                    <ul>
+                      <li>text: 'string' - default = 'This is a warning'</li>
+                      <li>timer: boolean - default = false</li>
+                      <li>speed: integer - default = 3500</li>
+                      <li>color: 'string' - 'light'/'dark' - default = 'light'</li>  
+                    </ul>
+                  </p>
+                  <h5>Invoking</h5>
+                  <p>- As an example the third button above: INLINE FUNCTION CALL ALERT, uses the following inline invoke pattern: <br>
+                    <ul>
+                      <li>
+                        onClick="uiMods.toaster(event, {text:'I can be easily changed and adjusted', timer: true, speed: 5000, color: 'dark'})"
+                      </li>
+                    </ul>
+                  </p>
+                  <p>- Or via js notice 'event' object <i>being passed twice</i> when the addEventListener method is used. This pattern is needed to pass arguments to a function via the eventListener() method.<br> 
+                    <ul>
+                      <li>addEventListener('click', function(event){uiMods.toaster(event, {text: 'This is an alert with a TIMER', timer: true, speed: 3000, color: 'dark'})}, false);
+                      </li>
+                    </ul>
+                  </p>
+                  <hr>
+
+                </div>
+
+              
+          </div>
+
+
+</div>
+include modal-council-info.pug
+<!-- closing colten-wrapper-->
+<!-- Quick Sidebar Begins -->
+<!-- BEGIN QUICK SIDEBAR

@@ -1,0 +1,72 @@
+.main-panel.col-xs-10
+  .colten-wrapper
+    .page-content
+      // BEGIN PAGE HEAD
+      .page-head
+        // BEGIN PAGE TITLE
+      // END PAGE HEAD
+      .portlet.light.properties-section
+        .portlet-title
+          .both-save-notifiers
+            #saveComplete.save-complete-div
+              i.fa.fa-save
+              span.visible-lg-inline SAVED
+            #saveFailed.save-fail-div
+              i.fa.fa-times
+              span#saveErrorSpan.visible-lg-inline
+          .row
+            .col-lg-8
+              h3.form-sect-title#propTitlePage
+                | View Forms By Property Address
+            .col-lg-4
+              select.form-control.properties-select#propertiesSelect
+                option Sort By Oldest To Newest
+                option Sort By Newest To Oldest
+          .row
+            .col-md-4.prop-listings
+              h4
+                | This Week
+              ul.properties-list
+                each val in ['48 Bee St', 'Apartment 4 Alverson', '87 Great Sth Road', '45 Massey Road']
+                  li= val
+                    i.fa.fa-exclamation-triangle.warning
+              h4
+                | 30 Days Previous
+              ul.properties-list
+                each val in ['48 Bee St', 'Apartment 4 Alverson', '87 Great Sth Road', '45 Massey Road']
+                  li= val
+                    i.fa.fa-exclamation-triangle.warning
+              h4
+                | Older
+              ul.properties-list
+                each val in ['48 Bee St', 'Apartment 4 Alverson', '87 Great Sth Road', '45 Massey Road']
+                  li= val
+                    i
+            .col-md-8
+              .placeholder-box
+                ul.property-contract-listing
+                  li
+                    img(src="images/contract.jpg")
+                    p.contract-info
+                      | Sale and Purchase Agreement
+                    p.person
+                      | M Jones
+
+                  li 
+                    img(src="images/contract.jpg")
+                    p.contract-info
+                      | Sale and Purchase Agreement
+                    p.person
+                      | R Smith
+                  li 
+                    img(src="images/contract.jpg")
+                    p.contract-info
+                      | Sale and Purchase Agreement
+                    p.person
+                      | R Smith
+                  li 
+                    img(src="images/contract.jpg")
+                    p.contract-info
+                      | Sale and Purchase Agreement
+                    p.person
+                      | R Smith

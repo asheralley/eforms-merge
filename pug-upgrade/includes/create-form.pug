@@ -1,0 +1,436 @@
+.main-panel.col-xs-10.create-form-page
+  <input id="formURL" value="" type="hidden">
+  <input id="rafID" value="" type="hidden">
+  .colten-wrapper
+    .page-content
+      // BEGIN PAGE HEAD
+      .page-head
+        // BEGIN PAGE TITLE
+        // END PAGE HEAD
+        .portlet.light
+          .row.select-form
+            .col-xs-8.form-area
+              .select-form-title
+                h3
+                  | Create a Form
+              .row
+                .form-holder
+                  a.form-name-modal-trigger(href='javascript:void(0);', onclick="createNewForm('/SaleAndPurchaseAgreement/NewSaleAndPurchaseForm/',3)")
+                    .doc-border.hvr-glow
+                      img(src='images/purchase-of-real-estate.jpg', alt='Create a new Agreement For Sale & Purchase')
+                      h5 Agreement For Sale & Purchase Of Real Estate
+                .form-holder
+                  a.form-name-modal-trigger(href='javascript:void(0);', onclick="createNewForm('/AuctionAgreement/NewAuctionForm/',1)")
+                    .doc-border.hvr-glow
+                      img(src='images/real-estate-by-auction.jpg', alt='Create a new Particulars & Conditions Of Sale Of Real Estate By Auction')
+                      h5 Particulars & Conditions Of Sale Of Real Estate By Auction
+                .form-holder
+                  a.form-name-modal-trigger(href='javascript:void(0);', onclick="createNewForm('/TenderAgreement/NewTenderForm/',4)")
+                    .doc-border.hvr-glow
+                      img(src='images/tender-agreement.jpg', alt='Particulars & Conditions Of Sale Of Real Estate By Tender')
+                      h5 Particulars & Conditions Of Sale Of Real Estate By Tender
+                .form-holder
+                  a.form-name-modal-trigger(href='javascript:void(0);', onclick="createNewForm('/TenancyAgreement/NewTenancyForm',5)")
+                    .doc-border.hvr-glow
+                      img(src='images/residential-tenancy-agreement.jpg', alt='Create a new Residential Tenancy Agreement')
+                      h5 Residential Tenancy Agreement
+              .row
+                .form-holder
+                  a.form-name-modal-trigger(href='javascript:void(0);', onclick="createNewForm('/LeaseAgreement/NewLeaseForm/',2)")
+                    .doc-border.hvr-glow
+                      img(src='images/agreement-to-lease.jpg?v=00002', alt='Create a new Lease Agreement')
+                      h5 Lease Agreement
+                .form-holder
+                  a.form-name-modal-trigger(href='javascript:void(0);', onclick="createNewForm('/AssignToLeaseAgreement/NewAssignToLeaseForm/', 7)")
+                    .doc-border.hvr-glow
+                      img(src='images/assign-lease.jpg?v=00003', alt='Create a new Assign to Lease Agreement')
+                      h5 Agreement to Assign Lease
+                .form-holder
+                  a.form-name-modal-trigger(href='javascript:void(0);', onclick="createNewForm('/BusinessAgreement/NewBusinessForm/', 6)")
+                    .doc-border.hvr-glow
+                      img(src='images/purchase-business.jpg?v=00003', alt='Create a new Agreement For Sale & Purchase Of A Business')
+                      h5 Agreement For Sale & Purchase Of A Business
+                .form-holder
+                  a.form-name-modal-trigger(href='javascript:void(0);', onclick="createNewForm('/SubleaseAgreement/NewSubleaseForm/', 8)")
+                    .doc-border.hvr-glow
+                      img(src='images/sublease.jpg?v=00001', alt='Create a new Agreement to Sublease')
+                      h5 Agreement to Sublease
+            .col-xs-4
+              .recent-forms.sub-flexi-b
+                h5
+                  | Subscribed To:
+                  img(src="images/flexi-logo-400.png")
+                p
+                  | Thank you for subscribing to FlexiSign. You can update or cancel your subscription at any time through the month by altering your details below. 
+                ul.flexi-prices
+                  li
+                    .checkbox.approval-check
+                      label
+                        input(type='checkbox')
+                      span.flex-title Agreement for Sale & Purchase of Real Estate
+                  li
+                    .checkbox.approval-check
+                      label
+                        input(type='checkbox')
+                      span.flex-title Particulars & Conditions of Sale by Auction
+                  li
+                    .checkbox.approval-check
+                      label
+                        input(type='checkbox')
+                      span.flex-title Particulars & Conditions of Sale by Tender
+                h4
+                  | Current Subscription:
+                  p.flexi-price
+                    | $20
+                  span.per-m Per month
+                p
+                  | Your subscription will renew automatically every day on the 9th of the month. 
+                button#flexiCancel.btn.btn-default.flexi-cancel(type='button') Cancel Now 
+                button#flexiUpdate.btn.btn-default.flexi-update(type='button') Update Now
+              .recent-forms(style="margin-top: 1em;")
+                h5
+                  | Recent Forms
+                .recent-forms-box
+                  .form-title
+                    | Document Name
+                  .recent-date
+                    | 08 Oct 2018
+                .recent-forms-box
+                  .form-title
+                    | Document Name
+                  .recent-date
+                    | 08 Oct 2018
+              .quick-search(style="margin-top: 1em;")
+                h5
+                  | Quick Search 
+                .panel.panel-default
+                  .panel-body
+                    .input-group
+                      input#myFormSearchTerm.in-app.form-control(placeholder='Search for...', type='text' style='padding:1.8em !important')
+                    .input-group-btn
+                      select#addressFilter.form-control.address-filter
+                        option Filter by address 
+                        option Filter by date
+                      input#searchFilter(name='searchFilter', value='3', type='hidden')
+                      span.input-group-btn
+                        button#myFormSearch.btn.btn-default.search-btn(type='button' style='margin-left: 0 !important;') Search
+                  // /input-group
+                  // Search Results List
+                  #createPageSeardhDiv
+                  // Search Results List Ends
+                  // END portlet
+                  // END page-content
+                  // closing colten wrapper
+                  // Quick Sidebar Begins
+                  // BEGIN QUICK SIDEBAR
+                  // closing col-xs-10
+                  // END QUICK SIDEBAR
+                  // Quick Sidebar Ends
+                  #streetSearchModal.modal.fade
+                    .vertical-alignment-helper
+                      .modal-dialog.vertical-align-center
+                        .modal-content
+                          .modal-header
+                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                              span(aria-hidden='true') ×
+                            h4.modal-title.text-center Property Address
+                          .modal-body
+                            #loadingCircle.uil-ellipsis-css.center-block(style='transform:scale(0.6);display:none;float:left;')
+                              .ib
+                                .circle
+                                  div
+                                .circle
+                                  div
+                                .circle
+                                  div
+                                .circle
+                                  div
+                            #contentLoadRafAdrdress(style='clear:both;')
+                          // Modal Body Ends
+                          // /.modal-content
+                          // /.modal-dialog
+                          // /.modal
+                          #modal-loader.modal.fade.bs-example-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel')
+                            .modal-dialog.modal-sm
+                              .modal-content
+                          a.backTotop(href='#')
+                            i.fa.fa-angle-up
+                          #modalExportTranLog.modal.fade
+                            .vertical-alignment-helper
+                              .modal-dialog.vertical-align-center
+                                .modal-content
+                                  .modal-header
+                                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                      span(aria-hidden='true') ×
+                                    h4.modal-title.text-center Export Transaction Log
+                                  .modal-body
+                                    .panel.panel-primary
+                                      div(style='padding:15px;')
+                                        input#includePrivateExport(type='checkbox')
+                                        label Include Privately Flagged Notes
+                                      .panel-heading
+                                        h3.panel-title
+                                          | This tool will export a PDF of all transactions on this eForm. It will now provide all the changes to individual fields or clauses. It is designed to provide a paper log of the process of creating this eForm, including saving it, exporting it and assigning details.
+                                    .modal-footer
+                                      button.btn.btn-default(type='button', data-dismiss='modal') CLOSE
+                                      button.btn.btn-default.slide-icon-assign-contact(type='button', onclick='exportAuditLog()') EXPORT
+                                  // Modal Body Ends
+                                  // /.modal-content
+                                  // /.modal-dialog
+                                  // /.modal
+                                  #modal-add-contact.modal.fade
+                                    .vertical-alignment-helper
+                                      .modal-dialog.vertical-align-center
+                                        .modal-content
+                                          .modal-header
+                                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                              span(aria-hidden='true') ×
+                                            h4.modal-title.text-center Contact Details
+                                          #contactModalContent.modal-body
+                                          // Modal Body Ends
+                                          // /.modal-content
+                                          // /.modal-dialog
+                                          // /.modal
+                                          #modal-main-search.modal.fade
+                                            .vertical-alignment-helper
+                                              .modal-dialog.vertical-align-center
+                                                .modal-content
+                                                  .modal-header
+                                                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                      span(aria-hidden='true') ×
+                                                    h4.modal-title.text-center Search Results
+                                                  #mainSearchContent.modal-body
+                                                    .modal-footer
+                                                      button.btn.btn-default(type='button', data-dismiss='modal') CLOSE
+                                                  // Modal Body Ends
+                                                  // /.modal-content
+                                                  // /.modal-dialog
+                                                  // /.modal
+                                                  #timeOutModal.modal.fade
+                                                    .vertical-alignment-helper
+                                                      .modal-dialog.vertical-align-center
+                                                        .modal-content
+                                                          .modal-header
+                                                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                              span(aria-hidden='true') ×
+                                                            h4.modal-title.text-center Warning!
+                                                          .modal-body
+                                                            p
+                                                              | Your session will expire in 1 minute. click on ok to save your form and remain logged in.
+                                                            .modal-footer
+                                                              button.btn.btn-default(type='button', data-dismiss='modal') CLOSE
+                                                              button.slide-icon-assign-contact.btn.btn-default(type='button', data-dismiss='modal', onclick='saveForm()') OK
+                                                          // Modal Body Ends
+                                                          // /.modal-content
+                                                          // /.modal-dialog
+                                                          // /.modal
+                                                          #defaultTemplatesModal.modal.fade
+                                                            .vertical-alignment-helper
+                                                              .modal-dialog.vertical-align-center
+                                                                .modal-content
+                                                                  .modal-header
+                                                                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                                      span(aria-hidden='true') ×
+                                                                    h4#defaultTemplateListHeader.modal-title.text-center
+                                                                  #defaultTemplatesContent.modal-body
+                                                                  // Modal Body Ends
+                                                                  // /.modal-content
+                                                                  // /.modal-dialog
+                                                                  // /.modal
+                                                                  #newDefaultTemplate.modal.fade
+                                                                    .vertical-alignment-helper
+                                                                      .modal-dialog.vertical-align-center
+                                                                        .modal-content
+                                                                          .modal-header
+                                                                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                                              span(aria-hidden='true') ×
+                                                                            h4.modal-title.text-center SET DEFAULT TEMPLATE
+                                                                          .modal-body
+                                                                            .panel.panel-primary
+                                                                              .panel-heading
+                                                                                h3.panel-title
+                                                                                  | Please Note: You can only have the maximum of 5 default templates for each type of the form. The clauses will not be included into the default template.
+                                                                                p(style='color:red;') Plase save the current form before you set it to a default template.
+                                                                            .panel.panel-primary
+                                                                              .panel-heading
+                                                                                h3.panel-title Template Name
+                                                                              .panel-body
+                                                                                form#newDTForm
+                                                                                  input#newDefaultTemplateName.form-control(maxlength='50', name='newDefaultTemplateName', value='', type='text')
+                                                                            .modal-footer
+                                                                              button.btn.btn-default(type='button', data-dismiss='modal') CLOSE
+                                                                              button.btn.btn-primary(type='button', onclick='setCurrentFormAsDefault()') SAVE CURRENT FORM AS DEFAULT TEMPLATE
+                                                                          // Modal Body Ends
+                                                                          // /.modal-content
+                                                                          // /.modal-dialog
+                                                                          // /.modal
+                                                                          #addClauseModal.modal.fade
+                                                                            .vertical-alignment-helper
+                                                                              .modal-dialog.vertical-align-center
+                                                                                .modal-content
+                                                                                  .modal-header
+                                                                                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                                                      span(aria-hidden='true') ×
+                                                                                    h4.modal-title.text-center Add New Clause
+                                                                                  #addClauseContent.modal-body
+                                                                                    form#addNewClauseForm
+                                                                                      #newClauseerrorDiv.panel.panel-primary(style='display:none;')
+                                                                                        .panel-heading
+                                                                                          h3#newClauseErrorMsg.panel-title(style='color:red;')
+                                                                                      .form-group.row
+                                                                                        label.col-sm-3.form-control-label(for='clauseTitle') Clause Title
+                                                                                        .col-sm-9
+                                                                                          input#clauseTitle.form-control(name='clauseTitle', value='', type='text')
+                                                                                      .form-group.row
+                                                                                        label.col-sm-3.form-control-label(for='clauseType') Clause Type
+                                                                                        .col-sm-9
+                                                                                          select#clauseType.form-control(name='clauseType')
+                                                                                            option(value='3')  Personal Clause 
+                                                                                            option(value='2')  Company Clause 
+                                                                                      .form-group.row
+                                                                                        button.slide-icon-save-contact.btn.btn-default(data-toggle='modal', href='#currentFormTerms', style='margin-left:15px;') Replace an existing term
+                                                                                        input#replaceTermID(name='replaceTermID', value='', type='hidden')
+                                                                                      .form-group.row
+                                                                                        label.col-sm-3.form-control-label(for='clauseContent') Clause Content
+                                                                                        .col-sm-9
+                                                                                          textarea#clauseContent.form-control(cols='20', name='clauseContent', rows='2', style='height:180px;')
+                                                                                    .modal-footer
+                                                                                      button.btn.btn-default(type='button', data-dismiss='modal') CLOSE
+                                                                                      button.slide-icon-save-contact.btn.btn-default(onclick='addNewClause();', type='button') SAVE
+                                                                                  // Modal Body Ends
+                                                                                  // /.modal-content
+                                                                                  // /.modal-dialog
+                                                                                  // /.modal
+                                                                                  #currentFormTerms.modal.fade
+                                                                                    .vertical-alignment-helper
+                                                                                      .modal-dialog.vertical-align-center
+                                                                                        .modal-content(style='width:80%;')
+                                                                                          .modal-header
+                                                                                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                                                              span(aria-hidden='true') ×
+                                                                                            h4.modal-title.text-center TERMS and CONDITIONS
+                                                                                          #formTermsContent.modal-body
+                                                                                          // Modal Body Ends
+                                                                                          // /.modal-content
+                                                                                          // /.modal-dialog
+                                                                                          // /.modal
+                                                                                          #addNoteModal.modal.fade
+                                                                                            .vertical-alignment-helper
+                                                                                              .modal-dialog.vertical-align-center
+                                                                                                .modal-content
+                                                                                                  .modal-header
+                                                                                                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                                                                      span(aria-hidden='true') ×
+                                                                                                    h4.modal-title.text-center NEW NOTE
+                                                                                                  .modal-body
+                                                                                                    form#newNoteForm
+                                                                                                      p#noteError(style='color:red;')
+                                                                                                      div(style='padding:15px;')
+                                                                                                        input#isPrivate(type='checkbox')
+                                                                                                        label Is Private
+                                                                                                      .panel.panel-primary
+                                                                                                        .panel-heading
+                                                                                                          h3.panel-title TITLE
+                                                                                                        .panel-body
+                                                                                                          input#title.form-control(name='title', value='', type='text')
+                                                                                                      .panel.panel-primary
+                                                                                                        .panel-heading
+                                                                                                          h3.panel-title CONTENT
+                                                                                                        .panel-body
+                                                                                                          textarea#note.form-control(cols='20', maxlength='300', name='note', rows='2', style='height:180px;')
+                                                                                                    .modal-footer
+                                                                                                      button.btn.btn-default.noteBtn(type='button', data-dismiss='modal') CLOSE
+                                                                                                      button.btn.btn-default.slide-icon-save-contact.noteBtn(type='button', onclick='saveNote();') SAVE
+                                                                                                      img#noteLoading.btn-default(style='display:none;', src='/assets/global/img/ajax-loading.gif')
+                                                                                                  // Modal Body Ends
+                                                                                                  // /.modal-content
+                                                                                                  // /.modal-dialog
+                                                                                                  // /.modal
+                                                                                                  #viewNote.modal.fade
+                                                                                                    .vertical-alignment-helper
+                                                                                                      .modal-dialog.vertical-align-center
+                                                                                                        .modal-content
+                                                                                                          .modal-header
+                                                                                                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                                                                              span(aria-hidden='true') ×
+                                                                                                            h4.modal-title.text-center Note
+                                                                                                          #viewNoteContent.modal-body
+                                                                                                          // Modal Body Ends
+                                                                                                          // /.modal-content
+                                                                                                          // /.modal-dialog
+                                                                                                          // /.modal end
+                                                                                                          #manageDisabledClause.modal.fade
+                                                                                                            .vertical-alignment-helper
+                                                                                                              .modal-dialog.vertical-align-center
+                                                                                                                .modal-content
+                                                                                                                  .modal-header
+                                                                                                                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                                                                                      span(aria-hidden='true') ×
+                                                                                                                    h4.modal-title.text-center Disabled Clauses
+                                                                                                                  #manageDCDiv.modal-body
+                                                                                                                  // Modal Body Ends
+                                                                                                                  // /.modal-content
+                                                                                                                  // /.modal-dialog
+                                                                                                                  // /.modal
+                                                                                                                  #convertFormModal.modal.fade
+                                                                                                                    .vertical-alignment-helper
+                                                                                                                      .modal-dialog.vertical-align-center
+                                                                                                                        #convertFormContent.modal-content
+                                                                                                                        // /.modal-content
+                                                                                                                        // /.modal-dialog
+                                                                                                                        // /.modal
+                                                                                                                        #cloneModal.modal.fade
+                                                                                                                          .modal-dialog
+                                                                                                                            .modal-content
+                                                                                                                              .modal-header
+                                                                                                                                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                                                                                                  span(aria-hidden='true') ×
+                                                                                                                                h4.modal-title.text-center Clone my eForms
+                                                                                                                              #CloneEformContent.modal-body
+                                                                                                                              // Modal Body Ends
+                                                                                                                              // /.modal-content
+                                                                                                                              // /.modal-dialog
+                                                                                                                              // /.modal end
+                                                                                                                              // Modal
+                                                                                                                              #emailFormModal.modal.fade
+                                                                                                                                .modal-dialog
+                                                                                                                                  .modal-content
+                                                                                                                                    .modal-header
+                                                                                                                                      button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                                                                                                        span(aria-hidden='true') ×
+                                                                                                                                      h4.modal-title.text-center Email eForm
+                                                                                                                                    #emailFormContent.modal-body
+                                                                                                                                    // Modal Body Ends
+                                                                                                                                    // /.modal-content
+                                                                                                                                    // /.modal-dialog
+                                                                                                                                    // /.modal end
+                                                                                                                                    // Error  Modal
+                                                                                                                                    #errorModal.modal.fade
+                                                                                                                                      .modal-dialog
+                                                                                                                                        .modal-content
+                                                                                                                                          .modal-header
+                                                                                                                                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                                                                                                                              span(aria-hidden='true') ×
+                                                                                                                                            h4.modal-title.text-center THERE IS A PROBLEM
+                                                                                                                                          .modal-body
+                                                                                                                                            p#errorModalText
+                                                                                                                                            .modal-footer
+                                                                                                                                              button.btn.btn-default.noteBtn(type='button', data-dismiss='modal') CLOSE
+                                                                                                                                          // Modal Body Ends
+                                                                                                                                          // /.modal-content
+                                                                                                                                          // /.modal-dialog
+                                                                                                                                          // /.modal end
+                                                                                                                                          // Error  Modal Ends
+                                                                                                                                          #formSavingModal.modal.fade
+                                                                                                                                            .modal-dialog
+                                                                                                                                              .modal-content
+                                                                                                                                                .modal-body
+                                                                                                                                                  .input-group(style='font-size:18px;')
+                                                                                                                                                    p
+                                                                                                                                                      img(src='/assets/global/img/ajax-loading.gif')
+                                                                                                                                                      |  Please wait, we are saving your form.
+                                                                                                                                                // Modal Body Ends
+                                                                                                                                                // /.modal-content
+                                                                                                                                                // /.modal-dialog
+// /.modal end
+            
