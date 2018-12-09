@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+		<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<style>
+body, html {
+	padding: 0;
+    height: 100%;
+    width: 100vw;
+   
+   
+}
+.row {
+	height: 100%;
+}
+body {
+
+	background-image: url('img/auckland.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	overflow-x: hidden;
+	transform: translateY(0px) scale(1);
+}
+.btn-login{
+		background-color: purple;
+		border-color:purple;
+		border-radius: 1px;
+		width: 8em;
+		height: 2.8em;
+		margin: 0 0 4em 0;
+		font-weight: 400;
+	}
+	.btn-login:hover {
+		background-color: #6a036a;
+		border-color: #6a036a;
+		
+	}
+
+
+	.btn-notify {
+		background-color: transparent;
+		border:none;
+		outline: none;
+		color:#8EC5D3;
+		width: 16em;
+		margin: 0;
+		font-weight: 600;
+		font-size: 0.95rem;
+	}
+
+	.btn-notify:hover {
+		background-color:transparent;
+		border-color:transparent;
+		color:#8EC5D3;
+	}
+	
+	/*To remove button outline from btn notify*/
+	.btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus, .show > .btn-info.dropdown-toggle:focus {
+		box-shadow: none;
+	}
+	.btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .show > .btn-info.dropdown-toggle {
+		background-color: transparent;
+		border-color: transparent;
+	}
+	.btn-info:focus {
+		box-shadow: none;
+	}
+	.btn-secondary:focus, .btn-secondary.focus {
+		box-shadow: none;
+	}
+	
+	.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
+		background-color: #6a036a;
+		border-color:#6a036a;
+		
+	}
+		/*Important for bootstrap overrides*/
+	.e-form-login input {
+		margin-top: 2em !important;
+		width: 50% !important;
+		margin: 0 auto;
+		border-radius: 0;
+		height: 3.8em; 
+	}
+
+	.e-form-login h3 {
+		margin: 1.5em 0 1.5em 0;
+	}
+	
+	
+	input {
+		text-align: center;
+	}
+	h3, p {
+		color: white;
+	}
+	p {
+		margin-bottom: 0;
+		font-size: 1.5rem;
+		font-weight: 300;
+	}
+	h3 {
+		font-size: 2.3rem;
+	}
+	b {
+		font-weight: 500;
+	}
+	.logo {
+		margin: 0 auto;
+		margin-top: 6em;
+	
+	}
+	
+
+	@media screen and (max-width: 768px){
+		body {
+			background-position: right -95px top 0px;
+			
+		}
+		body, html {
+			 overflow: hidden;
+		}
+		.e-form-login input {
+	
+		width: 90% !important;
+		
+	}
+	.btn-login {
+		margin: 0 0 11em 0;
+	}
+	}
+	@media screen and (max-height:900px) and (max-width:1024px) and (min-height: 600px) and (min-width:400px){ 
+		body {
+			background-position: right -95px top 0px;
+			
+		}
+		.btn-login {
+				margin: 0 0 4em 0!important;
+			}	
+			.logo {
+				margin-top: 4em;
+			}
+}
+		@media screen and (max-height:800px) and (max-width:1300px) and (min-height: 600px) and (min-width:769px){ 
+		
+		.logo {
+			margin-top: 2em;
+		}
+		.e-form-login h3 {
+		    margin: 0.5em 0 0.5em 0;
+		    font-size: 2rem;
+		}
+		.btn-login {
+				margin: 0 0 3em 0!important;
+			}
+		p {
+			font-size: 1.2rem;
+		}	
+		
+		
+	
+
+</style>
+<body>
+
+	<div class="row">
+		<div class="col-md-10 offset-md-1 text-center e-form-login">
+			<img src="img/logo400px.png" class='logo'>
+			<h3>Welcome to the Real Estate Institutes Digital eForms</h3>
+			<p>You have been sent a code to access a digital form from <b>Agents Name</b></p>
+			<p>Please check your phone <b><span id="phoneSms"></span>+64 027 599 0000</b></p>
+			<div class="form-group">
+			  <input class="form-control" id="smsCode" placeholder="Enter sms code here...">
+			</div>
+			<br>
+			<button type="button" id="login" class="btn btn-secondary btn-login">LOGIN</button>
+			<p>Didn't receive a code?</p>
+			<button type="button" id="notify" class="btn btn-info btn-notify">CLICK TO NOTIFY YOUR AGENT</button>
+
+		</div>		
+	</div>
+
+</body>
+</html>

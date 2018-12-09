@@ -1,0 +1,79 @@
+$(function () {
+    $('#myFormSearch').click(function () {
+        searchMyForm();
+    });
+
+    $('#myFormSearchTerm').on("keypress", function (e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if (code == 13) {
+            e.preventDefault();
+            e.stopPropagation();
+            searchMyForm();
+        }
+    });
+
+    $('#mainSearchInput').on("keypress", function (e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if (code == 13) {
+            e.preventDefault();
+            e.stopPropagation();
+            searchMain();
+        }
+    });
+
+    
+    $('#filterMenu').find('a').click(function (e) {
+        e.preventDefault();
+        var param = $(this).attr("href").replace("#", "");
+        var concept = $(this).text();
+        $('#search_concept').text(concept);
+        $('#searchFilter').val(param);
+    });
+
+});
+
+function searchMain() {
+    var searchTerm = $.trim($('#mainSearchInput').val());
+
+    $("#mainSearchContent").html('');
+
+    if (searchTerm.length > 0) {
+        
+        $.ajax({
+            type: "Get",
+            url: "/Eform/searchMain/",
+            data: { term: searchTerm },
+            cache: false
+        }).done(function (data) {
+            isAjaxRequestTimeOut(data);
+            $("#mainSearchContent").html(data);
+            $("#modal-main-search").modal();
+
+        }).fail(function (jqXHR, textStatus) {
+            errorMsg(textStatus);
+        });
+    }
+}
+
+function searchMyForm() {
+    var searchTerm = $.trim($('#myFormSearchTerm').val());
+    var searchFilter = $.trim($('#searchFilter').val());
+
+    $("#createPageSeardhDiv").html('<img src="/assets/global/img/loading.gif" style="width:26px;height:8px;" />');
+
+    if (searchTerm.length > 0) {
+
+        $.ajax({
+            type: "Get",
+            url: "/Eform/searchMyForms/",
+            data: { term: searchTerm, filter: searchFilter },
+            cache: false
+        }).done(function (data) {
+            isAjaxRequestTimeOut(data);
+            $("#createPageSeardhDiv").html(data);
+
+        }).fail(function (jqXHR, textStatus) {
+            errorMsg(textStatus);
+        });
+    }
+}

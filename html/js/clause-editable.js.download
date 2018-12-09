@@ -1,0 +1,383 @@
+﻿$(function () {
+
+    new Clipboard('.copyIcon');
+
+    //==============================================
+    initEditables();
+
+    //==============================================
+    populateClauseFields();
+
+    $('[data-toggle="tooltip"]').tooltip();
+    //==============================================
+});
+
+function initXeditableField(id, versionID, clauseID) {
+    $("#" + id).editable({
+        url: '/Eform/SaveClauseValue/',
+        params: { versionID: versionID, clauseid: clauseID },
+        success: function (response, newValue) {
+            isAjaxRequestTimeOut(response);
+
+            if (!response.status) {
+                alert("An error occurred when saving your data. \n please report this issue to REINZ.");
+                loadClauses();
+            }
+        }
+    });
+}
+
+function populateClauseFields() {
+    var versionID = $("#versionID").val();
+
+    $('#attatchedClauses li').each(function (index) {
+        var clauseID = $(this).attr("id").replace("c_", "");
+
+        $('#' + $(this).attr("id") + ' a').each(function (index) {
+            var id = $(this).attr("id");
+
+            if (typeof id != 'undefined') {
+
+                $.ajax({
+                    type: "Get",
+                    url: "/Eform/getClauseFieldValue/",
+                    data: { id: id, versionID: versionID },
+                    cache: false
+                }).done(function (data) {
+                    isAjaxRequestTimeOut(data);
+
+                    if (data.status) {
+                        $("#" + id).html(data.message);
+                    }
+
+                    initXeditableField(id, versionID, clauseID);
+
+                }).fail(function (jqXHR, textStatus) {
+                    errorMsg("Request failed: " + textStatus);
+                });
+            }
+        });
+
+        $(this).show();
+    });
+}
+
+function initEditables() {
+    $.fn.editable.defaults.inputclass = 'form-control';
+}
+
+function resetClauseContent(id) {
+    $.ajax({
+        type: "Get",
+        url: "/Eform/getClauseContent/",
+        data: { id: id },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#c_" + id).html(data);
+        $("#c_" + id).show();
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg("Request failed: " + textStatus);
+    });
+}
+
+function removeClause(clauseID, ctID) {
+    $("#c_" + clauseID).hide();
+
+    if (ctID == 1) {
+        $("#c_" + clauseID).appendTo("#reinzClauses");
+
+        $('#reinzClauses').sortable('option', 'receive')(null, { item: $("#c_" + clauseID) });
+    }
+    else if (ctID == 2) {
+        $("#c_" + clauseID).appendTo("#companyClauses");
+
+        $('#companyClauses').sortable('option', 'receive')(null, { item: $("#c_" + clauseID) });
+    }
+    else {
+        $("#c_" + clauseID).appendTo("#memberClauses");
+
+        $('#memberClauses').sortable('option', 'receive')(null, { item: $("#c_" + clauseID) });
+    }
+    
+}
+
+function removeClauseDD(clauseID, ctID) {
+    $("#c_" + clauseID).hide();
+
+    if (ctID == 1) {
+        $("#c_" + clauseID).appendTo("#reinzClauses");
+    }
+    else if (ctID == 2) {
+        $("#c_" + clauseID).appendTo("#companyClauses");
+    }
+    else {
+        $("#c_" + clauseID).appendTo("#memberClauses");
+    }
+
+    reset(clauseID);
+}
+
+function reset(clauseID) {
+    var versionID = $("#versionID").val();
+
+    removeEformClause(versionID, clauseID);
+    resetClauseContent(clauseID);
+}
+
+function removeEformClause(versionID, clauseID) {
+    $.ajax({
+        type: "Post",
+        url: "/Eform/removeEformClause/",
+        data: { versionID: versionID, clauseID: clauseID },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        if (!data.status) {
+            showMsg(data.message);
+            loadClauses();
+        }
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg("Request failed: " + textStatus);
+    });
+}
+
+function addClause(clauseID,typeID) {
+    var versionID = $("#versionID").val();
+
+    attachEformClause(versionID, clauseID);
+
+    var eleID = 'c_' + clauseID;
+
+    $('#' + eleID + ' a').each(function (index) {
+
+        initXeditableField($(this).attr("id"), versionID, clauseID);
+
+    });
+
+    $('#disable_' + eleID).hide('fast');
+    $('#addClause_' + eleID).hide('fast');
+
+    if (typeID == "1") {
+        $("#copy_" + eleID).hide('fast');
+    }
+    else{
+        $("#edit_" + eleID).show('fast');
+    }
+    
+
+    $('#del_' + eleID).show('fast');
+    $("#sortUp_" + eleID).show('fast');
+    $(".sortDown").show('fast');
+
+    $("#sortdown_" + eleID).hide('fast');
+
+    $("#c_" + clauseID).appendTo("#attatchedClauses");
+
+    $("#infoText").hide();
+    $("#btn-SaveClauseOrder").show();
+
+    saveListOrder();
+}
+
+
+function attachEformClause(versionID, clauseID) {
+    $.ajax({
+        type: "Post",
+        url: "/Eform/attachEformClause/",
+        data: { versionID: versionID, clauseID: clauseID },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        if (!data.status) {
+            showMsg(data.message);
+            loadClauses();
+        }
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg("Request failed: " + textStatus);
+    });
+}
+
+function saveEformClauseOrder(versionID, order) {
+
+    $(".btn-SaveClauseOrder").hide();
+
+    $.ajax({
+        type: "Post",
+        url: "/Eform/saveEformClauseOrder/",
+        data: { versionID: versionID, order: order },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        if (!data.status) {
+            showMsg(data.message);
+            loadClauses();
+        }
+
+        $(".btn-SaveClauseOrder").show();
+
+    }).fail(function (jqXHR, textStatus) {
+        $(".btn-SaveClauseOrder").show();
+        errorMsg("Request failed: " + textStatus);
+    });
+}
+
+function disableClause(cid) {
+    $.ajax({
+        type: "Post",
+        url: "/Eform/disableClause/",
+        data: { cid: cid },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        if (data.status) {
+            showMsg("Clause Disabled.")
+            $("#c_" + cid).remove();
+            
+        }
+        else {
+            errorMsg(data.message);
+        }
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg("Request failed: " + textStatus);
+    });
+}
+
+
+function saveListOrder() {
+    var versionID = $("#versionID").val();
+    var order = "";
+
+    $("#attatchedClauses li").each(function () {
+        var id = $(this).attr("id").replace("c_", "");
+        order += "c[]=" + id + "&";
+    });
+
+    order = order.slice(0, -1);
+
+    if (versionID === "" || order == "") {
+        errorMsg("Failed to save clause order.");
+    }
+    else {
+        saveEformClauseOrder(versionID, order);
+    }
+    
+}
+
+
+function moveUp(clauseID) {
+    var preEleID = "";
+    var index = 1;
+    var length = $('ul#attatchedClauses li').length;
+
+    if (length > 1) {
+        $("#attatchedClauses li").each(function () {
+            var id = $(this).attr("id").replace("c_", "");
+
+            if (id == clauseID) {
+                return false;
+            }
+            preEleID = id;
+            index += 1;
+        });
+
+        //console.log($('ul#attatchedClauses li').length + " current : " + index);
+        if (preEleID != "" && preEleID != clauseID) {
+
+            if (index - 1 == 1) {
+                showDownOnly(clauseID);
+
+            }
+            else {
+                showBoth(clauseID);
+
+            }
+
+            if (index == length) {
+                showUpOnly(preEleID);
+            }
+            else {
+                showBoth(preEleID);
+            }
+
+
+            $("#c_" + clauseID).insertBefore($("#c_" + preEleID));
+        }
+        else {
+            errorMsg("Failed to change clause order.");
+        }
+    }
+
+    
+}
+
+function moveDown(clauseID) {
+    var aftEleID = "";
+    var breakLoop = false;
+    var index = 1;
+    var length = $('ul#attatchedClauses li').length;
+
+    if (length > 1) {
+        $("#attatchedClauses li").each(function () {
+            var id = $(this).attr("id").replace("c_", "");
+
+            if (breakLoop) {
+                aftEleID = id;
+                return false;
+            }
+            if (id == clauseID) {
+                breakLoop = true;
+            }
+            index += 1;
+        });
+
+        //console.log($('ul#attatchedClauses li').length + " current : " + index);
+        if (aftEleID != "" && aftEleID != clauseID) {
+
+            if (index == length) {
+                showUpOnly(clauseID);
+
+            }
+            else {
+                showBoth(clauseID);
+
+            }
+
+            if (index - 1 == 1) {
+                showDownOnly(aftEleID);
+            }
+            else {
+                showBoth(aftEleID);
+            }
+
+            $("#c_" + clauseID).insertAfter($("#c_" + aftEleID));
+        }
+        else {
+            errorMsg("Failed to change clause order.");
+        }
+    }
+}
+
+function showUpOnly(id) {
+    $("#sortUp_c_" + id).show();
+    $("#sortdown_c_" + id).hide();
+}
+
+function showDownOnly(id) {
+    $("#sortUp_c_" + id).hide();
+    $("#sortdown_c_" + id).show();
+}
+
+function showBoth(id) {
+    $("#sortUp_c_" + id).show();
+    $("#sortdown_c_" + id).show();
+}

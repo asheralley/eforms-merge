@@ -1,0 +1,841 @@
+﻿
+$(function () {
+
+    var amountScrolled = 200;
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > amountScrolled) {
+            $('a.back-to-top').fadeIn('slow');
+            $('.floating-menu').fadeIn('slow');
+        } else {
+            $('a.back-to-top').fadeOut('slow');
+            $('.floating-menu').fadeOut('slow');
+        }
+    });
+
+});
+
+
+//=====================================================================================
+
+function loadAdminSlider() {
+    $("#slider-contents").html('');
+    $.ajax({
+        type: "Get",
+        url: "/Eform/loadAdminSlider/",
+        data: { infoID: $("#eformId").val() },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+        $("#slider-contents").html(data);
+    }).fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+}
+
+//=====================================================================================
+
+//function loadContactSlider() {
+//    var eformID = $("#eformId").val();
+
+//    $("#slider-contents").html('');
+//    $.ajax({
+//        type: "Get",
+//        url: "/Eform/loadContactSlider/",
+//        data: { infoID: eformID },
+//        cache: false
+//    }).done(function (data) {
+//        isAjaxRequestTimeOut(data);
+//        $("#slider-contents").html(data);
+//    }).fail(function (jqXHR, textStatus) {
+//        alert("Request failed: " + textStatus);
+//    });
+//}
+
+//=====================================================================================
+
+function loadDocumentlider() {
+    var eformID = $("#eformId").val();
+
+    $("#slider-contents").html('');
+    $.ajax({
+        type: "Get",
+        url: "/Eform/loadDocumentlider/",
+        data: { infoID: eformID },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+        $("#slider-contents").html(data);
+    }).fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+}
+
+//=====================================================================================
+
+function enableAutoSave(miliSec) {
+    //auto save the form in every 5 minutes
+    setInterval(function () {
+        autoSaveForm();
+    }, miliSec);
+}
+
+
+//=====================================================================================
+
+function handleQuickSidebarChat() {
+    var wrapper = $('.page-quick-sidebar-wrapper');
+    var wrapperChat = wrapper.find('.page-quick-sidebar-chat');
+
+    var initChatSlimScroll = function () {
+        var chatUsers = wrapper.find('.page-quick-sidebar-chat-users');
+        var chatUsersHeight;
+
+
+        //Jared Code Change 20-08-15 -- Replaced Below to fix ipad sidebar scrolling issue with: 
+        //chatUsersHeight = wrapper.height() - wrapper.find('.nav-justified > .nav-tabs').outerHeight();
+        /*This:*/chatUsersHeight = 700;
+
+
+
+        // chat user list 
+        Metronic.destroySlimScroll(chatUsers);
+        chatUsers.attr("data-height", chatUsersHeight);
+        Metronic.initSlimScroll(chatUsers);
+
+        var chatMessages = wrapperChat.find('.page-quick-sidebar-chat-user-messages');
+        var chatMessagesHeight = chatUsersHeight - wrapperChat.find('.page-quick-sidebar-chat-user-form').outerHeight() - wrapperChat.find('.page-quick-sidebar-nav').outerHeight();
+
+        // user chat messages 
+        Metronic.destroySlimScroll(chatMessages);
+        chatMessages.attr("data-height", chatMessagesHeight);
+        Metronic.initSlimScroll(chatMessages);
+    };
+
+    initChatSlimScroll();
+    Metronic.addResizeHandler(initChatSlimScroll); // reinitialize on window resize
+
+    wrapper.find('.page-quick-sidebar-chat-users .media-list > .media').click(function () {
+        wrapperChat.addClass("page-quick-sidebar-content-item-shown");
+    });
+
+    wrapper.find('.page-quick-sidebar-chat-user .page-quick-sidebar-back-to-list').click(function () {
+        wrapperChat.removeClass("page-quick-sidebar-content-item-shown");
+    });
+
+    var handleChatMessagePost = function (e) {
+        e.preventDefault();
+
+        var chatContainer = wrapperChat.find(".page-quick-sidebar-chat-user-messages");
+        var input = wrapperChat.find('.page-quick-sidebar-chat-user-form .form-control');
+
+        var text = input.val();
+        if (text.length === 0) {
+            return;
+        }
+
+        var preparePost = function (dir, time, name, avatar, message) {
+            var tpl = '';
+            tpl += '<div class="post ' + dir + '">';
+            tpl += '<img class="avatar" alt="" src="' + Layout.getLayoutImgPath() + avatar + '.jpg"/>';
+            tpl += '<div class="message">';
+            tpl += '<span class="arrow"></span>';
+            tpl += '<a href="#" class="name">Bob Nilson</a>&nbsp;';
+            tpl += '<span class="datetime">' + time + '</span>';
+            tpl += '<span class="body">';
+            tpl += message;
+            tpl += '</span>';
+            tpl += '</div>';
+            tpl += '</div>';
+
+            return tpl;
+        };
+
+        // handle post
+        var time = new Date();
+        var message = preparePost('out', (time.getHours() + ':' + time.getMinutes()), "Bob Nilson", 'avatar3', text);
+        message = $(message);
+        chatContainer.append(message);
+
+        var getLastPostPos = function () {
+            var height = 0;
+            chatContainer.find(".post").each(function () {
+                height = height + $(this).outerHeight();
+            });
+
+            return height;
+        };
+
+        chatContainer.slimScroll({
+            scrollTo: getLastPostPos()
+        });
+
+        input.val("");
+
+        // simulate reply
+        setTimeout(function () {
+            var time = new Date();
+            var message = preparePost('in', (time.getHours() + ':' + time.getMinutes()), "Ella Wong", 'avatar2', 'Lorem ipsum doloriam nibh...');
+            message = $(message);
+            chatContainer.append(message);
+
+            chatContainer.slimScroll({
+                scrollTo: getLastPostPos()
+            });
+        }, 3000);
+    };
+
+    wrapperChat.find('.page-quick-sidebar-chat-user-form .btn').click(handleChatMessagePost);
+    wrapperChat.find('.page-quick-sidebar-chat-user-form .form-control').keypress(function (e) {
+        if (e.which == 13) {
+            handleChatMessagePost(e);
+            return false;
+        }
+    });
+};
+
+//=========================================================================================================
+
+function saveNote() {
+    var isValid = $("#newNoteForm").valid();
+
+    $("#noteError").html('');
+
+    if (isValid) {
+        var versionID = $("#versionID").val();
+        var isPrivate = false;
+        var infoID = $("#eformId").val();
+
+        if ($("#isPrivate").prop("checked")) {
+            isPrivate = true;
+        }
+
+        $(".noteBtn").hide();
+        $("#noteLoading").show();
+
+        var data = $("#newNoteForm").serializeArray();
+
+        //add additional contacts to the agreement Data
+        data.push({ name: 'versionID', value: versionID });
+        data.push({ name: 'isPrivate', value: isPrivate });
+        data.push({ name: 'infoID', value:infoID });
+
+        $.ajax({
+            type: "POST",
+            url: "/Eform/addFormNote",
+            data: data,
+            cache: false
+        }).done(function (data) {
+            isAjaxRequestTimeOut(data);
+
+            if (data.status) {
+                $("#addNoteModal").modal('hide');
+                showMsg(data.message);
+                refreshNoteList(infoID);
+                cleanNoteForm();
+            }
+            else {
+                $("#noteError").html(data.message);
+                $("#noteLoading").hide();
+                $(".noteBtn").show();
+            }
+
+
+        }).fail(function (jqXHR, textStatus) {
+            $("#noteError").html(textStatus);
+            $("#noteLoading").hide();
+            $(".noteBtn").show();
+        });
+       
+    }
+}
+
+//=====================================================================================
+
+function refreshNoteList(infoID) {
+    $("#noteListLoading").show();
+    $("#adminNotePanel").html('');
+
+
+    $.ajax({
+        type: "Get",
+        url: "/Eform/getFormNotes",
+        data: { infoID: infoID },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#noteListLoading").hide();
+        $("#adminNotePanel").html(data);
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg(textStatus);
+    });
+    
+}
+
+//=====================================================================================
+
+function viewNote(id) {
+
+    $.ajax({
+        type: "Get",
+        url: "/Eform/viewFormNote",
+        data: { id: id },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        
+        $("#viewNoteContent").html(data);
+        $("#viewNote").modal('show');
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg(textStatus);
+    });
+}
+
+function showDefaultTemplates() {
+    $("#defaultTemplatesContent").html('<img src="/assets/global/img/loading-spinner-default.gif" />');
+    $("#defaultTemplatesModal").modal('show');
+
+    
+    loadDefaultTemplates();
+}
+
+//=====================================================================================
+
+function loadDefaultTemplates() {
+    var tid = $("#typeID").val();
+
+    $.ajax({
+        type: "Get",
+        url: "/Eform/getDefaultDemplates",
+        data: { tid: tid },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+
+        $("#defaultTemplatesContent").html(data);
+
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg(textStatus);
+    });
+}
+
+//=====================================================================================
+
+function setCurrentFormAsDefault() {
+    var isValid = $("#newDTForm").valid();
+
+    if (isValid) {
+
+        $.ajax({
+            type: "POST",
+            url: "/Eform/setDefaultDemplate",
+            data: { tid: $("#typeID").val(), vid: $("#versionID").val(), templateName: $("#newDefaultTemplateName").val() },
+            cache: false
+        }).done(function (data) {
+            isAjaxRequestTimeOut(data);
+
+            if (data.status) {
+                loadDefaultTemplates();
+                $("#newDefaultTemplateName").val('');
+                $("#newDefaultTemplate").modal('hide');
+            }
+            else {
+                errorMsg(data.message);
+            }
+            $("#defaultTemplatesContent").html(data);
+
+
+        }).fail(function (jqXHR, textStatus) {
+            errorMsg(textStatus);
+        });
+    }
+}
+
+//=====================================================================================
+
+function setFormValueToDefalut(dtID) {
+    $.ajax({
+        type: "POST",
+        url: "/Eform/assignDefaultTmplateToForm",
+        data: { templateID: dtID, infoID: $("#eformId").val(), destVerid: $("#versionID").val(), },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        if (data.status) {
+            $("#defaultTemplatesModal").modal('hide');
+            loadForm('tab_1_1_1');
+        }
+        else {
+            errorMsg(data.message);
+        }
+        $("#defaultTemplatesContent").html(data);
+
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg(textStatus);
+    });
+}
+
+//=====================================================================================
+
+function cleanNoteForm() {
+    $("#isPrivate").prop('checked', false);
+    $("#title").val('');
+    $("#note").val('');
+    $("#noteLoading").hide();
+    $(".noteBtn").show();
+    
+}
+
+//=====================================================================================
+
+function loadFormAudit() {
+    $("#auditContentDiv").html('<img src="/assets/global/img/loading-spinner-default.gif"  style="padding-left:5px;"/>');
+
+    $.ajax({
+        type: "Get",
+        url: "/Eform/loadFormAudit",
+        data: { infoID: $("#eformId").val()},
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#auditContentDiv").html(data);
+ 
+    }).fail(function (jqXHR, textStatus) {
+        $("#auditContentDiv").html(textStatus);
+    });
+}
+
+function exportAuditLog() {
+    var win = window.open('/eform/exportAuditLog/?infoID=' + $("#eformId").val() + "&incP=" + $("#includePrivateExport").prop("checked"), '_blank');
+}
+
+//===================================================
+
+function saveToCouldBtn() {
+    $("#SaveToDropbox").html('');
+    var enableGoogleDrive = $("#enableGoogleDrive").val();
+    var enableDropBox = $("#enableDropBox").val();
+
+    $.ajax({
+        type: "get",
+        url: "/eform/preCloudDocument/",
+        data: { infoid: $("#eformId").val() },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        if (data.status) {
+            if (enableGoogleDrive == "True") {
+                var content = '<div class="g-savetodrive" data-src="' + data.data + '" data-filename="' + data.message + '" data-sitename="REINZ"></div>';
+                $("#googleDriveContent").html(content);
+                gapi.savetodrive.go('googleDriveContent');
+            }
+
+            if (enableDropBox == "True") {
+                var options = {
+                    files: [
+                        { 'url': data.data, 'filename': data.message }
+                    ],
+                    error: function (errorMessage) { errorMsg(errorMessage); }
+                };
+                var button = Dropbox.createSaveButton(options);
+                $("#SaveToDropbox").append(button);
+            }
+
+
+        }
+       
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg(textStatus);
+
+    })
+}
+
+
+//=====================================================================================
+
+function showToolButtons() {
+    var disableDis = $("#diableDistribution").val();
+
+    if (disableDis == "True") {
+        $("#btnDistribution").remove();
+    }
+
+    $("#toolBtns").show();
+}
+
+//===================================================
+
+function loadFormButtons(id) {
+    $.ajax({
+        type: "Get",
+        url: "/Eform/loadEformButtons/",
+        data: { infoID: id },
+        cache: false
+    }).done(function (data) {
+        $("#eformButtons").html(data);
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg(textStatus);
+    });
+}
+
+
+//=====================================================================================
+
+
+function showExportButtons() {
+    $("#expTools").show();
+}
+
+//=====================================================================================
+
+
+function loadEmailForm() {
+    var eformID = $("#eformId").val();
+
+    $.ajax({
+        type: "Get",
+        url: "/eform/loadEmailForm/",
+        data: { formID: eformID },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#emailFormContent").html(data);
+        $("#emailFormModal").modal();
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg(textStatus);
+
+    });
+
+}
+
+//=====================================================================================
+
+
+function sendForm() {
+
+    var isValid = $("#sendEmailForm").valid();
+
+    var hasSalesperson = checkSalesperson();
+
+    if (isValid && hasSalesperson) {
+        $("#emailLoading").show();
+        $(".emailButtons").hide();
+
+        var data = $("#sendEmailForm").serializeArray();
+
+        $.ajax({
+            type: "POST",
+            url: "/eform/sendForm/",
+            data: data,
+            cache: false
+        }).done(function (data) {
+            isAjaxRequestTimeOut(data);
+
+            if (data.status) {
+                showMsg(data.message);
+                $("#emailFormModal").modal('hide');
+            }
+            else {
+                $("#emailLoading").hide();
+                $(".emailButtons").show();
+                errorMsg(data.message);
+            }
+
+
+        }).fail(function (jqXHR, textStatus) {
+            errorMsg(textStatus);
+
+        });
+    }
+
+
+}
+
+//===================================================
+
+function prepareButtons() {
+    var isAdmin = $('#isAdmin').val();
+    var isCompleted = $("#isCompleted").val();
+
+    if (isCompleted == "True") {
+        $('#complete').hide('fast');
+        $('#completed').show('fast');
+        //$(".hideOnComplete").hide('fast');
+        //$('#btnSaveForm').hide();
+        //$('#btnCLoneForm').hide();
+    }
+    else {
+            $('#completed').hide('fast');
+            $('#complete').show('fast');
+        //if (isAdmin == 1) {
+        //    $('#completed').hide('fast');
+        //    $('#complete').show('fast');
+        //    $(".hideOnComplete").show('fast');
+        //    $('#btnSaveForm').show();
+        //    $('#btnCLoneForm').show();
+        //}
+    }
+
+    
+}
+
+//===================================================
+
+function updateCompleteStatus() {
+    var eformID = $("#eformId").val();
+
+    $.ajax({
+        type: "Post",
+        url: "/Eform/updateCompleteStatus/",
+        data: { formID: eformID },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        if (!data.status) {
+            errorMsg(data.message);
+        }
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg("Request failed: " + textStatus);
+    });
+}
+
+
+//==========================================================
+//Clone eform
+function loadCloneForm() {
+
+    var srcID = $("#eformId").val();
+    var srcIVD = $("#versionID").val();
+
+    $.ajax({
+        type: "Get",
+        url: "/Eform/loadCloneForm/",
+        data: { infoID: srcID, versionID: srcIVD },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#CloneEformContent").html(data);
+        $("#cloneModal").modal();
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg(textStatus);
+
+    });
+
+
+}
+
+//==========================================================
+
+
+function loadFormVersion() {
+    var eformID = $("#eformId").val();
+
+    $("#versionContent").html('');
+
+    $.ajax({
+        type: "Get",
+        url: "/Eform/loadFormVersionSlider/",
+        data: { id: eformID },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        $("#versionContent").html(data);
+
+
+    }).fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+}
+
+
+//===================================================
+
+function restoreToVersion(versionID) {
+
+    var eformID = $("#eformId").val();
+
+    $.ajax({
+        type: "POST",
+        url: "/Eform/restoreToVersion/",
+        data: { eformID: eformID, versionID: versionID },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        alert(data.message);
+
+        if (data.status) {
+            $("#versionID").val(data.data);
+            loadForm('tab_1_1_1');
+            loadClause('tab_1_1_3');
+        }
+
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg("Request failed: " + textStatus);
+    });
+}
+
+//===================================================
+
+function showConvertModal() {
+    var typeID = $("#typeID").val();
+
+    $.ajax({
+        type: "Get",
+        url: "/Eform/getConvertModal/",
+        data: { typeID: typeID},
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+        $("#convertFormContent").html(data);
+        $("#convertFormModal").modal('show');
+
+
+    }).fail(function (jqXHR, textStatus) {
+        errorMsg("Request failed: " + textStatus);
+    });
+}
+
+//===================================================
+
+function showConvertForm() {
+    $("#convertWarning").hide();
+    $("#convertForm").show();
+}
+
+//===================================================
+
+function convertForm(destinationType) {
+    var eformID = $("#eformId").val();
+
+    $.ajax({
+        type: "POST",
+        url: "/Eform/convertForm/",
+        data: { dType: destinationType, infoID: eformID },
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+        
+        $("#cvtMainDiv").html(data.message);
+
+        if (data.status) {
+            window.location = data.data;
+        }
+
+    }).fail(function (jqXHR, textStatus) {
+        $("#cvtMainDiv").html("Request failed: " + textStatus);
+    });
+
+    $("#cvtMainDiv").html('<img src="/assets/global/img/loading.gif"  />');
+}
+
+//===================================================
+
+function requestESign() {
+
+    var eformID = $("#eformId").val();
+    var option = $.trim($("input:radio[name ='signOption']:checked").val());
+    showLoading();
+    hideButtons();
+    $.ajax({
+        type: "GET",
+        url: "/Eform/RequestSignature/?id=" + eformID + "&option=" + option,
+        cache: false
+    }).done(function (data) {
+        isAjaxRequestTimeOut(data);
+
+        if (data.status) {
+            location.reload();
+        }
+        else {
+            alert(data.message);
+            showAgreement();
+            showButtons();
+        }
+                
+    }).fail(function (jqXHR, textStatus) {
+        $("#cvtMainDiv").html("Request failed: " + textStatus);
+        showAgreement();
+        showButtons();
+    });
+}
+
+function showLoading() {
+    $("#loadingCircle").show();
+    $(".tabbable-custom").hide();
+}
+
+function showAgreement() {
+    $(".tabbable-custom").show();
+    $("#loadingCircle").hide();
+}
+
+function hideButtons() {
+    $(".toolbaraction").hide();
+    $("#toolbarloading").show();
+}
+
+function showButtons() {
+    $(".toolbaraction").show();
+    $("#toolbarloading").hide();
+}
+
+function checkSignVendor() {
+    var vName = $.trim($("#pv_name").val());
+    var vEmail = $.trim($("#pv_email").val());
+    
+    if (vName == "" || vEmail == "") { return false; }
+
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+    if (!vEmail.match(re) ) { return false;}
+    return true;
+}
+
+function checkSignPurchaser() {
+    var pName = $.trim($("#pp_name").val());
+    var pEmail = $.trim($("#pp_email").val());
+
+
+    if (pName == "" || pEmail == "") { return false; }
+
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+    if (!pEmail.match(re)) { return false; }
+    return true;
+}
+
+function checkSignOther() {
+    var Covenantor1 = $.trim($("#Covenantor1").val());
+    var Covenantor2 = $.trim($("#Covenantor2").val());
+
+
+    if (Covenantor1 == "" || pEmail == "") { return false; }
+
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+    if (!pEmail.match(re)) { return false; }
+    return true;
+}
+
+
+

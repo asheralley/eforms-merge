@@ -1,0 +1,297 @@
+.docusign-confirm h4, .docusign-confirm h5, .docusign-panel h4, .docusign-panel h5, .send-to-sign h4, .send-to-sign h5 {
+    margin-bottom: 1em;
+    font-weight: 700
+}
+
+.docusign-confirm, .notifiers .section {
+    position: relative;
+    background-color: #f7f7f7
+}
+
+table > tbody > tr td {
+    font-size: .95em
+}
+
+.btn-default {
+    padding: 4px 12px
+}
+
+.fa-question-circle {
+    font-size: 18px
+}
+
+.docusign-panel, .send-to-sign {
+    border: 1px solid #c8c8c8;
+    border-radius: 1px;
+    padding: 1.4em
+}
+
+    .docusign-panel .row, .send-to-sign .row {
+        margin-left: 0;
+        margin-right: 0
+    }
+
+    .docusign-panel button, .send-to-sign button {
+        border-radius: 1px
+    }
+
+.docusign-confirm {
+    border: 1px solid #a8a8a8;
+    padding: .8em
+}
+
+    .docusign-confirm a {
+        color: #345973
+    }
+
+    .docusign-confirm ul {
+        margin-bottom: 2em
+    }
+
+    .docusign-confirm button {
+        border-radius: 1px
+    }
+
+.docusign-panel:after, .send-to-sign:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both
+}
+
+.notifiers {
+    margin-top: 1.7em;
+    margin-bottom: 1em
+}
+
+    .notifiers span {
+        font-size: 2em;
+        color: #b7b7b7
+    }
+
+    .notifiers i {
+        font-size: 28px !important;
+        padding-left: 30px;
+        color: #b7b7b7
+    }
+
+    .notifiers .section {
+        border-radius: 2px;
+        padding: .7em .2em .2em .75em;
+        min-height: 5.5em;
+        width: 24%;
+        margin-right: 1%;
+        border: 1px solid #a8a8a8
+    }
+
+        .notifiers .section p {
+            position: absolute;
+            bottom: 0;
+            font-size: 12px;
+            margin-bottom: .4em
+        }
+
+        .notifiers .section.active i, .notifiers .section.active span {
+            color: #345973;
+            font-weight: 700
+        }
+
+        .notifiers .section.active p {
+            color: #345973
+        }
+
+.notify {
+    animation: pulse 1.8s infinite
+}
+
+.signing-status {
+    border: 1px solid #a8a8a8;
+    background-color: #f7f7f7;
+    padding: .8em;
+    min-height: 12em
+}
+
+    .signing-status h4 {
+        margin-top: 0
+    }
+
+    .signing-status i {
+        padding-right: .5em;
+        color: #345973
+    }
+
+.docu-send, .eform-cancel {
+    float: right;
+    border-radius: 2px;
+    margin-top: .5em
+}
+
+.sig-date {
+    display: block;
+    font-size: .9em;
+    font-style: italic;
+    color: #5b5b5b;
+    margin-top: .3em
+}
+
+.sig-status {
+    display: block;
+    margin-bottom: 1em
+}
+
+.remind {
+    border-radius: 1px;
+    padding: 2px 7px;
+    font-size: .8em;
+    border: 2px solid #345973;
+    float: right;
+    margin: 0 -.5em .3em .65em !important;
+    display: block
+}
+
+.docusign-additional, .docusign-message, .recipient-order {
+    border: 1px solid #a8a8a8;
+    background-color: #f7f7f7;
+    padding: .8em;
+    min-height: 10em;
+    margin-bottom: .6em
+}
+
+    .docusign-additional h4, .docusign-additional h5, .docusign-message h4, .docusign-message h5, .recipient-order h4, .recipient-order h5 {
+        font-weight: 700
+    }
+
+.send-to-sign i {
+    color: #345973;
+    font-size: 16px;
+    padding-right: .5em
+}
+
+.send-to-sign h4, .send-to-sign h5 {
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 1.4em
+}
+
+.recipient-order {
+    position: relative
+}
+
+    .recipient-order button {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+        position: absolute;
+        top: 1.65em;
+        right: 1em;
+        border: 2px solid #345973;
+        font-size: 12px;
+        padding: 2px 5px
+    }
+
+    .recipient-order .fa-plus {
+        font-size: 12px;
+        color: #a8a8a8
+    }
+
+.opaque {
+    opacity: .3
+}
+
+.doc-logo {
+    position: absolute;
+    top: 1.2em;
+    right: 3.2em;
+    float: right;
+    width: 11em
+}
+
+.docusign-message .form-group {
+    margin-bottom: 16px
+}
+
+.docusign-message .form-check {
+    position: relative
+}
+
+.docusign-additional input[type=checkbox] {
+    width: 1.5em;
+    height: 1.5em
+}
+
+.docusign-additional .form-check-label {
+    display: block;
+    margin-top: -27px;
+    padding-left: 30px
+}
+
+.docusign-additional .col-md-6 {
+    padding-left: 0
+}
+
+.docusign-additional h5 {
+    margin-bottom: 1.6em
+}
+
+.portlet.light {
+    padding-top: 0
+}
+
+.form-sect-title {
+    margin: 18px 0
+}
+
+.dropdown-user.dropdown-dark a.dropdown-toggle {
+    padding: 24px 10px 18px
+}
+
+.img-circle {
+    margin-left: 12px
+}
+
+.global input {
+    margin-right: 15px;
+    padding-right: 15px
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(52,89,115,.4)
+    }
+
+    70% {
+        -webkit-box-shadow: 0 0 0 5px rgba(52,89,115,0)
+    }
+
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(52,89,115,0)
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba(52,89,115,.4);
+        box-shadow: 0 0 0 0 rgba(52,89,115,.4)
+    }
+
+    70% {
+        -moz-box-shadow: 0 0 0 5px rgba(52,89,115,0);
+        box-shadow: 0 0 0 5px rgba(52,89,115,0)
+    }
+
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(52,89,115,0);
+        box-shadow: 0 0 0 0 rgba(52,89,115,0)
+    }
+}
+
+@media only screen and (min-device-width:768px) and (max-device-width:1024px) {
+    .doc-logo {
+        position: absolute;
+        top: 1.7em;
+        right: 1em;
+        float: right;
+        width: 5em
+    }
+}

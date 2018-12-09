@@ -1,0 +1,516 @@
+<!DOCTYPE html  >
+<html lang="en"> 
+  <head>
+    <title>eForms UI Guide</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tagsssssss *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- MAKE EFORMS IPHONE-IPAD WEB APP CAPABLE -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!-- MAKE EFORMS IPHONE-IPAD WEB APP CAPABLE ENDS! -->
+<link rel="shortcut icon" href="http://eformdev.reinz.co.nz/favicon.png">
+<title>Welcome to REINZ eForms</title>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,700,700i,900" rel="stylesheet">
+<link href="./css/bootstrap-upgrade.min.css" rel="stylesheet" type="text/css">
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN THEME STYLES -->
+<!-- DOC: To use 'rounded corners' style just load 'components-rounded.css' stylesheet instead of 'components.css' in the below style tag -->
+<link href="./css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+<link href="./css/contract.css" rel="stylesheet" type="text/css">
+<link href="./css/components-rounded.css" id="styl&gt;e_components" rel="stylesheet" type="text/css">
+<link href="./css/layout.css" rel="stylesheet" type="text/css">
+<link href="./css/styles.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./css/bootstrap-toggle.min.css" type="text/css">
+<link href="./css/custom-upgrade.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="./css/ellipses.css" type="text/css">
+  </head>
+  <body><!-- back to top link -->
+<a href="#" class="back-to-top" title="Back to top">Back to top</a>
+<!-- Navbar Section -->
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid top-wrapper">
+<div class="row">
+<!-- Logo Section -->
+<div class="col-xs-2">
+<div class="navbar-header">
+<i class="fa fa-bars ui-trigger" id="uiTrigger" data-toggle="tooltip" data-placement="bottom" title="Toggle Menu Here" data-offset="500"></i>
+<div class="page-logo-rz">
+<a href="/">
+<img src="./images/eForms-SmallCircle-White-01.png" alt="" class="main-logo" style="height:54px;">
+<img src="./images/mini-logo.png" alt="" class="main-logo">
+</a>
+</div>
+</div>
+</div>
+<!-- Logo Section ENDS -->
+<div class="col-xs-10">
+<div class="nav-tools">
+<div class="alert-icons">
+<ul class="nav navbar-nav top-menu" id="topNav">
+<li class="separator hide">
+</li>
+<!-- BEGIN NOTIFICATION DROPDOWN -->
+<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+<li class="dropdown-extended dropdown-notification dropdown-dark dropdownLi" id="recentUpdatedForms">
+</li>
+<!-- END NOTIFICATION SECTION -->
+<li class="separator hide">
+</li>
+<!-- BEGIN NOTIFICATION DROPDOWN -->
+<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+<li class="dropdown-extended dropdown-notification dropdown-dark  dropdownLi" id="recentCreatedForms">
+</li>
+<!-- END NOTIFICATION SECTION -->
+<li class="separator hide">
+</li>
+<!-- BEGIN INBOX DROPDOWN -->
+<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+<!-- BEGIN INBOX DROPDOWN -->
+<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+<!-- END INBOX DROPDOWN -->
+<li class="separator hide">
+</li>
+<!-- BEGIN TODO DROPDOWN -->
+<!-- BEGIN USER LOGIN DROPDOWN -->
+<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+<li class="dropdown-user dropdown-dark">
+<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+<span class="username username-hide-on-mobile">
+    <Clayton></Clayton></span>
+<!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
+<img alt="" class="img-circle" src="./images/avatar11.jpg"  width="41" height="41"/>
+</a>
+<ul class="dropdown-menu dropdown-menu-default">
+<li class="divider"></li>
+<li>
+<a href="https:///www.reinz.co.nz">
+<i class="fa fa-circle"></i> Back to REINZ
+</a>
+</li>
+<li>
+<a href="/Account/LogOff">
+<i class="fa fa-mail-reply"></i> Log Out
+</a>
+</li>
+</ul>
+</li>
+<!-- END USER LOGIN DROPDOWN -->
+</ul>
+</div>
+<!-- START OF NOTIFCAITONS SECTION -->
+<!-- ShortCuts -->
+<div class="short-cuts" id="toolBtns">
+<a href="#" class="btn btn-primary toolbaraction" onclick="saveForm();" data-toggle="tooltip" data-placement="bottom" title="Save" id="btnSaveForm">
+<i href="#" class="fa fa-save"></i>
+</a>
+<a href="#" class="btn btn-primary toolbaraction" onclick="loadCloneForm();" data-toggle="tooltip" data-placement="bottom" title="Clone" id="btnCLoneForm">
+<i href="#" class="fa fa-copy"></i>
+</a>
+<a href="#" onclick="printFormToPDF();" class="btn btn-primary toolbaraction" data-toggle="tooltip" data-placement="bottom" title="Create a PDF">
+<i href="#" class="fa fa-file-pdf-o"></i>
+</a>
+<a href="#" class="btn btn-primary toolbaraction" onclick="loadEmailForm();" data-toggle="tooltip" data-placement="bottom" title="Email" id="btnDistribution">
+<i href="#" class="fa fa-envelope-o"></i>
+</a>
+<a href="javascript:void(0);" class="btn btn-primary toolbaraction" data-toggle="tooltip" data-placement="bottom" title="Audit Log" data-toggle="modal" data-target="#modalExportTranLog">
+<i class="fa fa-book"> </i>
+</a>
+<img src="./images/loading-black-white.gif" id="toolbarloading"  style="display:none;margin-top:25px;"/>
+</div>
+<!-- Shortcuts END -->
+<!-- GLOBAL SEARCH -->
+<div class="search-box">
+<form class=" global-search" role="search" id="mainSearch">
+<button type="button" class="btn btn-default" data-toggle="modal" onclick="searchMain()" ><span class="fa fa-search"></span></button>
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Search..." id="mainSearchInput">
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Sidebar Section -->
+</div>
+<!-- closing row -->
+</div>
+<!-- closing container-fluid / top-wrapper -->
+</nav><div class="container-fluid page-wrapper" id="main-no-scroll" >
+<div class="row" ><div class="col-xs-2 nav-column">
+<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+<div class="page-sidebar ">
+<!-- BEGIN SIDEBAR MENU -->
+<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+<ul id="main-left-nav" class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+<li class="active" data-placement="right" data-toggle="tooltip" href="#" data-original-title="Create Form">
+<a href="/Eform/Create">
+<i class="fa fa-edit"></i>
+<span class="title l-nav-title">CREATE</span>
+</a>
+</li>
+<li data-placement="right" data-toggle="tooltip" href="#" data-original-title="My Forms">
+<a href="/Eform/myForms">
+<i class="fa fa-file-pdf-o"></i>
+<span class="title l-nav-title">MY FORMS</span>
+</a>
+</li>
+<li data-placement="right" data-toggle="tooltip" href="#" data-original-title="My Contacts">
+<a href="/Eform/manageMyContacts">
+<i class="fa fa-users"></i>
+<span class="title l-nav-title">MY CONTACTS</span>
+</a>
+</li>
+<li data-placement="right" data-toggle="tooltip" href="#" data-original-title="Manage My Default Templates">
+<a href="/Eform/manageTemplates">
+<i class="fa fa-file-text"></i>
+<span class="title l-nav-title">TEMPLATES</span>
+</a>
+</li>
+<li data-placement="right" data-toggle="tooltip" href="#" data-original-title="Legal">
+<a href="/Eform/Legal">
+<i class="fa fa-shield"></i>
+<span class="title l-nav-title">LEGAL</span>
+</a>
+</li>
+<li data-placement="right" data-toggle="tooltip" href="" data-original-title="Settings">
+<a href="/settings">
+<i class="fa fa-gear"></i>
+<span class="title l-nav-title modal-test">SETTINGS</span>
+</a>
+</li>
+<li data-placement="right" data-toggle="tooltip" href="#" data-original-title="Support">
+<a href="/Eform/SUPPORT">
+<i class="fa fa-question-circle"></i>
+<span class="title l-nav-title">SUPPORT</span>
+</a>
+</li>
+<li data-placement="right" data-toggle="tooltip" href="#" data-original-title="FAQ">
+<a href="/Eform/FAQ">
+<i class="fa fa-question-circle"></i>
+<span class="title l-nav-title">FAQ</span>
+</a>
+</li>
+<li data-placement="right" data-toggle="tooltip" href="#" data-original-title="Super-User">
+<a href="/eformServices/validation">
+<i class="fa fa-cubes"></i>
+<span class="title l-nav-title">VALIDATION SERVICE</span>
+</a>
+</li>
+<li data-placement="right" data-toggle="tooltip" href="#" data-original-title="FAQ">
+<a href="/Eform/Terms">
+<i class="fa fa-square"></i>
+<span class="title l-nav-title">EFORMS TERMS OF USE</span>
+</a>
+</li>
+</ul>
+<!-- END SIDEBAR MENU -->
+</div>
+</div><!-- closing col-xs-2 -->
+<!-- Panel Section -->
+<!-- Content Panel Begins -->
+<input id="typeID" name="typeID" type="hidden" value="3" />
+<input id="eformId" name="eformId" type="hidden" value="3257" />
+<input id="versionID" name="versionID" type="hidden" value="8fa58502-872a-414c-983c-7ccf9183286a" />
+<input data-val="true" data-val-required="The Boolean field is required." id="enableGoogleDrive" name="enableGoogleDrive" type="hidden" value="False" />
+<input data-val="true" data-val-required="The Boolean field is required." id="enableDropBox" name="enableDropBox" type="hidden" value="False" />
+<input id="enableDropBox" name="enableDropBox" type="hidden" value="False" />
+<input data-val="true" data-val-required="The Boolean field is required." id="diableDistribution" name="diableDistribution" type="hidden" value="False" />
+<input id="isAdmin" name="isAdmin" type="hidden" value="0" />
+<!-- Quick-Sidebar-Trigger Tab For Slider  -->
+<div class="new-trigger tab-trigger top-test" id="slider-tab">
+<div id="tab-box">
+<i class="fa fa-sign-out new-trigger-ani" id="new-trigger-tab"></i>
+</div>
+</div>
+    <div class="main-panel col-xs-10">
+      <div class="colten-wrapper">
+        <div class="page-content">
+          <!-- BEGIN PAGE HEAD-->
+          <div class="page-head">
+            <!-- BEGIN PAGE TITLE-->
+          </div>
+          <!-- END PAGE HEAD-->
+          <div class="portlet light settings-section">
+            <div class="portlet-title">
+              <div class="both-save-notifiers">
+                <div class="save-complete-div" id="saveComplete"><i class="fa fa-save"></i><span class="visible-lg-inline">SAVED</span></div>
+                <div class="save-fail-div" id="saveFailed"><i class="fa fa-times"></i><span class="visible-lg-inline" id="saveErrorSpan"></span></div>
+              </div>
+              <div class="row">
+                <div class="col-lg-7">
+                  <h3 class="form-sect-title">Settings</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h4>Individual Settings</h4>
+                  <div class="individual">
+                    <div class="row">
+                      <div class="col-md-5">
+                        <p>Autosave Frequency:</p>
+                        <p>Default Manager:</p>
+                        <p>Printed Font:</p>
+                        <p>Make Font Bold:</p>
+                        <p>Disable Drag-Drop Clauses:</p>
+                      </div>
+                      <div class="col-md-4">
+                        <select class="form-control settings-select" id="autosaveSelect">
+                          <option>2 minutes</option>
+                          <option>5 minutes</option>
+                          <option>10 minutes</option>
+                          <option>20 minutes</option>
+                          <option>30 minutes</option>
+                        </select>
+                        <select class="form-control settings-select" id="managerSelect">
+                          <option>Option A</option>
+                          <option>Option B</option>
+                          <option>Option C</option>
+                          <option>Option D</option>
+                        </select>
+                        <select class="form-control settings-select" id="fontSelect">
+                          <option>Option A</option>
+                          <option>Option B</option>
+                          <option>Option C</option>
+                          <option>Option D</option>
+                        </select>
+                        <div class="checkbox" id="boldSelect">
+                          <label>
+                            <input type="checkbox"/>
+                          </label>
+                        </div>
+                        <div class="checkbox" id="dragDropSelect">
+                          <label>
+                            <input type="checkbox"/>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-3"><i class="fa fa-question-circle"></i><i class="fa fa-question-circle"></i><i class="fa fa-question-circle"></i><i class="fa fa-question-circle"></i><i class="fa fa-question-circle"></i></div>
+                    </div>
+                  </div>
+                  <h4>Company Settings</h4>
+                  <div class="company">
+                    <div class="row">
+                      <div class="col-md-5">
+                        <p>Company eForm Name:</p>
+                        <p>Disable REINZ Clauses:</p>
+                        <p>Appendix Page Title:</p>
+                        <p>Disable Sharing:</p>
+                      </div>
+                      <div class="col-md-4">
+                        <input class="form-control" id="eFormName" type="text" placeholder="eForm name"/>
+                        <div class="checkbox disable-clause" id="disableClauseSelect">
+                          <label>
+                            <input type="checkbox"/>
+                          </label>
+                        </div>
+                        <input class="form-control" id="pageTitle" type="text" placeholder="Page title"/>
+                        <div class="checkbox" id="disableSharingSelect">
+                          <label>
+                            <input type="checkbox"/>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-md-3"><i class="fa fa-question-circle"></i><i class="fa fa-question-circle"></i><i class="fa fa-question-circle"></i><i class="fa fa-question-circle"></i></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h4><img class="flexi-logo" src="images/flexi-logo-400.png"/>
+                    <div class="flexisign">
+                      <div class="row">
+                        <div class="col-xs-5">
+                          <p>Enable Flexisign for Staff:</p>
+                          <p>Manager Approval Level:</p>
+                        </div>
+                        <div class="col-xs-5">
+                          <div class="checkbox" id="enableFlexi">
+                            <label>
+                              <input type="checkbox"/>
+                            </label>
+                          </div>
+                          <select class="form-control settings-select" id="managerLevel">
+                            <option>Option A</option>
+                            <option>Option B</option>
+                            <option>Option C</option>
+                            <option>Option D</option>
+                          </select>
+                        </div>
+                        <div class="col-xs-2"><i class="fa fa-question-circle"></i><i class="fa fa-question-circle"></i></div>
+                      </div>
+                      <hr/>
+                      <p class="info">You can change individual staff access to flexisign to either require managers approval or not. If enabled each form has to be approved by a manager before it can be digitally signed. It does not require a managers approval to be used in negotiations. </p>
+                      <div class="row access-levels">
+                        <div class="col-xs-5">
+                          <h4 class="staff-title">Staff Member</h4>
+                          <p class="staff-member">Reuben Billings</p>
+                          <p class="staff-member">Reuben Billings</p>
+                          <p class="staff-member">Reuben Billings</p>
+                          <p class="staff-member">Reuben Billings</p>
+                          <p class="staff-member">Reuben Billings</p>
+                          <p class="staff-member">Reuben Billings</p>
+                        </div>
+                        <div class="col-xs-5">
+                          <h4>Access Level</h4>
+                          <select class="form-control access-level">
+                            <option>Option A</option>
+                            <option>Option B</option>
+                            <option>Option C</option>
+                            <option>Option D</option>
+                          </select>
+                          <select class="form-control access-level">
+                            <option>Option A</option>
+                            <option>Option B</option>
+                            <option>Option C</option>
+                            <option>Option D</option>
+                          </select>
+                          <select class="form-control access-level">
+                            <option>Option A</option>
+                            <option>Option B</option>
+                            <option>Option C</option>
+                            <option>Option D</option>
+                          </select>
+                          <select class="form-control access-level">
+                            <option>Option A</option>
+                            <option>Option B</option>
+                            <option>Option C</option>
+                            <option>Option D</option>
+                          </select>
+                          <select class="form-control access-level">
+                            <option>Option A</option>
+                            <option>Option B</option>
+                            <option>Option C</option>
+                            <option>Option D</option>
+                          </select>
+                          <select class="form-control settings-select">
+                            <option>Option A</option>
+                            <option>Option B</option>
+                            <option>Option C</option>
+                            <option>Option D</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div> <!-- row ends -->
+</div> <!-- container ends --><div class="modal fade street-search in" id="streetSearch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h4>Type of Form</h4>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+</div>
+<div class="modal-body">
+<form>
+<div class="form-group row form-row">
+<label for="displayName" class="col-sm-4 col-form-label input-lable">Display Name:</label>
+<div class="col-sm-7">
+<input type="text" class="form-control-plaintext form-input" id="displayName" placeholder="A unique on-screen display name">
+</div>
+</div>
+<div class="form-group row form-row">
+<div class="col-sm-12">
+<button type="button" class="btn btn-default modal-btn form-btn council-data-search collapsed" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Enable Council Data Search</button>
+<span aria-hidden="true" data-toggle="popover" data-placement="right" data-content="This will change the below street search to a full address search using REINZ address data. Good for existing properties" data-original-title="" title=""><i class="fa fa-question-circle form-tooltip"></i><a>What's this</a></span>
+</div>
+</div>
+<div class="form-group row form-row address-row">
+<label for="addressSearch" class="col-sm-4 col-form-label input-lable">Address Search</label>
+<div class="col-sm-7 address-input">
+<input type="text" class="form-control-plaintext form-input" id="addressSearch" placeholder="Unit or Street No.">
+</div>
+<div class="col-sm-1 form-search">
+<span><a><i class="fa fa-search"></i></a></span>
+</div>
+</div>
+<div class="collapse" id="collapseExample" aria-expanded="false" style="height: 0px;">
+<div class="form-group row form-row">
+<label for="unitStreetNo" class="col-sm-4 col-form-label input-lable">Unit/Street No.</label>
+<div class="col-sm-7">
+<input type="text" class="form-control-plaintext form-input" id="unitStreetNo" placeholder="Unit or Street No.">
+</div>
+</div>
+<div class="form-group row form-row">
+<label for="streetName" class="col-sm-4 col-form-label input-lable">Street Name</label>
+<div class="col-sm-7">
+<input type="text" class="form-control-plaintext form-input" id="unitStreetNo" placeholder="Enter a Street Name Here">
+</div>
+</div>
+</div>
+<div class="form-group row form-row">
+<label for="salesPerson" class="col-sm-4 col-form-label input-lable">Create For Salesperson</label>
+<div class="col-sm-7">
+<select id="salesPerson" class="form-control">
+<option selected="">Choose...</option>
+<option>...</option>
+</select>
+</div>
+</div>
+<div class="form-group row form-row">
+<label for="salesPerson" class="col-sm-4 col-form-label input-lable">Use Template</label>
+<div class="col-sm-7">
+<select id="salesPerson" class="form-control">
+<option selected="">Choose...</option>
+<option>No Template</option>
+</select>
+</div>
+</div>
+</form>
+<button type="button" class="btn btn-default">CREATE</button>
+</div>
+<!-- modal body ends -->
+</div>
+</div>
+</div><!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="assets/global/plugins/respond.min.js"></script>
+<script src="assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+<script async="" src="./js/analytics.js.download"></script>
+<script src="./js/jquery.min.js.download" type="text/javascript"></script>
+<script src="./js/jquery-migrate.min.js.download" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="./js/jquery-ui.min.js.download" type="text/javascript"></script>
+<!-- Testing Scripts Ends!-->
+<script src="./js/bootstrap.min.js.download" type="text/javascript"></script>
+<script src="./js/jquery.slimscroll.min.js.download" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<!-- Testing Scripts -->
+<script src="./js/metronic.js.download" type="text/javascript"></script>
+<script src="./js/layout.js.download" type="text/javascript"></script>
+<script src="./js/quick-sidebar.js.download" type="text/javascript"></script>
+<!-- save to cloud libbraries -->
+<script src="./js/platform.js.download" async="" defer="" gapi_processed="true">{parsetags: 'explicit'}</script>
+<script type="text/javascript" src="./js/dropins.js.download" id="dropboxjs" data-app-key="boobje8k6cmy3ag"></script>
+<script src="./js/demo.js.download" type="text/javascript"></script>
+<script src="./js/spin-min.js.download" type="text/javascript"></script>
+<script src="./js/jq-touch-punch-min.js.download" type="text/javascript"></script>
+<script src="./js/eformSearch.js.download" type="text/javascript"> </script>
+<script src="./js/loadStats.js.download" type="text/javascript"> </script>
+<script src="./js/jquery.toastmessage.js.download"></script>
+<script src="./js/clipboard.min.js.download"></script>
+<script src="./js/bootstrap-toggle.min.js"></script>
+<script src="./js/custom-upgrade.js" type="text/javascript"> </script>
+<script src="./js/ui-updates.js" type="text/javascript"> </script>
+  </body>
+</html>
