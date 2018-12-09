@@ -1,0 +1,24 @@
+**Notes on eForms-merge**
+
+*What I have done:
+I have merged eForms-upgrade into eForms-tron by adding all html, css, js and image files accross and making a new
+repo called eforms-merge. I added the files to the root dir as well as into the html folder.
+After moving all files to the new eforms-merge repo the necessary file paths were renamed as listed below
+
+Due to conflicts with file names as well as Bootstrap versions I renamed several files:
+1. custom.min.css to custom-upgrade.min.css.
+2. bootstrap.min.css to bootstrap-upgrade.min.css
+3. bundle.js to bundle-upgrade.js
+4. custom.js to custom-upgrade.js
+
+*Issues
+Bootstrap version:
+As mentioned above there is a Bootstrap version discrepancy between eForms-upgrade and eForms-tron. EForms-tron in
+on Bootstrap 4.1.0 where as eForms-upgrade is on Bootstrap 3.3.5. Eforms-upgrade may need to be migrated
+to Bootstrap 4.1.0 at some stage?
+
+
+*Possible updates => Future Development
+Currently the gulpfile is not been re-written for development and is still set up for eForms-tron. At some
+stage we will need to amend it to allow for the eForms-upgrade file paths. I have included the eForms-upgrade
+gulp directory into eforms-merge and renamed it as gulp-upgrade.
